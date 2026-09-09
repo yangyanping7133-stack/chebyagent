@@ -2,6 +2,13 @@
 
 This is the first consolidated ChebyAgent source and binary release.
 
+## Start here
+
+Ordinary users install `ChebyAgent-0.7.0.apk`; no USB connection, Termux setup
+or desktop command is required. The complete Chinese installation, login,
+accessibility, safety-confirmation and troubleshooting guide is in the
+[repository README](https://github.com/yangyanping7133-stack/chebyagent/blob/main/README.md).
+
 ## Included
 
 - Android conversation UI, resumable Codex app-server sessions and recovery;
