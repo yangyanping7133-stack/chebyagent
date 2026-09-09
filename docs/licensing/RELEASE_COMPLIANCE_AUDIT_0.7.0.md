@@ -8,8 +8,7 @@ advice or a blanket legal-compliance declaration.
 - Release delivery integrity: **PASS**.
 - APK-to-large-input binding: **PASS**.
 - Corresponding-source archive integrity: **PASS**.
-- Direct distribution of core license and notice files: **PASS after the
-  release addendum assets are uploaded**.
+- Direct distribution of core license and notice files: **PASS**.
 - Per-component legal-obligation review: **BLOCKED**.
 - Public-release gate: **BLOCKED; keep the repository and Release private**.
 
