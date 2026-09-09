@@ -1,0 +1,74 @@
+{
+  "caseId": "scenario.software-delivery",
+  "description": "A software task with plan, command, diff, and test evidence.",
+  "thread": {
+    "id": "thr_software_demo",
+    "title": "Improve export reliability",
+    "preview": "All checks passed",
+    "createdAt": "2026-07-19T08:00:00Z",
+    "updatedAt": "2026-07-19T08:04:00Z",
+    "status": "idle",
+    "lastTurnId": "turn_software_01",
+    "unread": false
+  },
+  "messages": [
+    {
+      "schema": "cheby.rich-message/1.0",
+      "messageId": "msg_software_01",
+      "threadId": "thr_software_demo",
+      "turnId": "turn_software_01",
+      "sourceItemId": "item_software_01",
+      "role": "assistant",
+      "state": "completed",
+      "revision": 4,
+      "rootBlockIds": ["delivery_status", "delivery_steps", "command_output", "change_diff", "test_metrics"],
+      "blocks": {
+        "delivery_status": {
+          "blockId": "delivery_status",
+          "type": "status",
+          "label": "Delivery complete",
+          "detail": "The export retry path is verified.",
+          "tone": "success",
+          "progress": 1.0
+        },
+        "delivery_steps": {
+          "blockId": "delivery_steps",
+          "type": "steps",
+          "items": [
+            {"id": "inspect", "label": "Inspect failure", "state": "completed"},
+            {"id": "change", "label": "Apply change", "state": "completed"},
+            {"id": "verify", "label": "Run checks", "state": "completed"}
+          ]
+        },
+        "command_output": {
+          "blockId": "command_output",
+          "type": "terminal",
+          "title": "Verification command",
+          "text": "12 checks passed",
+          "collapsed": true,
+          "fallbackText": "Verification command completed: 12 checks passed."
+        },
+        "change_diff": {
+          "blockId": "change_diff",
+          "type": "diff",
+          "fileLabel": "exporter module",
+          "summary": "+8 -2",
+          "collapsed": true,
+          "fallbackText": "Exporter retry handling changed by eight additions and two removals."
+        },
+        "test_metrics": {
+          "blockId": "test_metrics",
+          "type": "metrics",
+          "items": [
+            {"label": "Checks", "value": "12", "unit": "passed", "trend": "stable"},
+            {"label": "Failures", "value": "0", "unit": "cases", "trend": "down"}
+          ]
+        }
+      },
+      "fallback": {"text": "Export reliability improved and all 12 checks passed."},
+      "createdAt": "2026-07-19T08:00:05Z",
+      "updatedAt": "2026-07-19T08:04:00Z"
+    }
+  ],
+  "approvals": []
+}

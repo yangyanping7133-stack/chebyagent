@@ -1,0 +1,70 @@
+FROM python:3.12-alpine3.23@sha256:601d3d3797e90e2534782e69c85fafb7971b43f24c7b1b079b7e48dd435e458d AS codex-cli
+
+# Official linux-x64 platform package behind @openai/codex 0.144.6.
+RUN python -c "import urllib.request; urllib.request.urlretrieve('https://registry.npmjs.org/@openai/codex/-/codex-0.144.6-linux-x64.tgz', '/tmp/codex.tgz')" \
+    && python -c "import hashlib, sys; f = open('/tmp/codex.tgz', 'rb'); sys.exit(hashlib.file_digest(f, 'sha512').hexdigest() != 'e04ec49f30a0d0e9c1c42c989f027eaa767058761ed1849caf9b9c2966e7804f6ee3ed17ae95842eaab62a7f639791992bc3038d4ecfac9c05230bac1ce1e3bb')" \
+    && install -d -m 0755 /opt/codex \
+    && tar -xzf /tmp/codex.tgz -C /opt/codex --strip-components=1 \
+    && /opt/codex/vendor/x86_64-unknown-linux-musl/bin/codex --version | grep -Eq '(^| )0\.144\.6($| )'
+
+FROM python:3.12-alpine3.23@sha256:601d3d3797e90e2534782e69c85fafb7971b43f24c7b1b079b7e48dd435e458d
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PYTHONPATH=/app/connector:/app/gateway \
+    HOME=/home/cheby \
+    CODEX_HOME=/home/cheby/.codex \
+    PATH=/usr/local/bin:/usr/bin:/bin
+
+RUN /sbin/apk add --no-cache \
+        bubblewrap=0.11.0-r2 \
+        ca-certificates=20260611-r0 \
+        git=2.52.0-r0 \
+        nodejs=24.17.0-r0 \
+        openssh-client-default=10.2_p1-r0 \
+        ripgrep=15.1.0-r0 \
+    && /usr/sbin/addgroup -S -g 10002 cheby \
+    && /usr/sbin/adduser -S -D -u 10002 -G cheby \
+        -h /home/cheby -s /sbin/nologin cheby \
+    && install -d -o cheby -g cheby -m 0700 \
+        /data \
+        /asset-staging \
+        /home/cheby/.codex \
+        /home/cheby/.cache \
+        /home/cheby/.config \
+        /workspace
+
+COPY --from=codex-cli /opt/codex /opt/codex
+RUN ln -s /opt/codex/vendor/x86_64-unknown-linux-musl/bin/codex /usr/local/bin/codex \
+    && codex --version | grep -Eq '(^| )0\.144\.6($| )'
+
+WORKDIR /app
+
+COPY deploy/turkey/connector-requirements.lock /app/connector/requirements.lock
+RUN pip install --no-cache-dir --require-hashes \
+        --requirement /app/connector/requirements.lock
+
+COPY gateway/cheby_gateway /app/gateway/cheby_gateway
+COPY connector/cheby_connector /app/connector/cheby_connector
+COPY connector/phonebridge/phonebridge.mjs /opt/phonebridge/phonebridge.mjs
+COPY connector/phonebridge/phonebridge.sha256 /opt/phonebridge/phonebridge.sha256
+COPY deploy/turkey/connector_runner.py /app/deploy/connector_runner.py
+COPY --chown=0:0 --chmod=0555 deploy/turkey/codex_sandbox_launcher.py /app/deploy/codex_sandbox_launcher.py
+COPY --chown=0:0 --chmod=0555 deploy/turkey/codex_bwrap_wrapper.py /usr/local/bin/bwrap
+COPY --chown=0:0 --chmod=0444 deploy/turkey/codex-mcp.connector.toml /app/deploy/codex-mcp.connector.toml
+RUN cd /opt/phonebridge \
+    && sha256sum -c phonebridge.sha256 \
+    && chown root:root phonebridge.mjs phonebridge.sha256 \
+    && chmod 0555 phonebridge.mjs \
+    && chmod 0444 phonebridge.sha256
+
+USER 10002:10002
+WORKDIR /workspace
+
+# Health is refreshed by the Connector's main asyncio loop. Relay reachability is
+# intentionally not a dependency, so a Relay outage cannot create a restart loop.
+HEALTHCHECK --interval=10s --timeout=3s --start-period=20s --retries=3 \
+    CMD ["python", "-c", "import os,stat,time; p='/data/connector.health'; s=os.lstat(p); data=open(p,'rb').read(64); parts=data.split(); assert stat.S_ISREG(s.st_mode) and not stat.S_ISLNK(s.st_mode) and s.st_uid==os.getuid() and time.time()-s.st_mtime<20 and len(parts)==2 and len(data)<64; pid=int(parts[0]); tick=int(parts[1]); assert pid>0 and tick>0; os.kill(pid,0)"]
+
+CMD ["python", "/app/deploy/connector_runner.py"]

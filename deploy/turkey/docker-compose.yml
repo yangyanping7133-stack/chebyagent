@@ -1,0 +1,169 @@
+name: chebycodex-turkey
+
+services:
+  runtime:
+    platform: linux/amd64
+    image: ${CHEBY_RUNTIME_IMAGE:?set the scanned immutable runtime image ID}
+    pull_policy: never
+    restart: unless-stopped
+    init: true
+    read_only: true
+    user: "10002:10002"
+    environment:
+      HOME: /home/cheby
+      CODEX_HOME: /home/cheby/.codex
+      CHEBY_GATEWAY_DB: /data/gateway.sqlite3
+      CHEBY_BRIDGE_MODE: stdio
+      CHEBY_LOCAL_IMAGE_ENABLED: "true"
+      CHEBY_CODEX_COMMAND: codex --ask-for-approval never app-server --disable code_mode_host --disable code_mode --listen stdio://
+      CHEBY_CODEX_CWD: /workspace
+      CHEBY_CODEX_FRAME_LIMIT_BYTES: "67108864"
+      CHEBY_PAIRING_SECRET_FILE: /run/secrets/pairing_secret
+      # Only the Edge container has this fixed address on the private backend.
+      CHEBY_TRUSTED_PROXY_CIDRS: 172.31.42.2/32
+      CHEBY_PAIRING_SOURCE_LIMIT: "8"
+      CHEBY_PAIRING_GLOBAL_LIMIT: "40"
+      CHEBY_PAIRING_WINDOW_SECONDS: "60"
+      CHEBY_PAIRING_BACKOFF_BASE_SECONDS: "2"
+      CHEBY_PAIRING_BACKOFF_MAX_SECONDS: "60"
+      CHEBY_SEND_DEVICE_LIMIT: "30"
+      CHEBY_SEND_WINDOW_SECONDS: "60"
+      CHEBY_APPROVAL_DEVICE_LIMIT: "20"
+      CHEBY_APPROVAL_WINDOW_SECONDS: "60"
+      CHEBY_WEBSOCKET_CONNECT_GLOBAL_LIMIT: "200"
+      CHEBY_WEBSOCKET_CONNECT_SOURCE_LIMIT: "30"
+      CHEBY_WEBSOCKET_CONNECT_DEVICE_LIMIT: "20"
+      CHEBY_WEBSOCKET_CONNECT_WINDOW_SECONDS: "60"
+      CHEBY_WEBSOCKET_MESSAGE_DEVICE_LIMIT: "120"
+      CHEBY_WEBSOCKET_MESSAGE_WINDOW_SECONDS: "60"
+    expose:
+      - "8080"
+    networks:
+      backend:
+        ipv4_address: 172.31.42.3
+      codex-egress: {}
+    volumes:
+      - gateway-data:/data:rw
+      - codex-home:/home/cheby/.codex:rw
+      - workspace-data:/workspace:rw
+      - asset-staging:/asset-staging:rw
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+      - /home/cheby/.cache:size=64m,uid=10002,gid=10002,mode=0700
+      - /home/cheby/.config:size=16m,uid=10002,gid=10002,mode=0700
+    secrets:
+      - pairing_secret
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 4096
+    # Shared ceiling for Codex xhigh plus Gateway/SQLite/projection overhead.
+    mem_limit: ${CHEBY_RUNTIME_MEMORY:-18g}
+    cpus: ${CHEBY_RUNTIME_CPUS:-8.0}
+    stop_grace_period: 45s
+
+  edge:
+    platform: linux/amd64
+    image: ${CHEBY_EDGE_IMAGE:?set the scanned immutable Edge image ID}
+    pull_policy: never
+    restart: unless-stopped
+    read_only: true
+    user: "101:101"
+    environment:
+      NGINX_ENTRYPOINT_QUIET_LOGS: "1"
+    depends_on:
+      runtime:
+        condition: service_healthy
+    ports:
+      - "${CHEBY_BIND_IP:?set the ECS local IPv4 mapped to the EIP}:80:8080/tcp"
+      - "${CHEBY_BIND_IP:?set the ECS local IPv4 mapped to the EIP}:443:8443/tcp"
+    networks:
+      backend:
+        ipv4_address: 172.31.42.2
+    volumes:
+      - ./generated/nginx.conf:/etc/nginx/nginx.conf:ro
+      - acme-webroot:/var/www/acme:ro
+      - tls-live:/tls:ro
+    tmpfs:
+      - /tmp:size=32m,uid=101,gid=101,mode=0700
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 128
+    mem_limit: 256m
+    cpus: 0.5
+    stop_grace_period: 30s
+
+  certbot:
+    platform: linux/amd64
+    image: certbot/certbot:v5.7.0@sha256:34ee91d2f43008eb78a007d22f23ed4b2eaa9a454cb27ca2c042b49527a695b4
+    profiles: ["maintenance"]
+    read_only: true
+    user: "0:0"
+    entrypoint: ["certbot"]
+    command: ["--version"]
+    volumes:
+      - letsencrypt-state:/etc/letsencrypt:rw
+      - certbot-work:/var/lib/letsencrypt:rw
+      - certbot-logs:/var/log/letsencrypt:rw
+      - acme-webroot:/var/www/acme:rw
+    tmpfs:
+      - /tmp:size=32m,mode=1777
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 128
+    mem_limit: 256m
+    cpus: 0.5
+
+  cert-export:
+    platform: linux/amd64
+    image: certbot/certbot:v5.7.0@sha256:34ee91d2f43008eb78a007d22f23ed4b2eaa9a454cb27ca2c042b49527a695b4
+    profiles: ["maintenance"]
+    read_only: true
+    user: "0:0"
+    entrypoint: ["python"]
+    command: ["/opt/release/export_ip_certificate.py"]
+    environment:
+      CHEBY_PUBLIC_IP: ${CHEBY_PUBLIC_IP:?set the dedicated public IPv4 address}
+      CHEBY_CERT_MIN_REMAINING_HOURS: "24"
+    network_mode: none
+    volumes:
+      - letsencrypt-state:/etc/letsencrypt:ro
+      - tls-live:/tls:rw
+      - ../../tools/release/export_ip_certificate.py:/opt/release/export_ip_certificate.py:ro
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 64
+    mem_limit: 128m
+    cpus: 0.25
+
+networks:
+  backend:
+    internal: true
+    ipam:
+      config:
+        - subnet: 172.31.42.0/28
+  codex-egress: {}
+
+volumes:
+  gateway-data: {}
+  codex-home: {}
+  workspace-data: {}
+  asset-staging: {}
+  acme-webroot: {}
+  letsencrypt-state: {}
+  certbot-work: {}
+  certbot-logs: {}
+  tls-live: {}
+
+secrets:
+  pairing_secret:
+    file: ${CHEBY_PAIRING_SECRET_PATH:?set an absolute path to the pairing secret file}

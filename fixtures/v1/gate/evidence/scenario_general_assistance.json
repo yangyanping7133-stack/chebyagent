@@ -1,0 +1,27 @@
+{
+  "caseId": "scenario.general-assistance",
+  "checks": [
+    {
+      "checkId": "thread",
+      "errors": [],
+      "status": "PASS"
+    },
+    {
+      "checkId": "message[0]",
+      "errors": [],
+      "status": "PASS"
+    },
+    {
+      "checkId": "approval[0]",
+      "errors": [],
+      "status": "PASS"
+    }
+  ],
+  "fixture": "fixtures/v1/scenarios/general_assistance.json",
+  "status": "PASS",
+  "summary": {
+    "failed": 0,
+    "passed": 3,
+    "total": 3
+  }
+}

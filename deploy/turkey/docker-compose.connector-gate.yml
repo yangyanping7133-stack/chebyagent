@@ -1,0 +1,76 @@
+name: chebycodex-turkey-gate-connector
+
+services:
+  gate-connector:
+    platform: linux/amd64
+    image: ${CHEBY_GATE_CONNECTOR_IMAGE:?set the reviewed immutable Connector image ID}
+    pull_policy: never
+    restart: unless-stopped
+    init: true
+    read_only: true
+    user: "10002:10002"
+    environment:
+      HOME: /home/cheby
+      CHEBY_CONNECTOR_RELAY_URL: ws://172.31.62.3:8080/relay/v1/node
+      CHEBY_CONNECTOR_ID: ${CHEBY_CONNECTOR_ID:?set by install_node_bootstrap.py}
+      CHEBY_CONNECTOR_RELAY_TOKEN_FILE: /run/secrets/node_token
+      CHEBY_CONNECTOR_RUNTIME_PROFILE: gate
+      CHEBY_CONNECTOR_STATE: /data/gate-connector.sqlite3
+      CHEBY_CONNECTOR_HEALTH_PATH: /data/connector.health
+      CHEBY_CONNECTOR_HEALTH_INTERVAL_SECONDS: "5"
+      CHEBY_CONNECTOR_IDEMPOTENCY_RETENTION_SECONDS: "2592000"
+      CHEBY_CONNECTOR_CONNECT_TIMEOUT_SECONDS: "10"
+      CHEBY_CONNECTOR_REQUEST_TIMEOUT_SECONDS: "35"
+      CHEBY_CONNECTOR_PING_INTERVAL_SECONDS: "20"
+      CHEBY_CONNECTOR_PONG_TIMEOUT_SECONDS: "10"
+      CHEBY_CONNECTOR_RECONNECT_BASE_SECONDS: "0.5"
+      CHEBY_CONNECTOR_RECONNECT_MAX_SECONDS: "30"
+      CHEBY_CONNECTOR_MAX_INBOUND_FRAME_BYTES: "12582912"
+      CHEBY_CONNECTOR_MAX_OUTBOUND_FRAME_BYTES: "262144"
+      CHEBY_CONNECTOR_MAX_CONCURRENCY: "4"
+      CHEBY_GATEWAY_DB: /data/gate-gateway.sqlite3
+      CHEBY_GATE_SCRIPT_STATE: /data/gate-script-state.json
+      CHEBY_BRIDGE_MODE: fake
+      CHEBY_PAIRING_SECRET_FILE: /run/secrets/gateway_internal_secret
+      CHEBY_LOCAL_IMAGE_ENABLED: "false"
+      CHEBY_ASSET_STAGING_DIR: /data/gate-assets
+      CHEBY_TRUSTED_PROXY_CIDRS: ""
+    networks:
+      gate-backend:
+        ipv4_address: 172.31.62.4
+    volumes:
+      - type: bind
+        source: ${CHEBY_GATE_CONNECTOR_DATA_DIR:?set the private Gate data directory}
+        target: /data
+        read_only: false
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ${CHEBY_CONNECTOR_NODE_TOKEN_PATH:?set by install_node_bootstrap.py}
+        target: /run/secrets/node_token
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ${CHEBY_CONNECTOR_GATEWAY_SECRET_PATH:?set by install_node_bootstrap.py}
+        target: /run/secrets/gateway_internal_secret
+        read_only: true
+        bind:
+          create_host_path: false
+    tmpfs:
+      - /tmp:size=32m,uid=10002,gid=10002,mode=1777
+      - /home/cheby/.cache:size=16m,uid=10002,gid=10002,mode=0700
+      - /home/cheby/.config:size=4m,uid=10002,gid=10002,mode=0700
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 256
+    mem_limit: ${CHEBY_GATE_CONNECTOR_MEMORY:-1g}
+    cpus: ${CHEBY_GATE_CONNECTOR_CPUS:-1.0}
+    stop_grace_period: 20s
+
+networks:
+  gate-backend:
+    name: chebycodex-relay-edge_gate-backend
+    external: true

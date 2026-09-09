@@ -1,0 +1,48 @@
+{
+  "caseId": "stream.reconnect-resume",
+  "description": "Reconnect resumes after the latest contiguous cursor and applies only newer events.",
+  "connection": {"streamId": "stream_device_alpha", "resumeAfterSeq": 4},
+  "initialState": {
+    "lastAppliedSeq": 4,
+    "streamId": "stream_device_alpha",
+    "messages": {"msg_reconnect_01": {"revision": 1}},
+    "approvals": {}
+  },
+  "events": [
+    {
+      "v": 1,
+      "eventId": "evt_reconnect_05",
+      "streamId": "stream_device_alpha",
+      "seq": 5,
+      "occurredAt": "2026-07-19T12:00:05Z",
+      "type": "message.patch",
+      "threadId": "thr_stream_demo",
+      "turnId": "turn_reconnect_01",
+      "itemId": "item_reconnect_01",
+      "payload": {
+        "messageId": "msg_reconnect_01",
+        "baseRevision": 1,
+        "nextRevision": 2,
+        "ops": [
+          {"op": "block.text.append", "blockId": "answer", "value": " Complete."}
+        ]
+      }
+    },
+    {
+      "v": 1,
+      "eventId": "evt_reconnect_06",
+      "streamId": "stream_device_alpha",
+      "seq": 6,
+      "occurredAt": "2026-07-19T12:00:06Z",
+      "type": "turn.completed",
+      "threadId": "thr_stream_demo",
+      "turnId": "turn_reconnect_01",
+      "payload": {"status": "completed"}
+    }
+  ],
+  "expected": {
+    "lastAppliedSeq": 6,
+    "messageRevisions": {"msg_reconnect_01": 2},
+    "signals": {"reconnect_resumed": 1, "event_applied": 2}
+  }
+}

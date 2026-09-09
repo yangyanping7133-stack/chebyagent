@@ -1,0 +1,8 @@
+{
+  "request": {
+    "path": "/v1/events?streamId=stream_wire_android&afterSeq=0"
+  },
+  "serverAcceptedHandshake": true,
+  "closeCode": 4401,
+  "messagesBeforeClose": []
+}

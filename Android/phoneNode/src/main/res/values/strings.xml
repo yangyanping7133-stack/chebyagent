@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ChebyNode</string>
+    <string name="agent_node_notification_title">ChebyNode</string>
+    <string name="agent_node_notification_body">Remote MCP phone control is running locally.</string>
+    <string name="accessibility_service_label">ChebyNode Control</string>
+    <string name="accessibility_service_description">Lets ChebyNode read the current screen, capture screenshots, and perform user-authorized gestures for personal remote phone automation.</string>
+</resources>

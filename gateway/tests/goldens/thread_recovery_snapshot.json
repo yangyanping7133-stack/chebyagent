@@ -1,0 +1,76 @@
+{
+  "thread": {
+    "id": "thr_recovery",
+    "title": "Recovery conversation",
+    "preview": "Recovered answer",
+    "createdAt": "2026-07-19T00:00:00Z",
+    "updatedAt": "2026-07-19T00:00:03Z",
+    "status": "waitingApproval",
+    "lastTurnId": "turn_recovery",
+    "unread": false
+  },
+  "messages": [
+    {
+      "schema": "cheby.rich-message/1.0",
+      "messageId": "msg_user_recovery",
+      "threadId": "thr_recovery",
+      "turnId": "turn_recovery",
+      "sourceItemId": "item_user_recovery",
+      "role": "user",
+      "state": "completed",
+      "revision": 0,
+      "rootBlockIds": ["text"],
+      "blocks": {
+        "text": {
+          "type": "text",
+          "blockId": "text",
+          "text": "Recover my session",
+          "fallbackText": "Recover my session"
+        }
+      },
+      "fallback": {"text": "Recover my session"},
+      "createdAt": "2026-07-19T00:00:01Z",
+      "updatedAt": "2026-07-19T00:00:01Z",
+      "clientMessageId": "client-recovery-message"
+    },
+    {
+      "schema": "cheby.rich-message/1.0",
+      "messageId": "msg_assistant_recovery",
+      "threadId": "thr_recovery",
+      "turnId": "turn_recovery",
+      "sourceItemId": "item_assistant_recovery",
+      "role": "assistant",
+      "state": "completed",
+      "revision": 0,
+      "rootBlockIds": ["text"],
+      "blocks": {
+        "text": {
+          "type": "text",
+          "blockId": "text",
+          "text": "Recovered answer",
+          "fallbackText": "Recovered answer"
+        }
+      },
+      "fallback": {"text": "Recovered answer"},
+      "createdAt": "2026-07-19T00:00:02Z",
+      "updatedAt": "2026-07-19T00:00:02Z"
+    }
+  ],
+  "approvals": [
+    {
+      "approvalId": "approval_recovery",
+      "threadId": "thr_recovery",
+      "turnId": "turn_recovery",
+      "itemId": "item_approval_recovery",
+      "kind": "command",
+      "summary": "Run recovery check",
+      "reason": "The action needs confirmation.",
+      "decisions": ["approve", "reject"],
+      "state": "pending",
+      "expiresAt": "2026-07-19T00:05:00Z",
+      "actionToken": "recovery-action-token-1234567890"
+    }
+  ],
+  "streamId": "stream_recovery",
+  "cursor": 42
+}

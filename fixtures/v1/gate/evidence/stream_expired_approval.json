@@ -1,0 +1,42 @@
+{
+  "actual": {
+    "approvalStates": {
+      "approval_expired_01": "expired"
+    },
+    "lastAppliedSeq": 1,
+    "messageRevisions": {},
+    "mutationPaused": false,
+    "signals": {
+      "approval_expired_rejected": 1,
+      "event_applied": 1
+    },
+    "streamId": "stream_device_alpha"
+  },
+  "caseId": "stream.expired-approval",
+  "expected": {
+    "approvalStates": {
+      "approval_expired_01": "expired"
+    },
+    "lastAppliedSeq": 1,
+    "signals": {
+      "approval_expired_rejected": 1,
+      "event_applied": 1
+    }
+  },
+  "fixture": "fixtures/v1/event_streams/expired_approval.json",
+  "mismatches": [],
+  "status": "PASS",
+  "trace": [
+    {
+      "eventId": "evt_approval_01",
+      "seq": 1,
+      "signal": "event_applied",
+      "type": "approval.requested"
+    },
+    {
+      "approvalId": "approval_expired_01",
+      "signal": "approval_expired_rejected"
+    }
+  ],
+  "validationErrors": []
+}

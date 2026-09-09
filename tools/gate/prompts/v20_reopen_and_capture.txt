@@ -1,0 +1,9 @@
+只通过 phonebridge 恢复并只读验收既有 V20 会话。禁止输入、发送、新建、删除、归档、重命名或切换到任何不匹配的会话。
+
+1. 调用 android_ui_tree。若当前是 ChebyCodex 的“选择一个会话”页，点击刚读取到的“打开会话列表”可点击父节点实时中心一次，然后重新读取 UI 树。
+2. 枚举当前会话列表中所有会话卡片。只选择同时满足：标题精确为“新会话”、预览精确为“hi”、卡片含更新时间为今天或最新、bounds 合法且位于屏内的唯一候选。若候选不唯一或当前不可见，只允许在列表内最多6次垂直滑动，每次重新读取；仍不唯一就停止。点击匹配卡片的实时合法中心一次。
+3. 等待并重读 UI，确认包名 com.cheby.codex.mobile、标题“新会话”，连接状态为“服务已连接”或消息已经完整可读。若 V20 不在视口，只允许最多6次会话内容垂直滑动，每次重新读树。
+4. 按 package/class/text/content_description/view_id/bounds 去重，确认包含 CHEBY_V20_HI_20260807_195628 的用户节点恰好1个，包含 CHEBY_V20_HI_OK 的回答节点恰好1个；等待发送、发送中、处理中、等待上一条完成、状态待同步、失败等 pending 节点为空；composer 文本为空且 send_message.enabled=false。
+5. 调用 android_capture_screenshot 一次，记录 artifact path、sha256、宽高、字节数；再读一次 UI，确认计数不变。
+
+任一步不满足立即停止，不猜坐标。只输出 PASS/FAIL、会话候选标题/预览/bounds、最终连接状态、V20 用户/回答/pending 计数、截图证据。

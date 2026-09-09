@@ -1,0 +1,6 @@
+interface:
+  display_name: "附近超市"
+  short_description: "Find nearby supermarkets with useful walking links"
+  default_prompt: "Use $yandex-maps-supermarket-finder to find a nearby supermarket."
+policy:
+  allow_implicit_invocation: true

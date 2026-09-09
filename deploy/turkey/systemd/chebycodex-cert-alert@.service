@@ -1,0 +1,19 @@
+[Unit]
+Description=Record ChebyCodex certificate failure for %i
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+ExecStartPre=/usr/bin/python3 /opt/chebycodex/tools/release/validate_turkey_host_trust.py --repository-root /opt/chebycodex --environment-file /etc/chebycodex/turkey.env --release-manifest /etc/chebycodex/release-manifest.json --require-production-root
+ExecStart=/opt/chebycodex/tools/release/report_cert_failure.sh %i
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+LockPersonality=true

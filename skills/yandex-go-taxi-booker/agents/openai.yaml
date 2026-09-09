@@ -1,0 +1,4 @@
+interface:
+  display_name: "Yandex Go 打车"
+  short_description: "使用 Yandex Go 准备行程，默认 Business 并在叫车前确认"
+  default_prompt: "Use $yandex-go-taxi-booker to prepare a Yandex Go ride to the user destination and wait for confirmation before ordering."

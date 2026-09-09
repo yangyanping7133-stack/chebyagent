@@ -1,0 +1,27 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/v1/approvals/approval_wire_01/decision",
+    "body": {
+      "decision": "approve",
+      "actionToken": "action_token_wire_0123456789"
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "approval": {
+        "approvalId": "approval_wire_01",
+        "threadId": "thr_wire_01",
+        "turnId": "turn_wire_01",
+        "itemId": "item_wire_01",
+        "kind": "command",
+        "summary": "Run verification",
+        "reason": "The command requires confirmation.",
+        "decisions": ["approve", "reject"],
+        "state": "approved",
+        "expiresAt": "2026-07-19T12:05:00Z"
+      }
+    }
+  }
+}

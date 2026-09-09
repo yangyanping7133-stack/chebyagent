@@ -1,0 +1,6 @@
+interface:
+  display_name: "附近餐馆"
+  short_description: "Find restaurants with real photos and walking links"
+  default_prompt: "Use $yandex-maps-restaurant-finder to find a nearby restaurant."
+policy:
+  allow_implicit_invocation: true

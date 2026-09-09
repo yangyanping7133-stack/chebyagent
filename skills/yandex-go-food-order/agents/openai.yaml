@@ -1,0 +1,4 @@
+interface:
+  display_name: "Yandex Go 外卖"
+policy:
+  allow_implicit_invocation: true

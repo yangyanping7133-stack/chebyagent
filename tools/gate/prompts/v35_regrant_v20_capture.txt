@@ -1,0 +1,7 @@
+只通过 phonebridge 完成 ChebyNode 升级后的 Android 10 截图重授权，并对当前 V20 会话做只读最终截图。禁止输入、发送、新建、删除、归档或重命名。
+
+1. 调用 android_ui_tree。仅当包名为 com.android.systemui、标题精确“是否允许“ChebyNode”录制/投射您的屏幕”、存在唯一 button1“允许”和 button2“禁止”且 bounds 合法时，点击 button1 的实时中心一次。若不是这个精确系统弹窗则停止。
+2. 重读 UI，要求回到 com.cheby.codex.mobile、标题“新会话”、连接状态“服务已连接”。按 package/class/text/content_description/view_id/bounds 去重：包含 CHEBY_V20_HI_20260807_195628 的用户节点恰好1个；去掉下划线后包含 CHEBYV20HIOK、phoneonline=true、foreground=com.cheby.codex.mobile 的回答节点恰好1个；pending 节点为空；composer 为空且 send_message.enabled=false。
+3. 调用 android_capture_screenshot 一次，记录 artifact path、sha256、宽高、字节数；再读 UI，确认上述计数不变。
+
+任一步不满足立即停止，不猜坐标。只输出 PASS/FAIL、系统标题、允许按钮 bounds/中心/allowed、连接状态、V20 用户/规范化回答/pending 计数、截图证据。

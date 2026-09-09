@@ -1,0 +1,50 @@
+{
+  "actual": {
+    "approvalStates": {},
+    "lastAppliedSeq": 2,
+    "messageRevisions": {},
+    "mutationPaused": false,
+    "signals": {
+      "event_applied": 2,
+      "gap_detected": 1,
+      "replay_requested": 1
+    },
+    "streamId": "stream_device_alpha"
+  },
+  "caseId": "stream.out-of-order-replay",
+  "expected": {
+    "lastAppliedSeq": 2,
+    "signals": {
+      "event_applied": 2,
+      "gap_detected": 1,
+      "replay_requested": 1
+    }
+  },
+  "fixture": "fixtures/v1/event_streams/out_of_order.json",
+  "mismatches": [],
+  "status": "PASS",
+  "trace": [
+    {
+      "expectedSeq": 1,
+      "receivedSeq": 2,
+      "signal": "gap_detected"
+    },
+    {
+      "afterSeq": 0,
+      "signal": "replay_requested"
+    },
+    {
+      "eventId": "evt_order_01",
+      "seq": 1,
+      "signal": "event_applied",
+      "type": "turn.started"
+    },
+    {
+      "eventId": "evt_order_02",
+      "seq": 2,
+      "signal": "event_applied",
+      "type": "turn.completed"
+    }
+  ],
+  "validationErrors": []
+}

@@ -1,0 +1,72 @@
+{
+  "caseId": "scenario.data-research",
+  "description": "A data research result with sources, facts, a table, and metrics.",
+  "thread": {
+    "id": "thr_data_demo",
+    "title": "Compare release signals",
+    "preview": "Three sources agree on the trend",
+    "createdAt": "2026-07-19T09:00:00Z",
+    "updatedAt": "2026-07-19T09:03:00Z",
+    "status": "idle",
+    "lastTurnId": "turn_data_01",
+    "unread": true
+  },
+  "messages": [
+    {
+      "schema": "cheby.rich-message/1.0",
+      "messageId": "msg_data_01",
+      "threadId": "thr_data_demo",
+      "turnId": "turn_data_01",
+      "sourceItemId": "item_data_01",
+      "role": "assistant",
+      "state": "completed",
+      "revision": 2,
+      "rootBlockIds": ["research_notice", "research_sources", "research_facts", "research_table", "research_metrics"],
+      "blocks": {
+        "research_notice": {
+          "blockId": "research_notice",
+          "type": "notice",
+          "tone": "info",
+          "title": "Evidence converged",
+          "text": "All selected sources cover the same reporting window."
+        },
+        "research_sources": {
+          "blockId": "research_sources",
+          "type": "source",
+          "items": [
+            {"label": "Official dataset", "uriRef": "asset_source_01", "capturedAt": "2026-07-19T09:01:00Z", "trust": "primary"},
+            {"label": "Release notes", "uriRef": "asset_source_02", "capturedAt": "2026-07-19T09:01:20Z", "trust": "primary"}
+          ]
+        },
+        "research_facts": {
+          "blockId": "research_facts",
+          "type": "facts",
+          "items": [
+            {"label": "Observation window", "value": "6 weeks", "note": "Same window for every series"},
+            {"label": "Direction", "value": "Increasing", "note": "No contrary primary signal"}
+          ]
+        },
+        "research_table": {
+          "blockId": "research_table",
+          "type": "table",
+          "columns": ["Signal", "Week 1", "Week 6"],
+          "rows": [["Adoption index", "42", "67"], ["Active teams", "18", "31"]],
+          "collapsed": true,
+          "fallbackText": "Adoption index rose from 42 to 67; active teams rose from 18 to 31."
+        },
+        "research_metrics": {
+          "blockId": "research_metrics",
+          "type": "metrics",
+          "items": [
+            {"label": "Sources", "value": "3", "unit": "reviewed", "trend": "stable"},
+            {"label": "Confidence", "value": "High", "unit": "", "trend": "up"}
+          ]
+        }
+      },
+      "fallback": {"text": "Three sources show the same upward release signal."},
+      "createdAt": "2026-07-19T09:00:10Z",
+      "updatedAt": "2026-07-19T09:03:00Z"
+    }
+  ],
+  "approvals": []
+}

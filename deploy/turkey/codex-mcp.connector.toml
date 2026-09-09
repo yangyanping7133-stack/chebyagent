@@ -1,0 +1,75 @@
+# Append these reviewed tables to the persistent Connector CODEX_HOME/config.toml.
+# All values are non-secret. The Connector-owned broker holds the bearer token;
+# Codex and its MCP child can only access this allowlisted Unix socket.
+
+# Headless does not mean credential-readable. This named profile keeps approval
+# policy independent from filesystem policy: Codex never asks for approval, can
+# write the workspace and use the network, but native tools cannot read the
+# persistent ChatGPT login or Connector secrets. /opt/codex is required by the
+# 0.144.6 Linux sandbox when it re-executes its pinned runtime.
+[permissions.cheby_mobile.filesystem]
+":minimal" = "read"
+"/opt/codex" = "read"
+"/usr/local/bin/bwrap" = "read"
+
+[permissions.cheby_mobile.filesystem.":workspace_roots"]
+"." = "write"
+
+[permissions.cheby_mobile.network]
+enabled = true
+
+[mcp_servers.phonebridge]
+command = "/usr/local/bin/python"
+args = ["-I", "/app/connector/cheby_connector/local_mcp.py", "phonebridge"]
+cwd = "/app/connector"
+startup_timeout_sec = 10
+tool_timeout_sec = 45
+enabled = true
+required = true
+default_tools_approval_mode = "approve"
+enabled_tools = [
+  "android_phone_status",
+  "android_capabilities",
+  "android_ui_tree",
+  "android_capture_screenshot",
+  "android_tap",
+  "android_swipe",
+  "android_input_text",
+  "android_press_back",
+  "android_press_home",
+  "android_press_recents",
+  "android_open_url",
+  "android_open_app",
+]
+
+[mcp_servers.phonebridge.env]
+CHEBY_PHONEBRIDGE_BROKER_SOCKET = "/home/cheby/.codex/runtime/phonebridge-broker.sock"
+CHEBY_PHONEBRIDGE_ARTIFACT_DIR = "/workspace/.cheby/phone-artifacts"
+
+[mcp_servers.offline_memory]
+command = "/usr/local/bin/python"
+args = ["-I", "/app/connector/cheby_connector/local_mcp.py", "memory"]
+cwd = "/app/connector"
+startup_timeout_sec = 10
+tool_timeout_sec = 20
+enabled = true
+required = true
+default_tools_approval_mode = "approve"
+enabled_tools = ["search", "fetch", "memory_list_recent", "memory_remember"]
+
+[mcp_servers.offline_memory.env]
+CHEBY_LOCAL_MCP_DATA_ROOT = "/home/cheby/.codex/local-mcp"
+
+[mcp_servers.offline_skill]
+command = "/usr/local/bin/python"
+args = ["-I", "/app/connector/cheby_connector/local_mcp.py", "skill"]
+cwd = "/app/connector"
+startup_timeout_sec = 10
+tool_timeout_sec = 20
+enabled = true
+required = true
+default_tools_approval_mode = "approve"
+enabled_tools = ["search", "fetch", "skill_list_recent", "skill_remember"]
+
+[mcp_servers.offline_skill.env]
+CHEBY_LOCAL_MCP_DATA_ROOT = "/home/cheby/.codex/local-mcp"

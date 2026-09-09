@@ -1,0 +1,15 @@
+{
+  "response": {
+    "status": 429,
+    "headers": {
+      "Retry-After": "30"
+    },
+    "body": {
+      "error": {
+        "code": "RATE_LIMITED",
+        "message": "Too many requests; retry later",
+        "retryable": true
+      }
+    }
+  }
+}

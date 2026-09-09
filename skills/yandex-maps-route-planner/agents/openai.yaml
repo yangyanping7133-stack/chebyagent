@@ -1,0 +1,4 @@
+interface:
+  display_name: "Yandex Maps 导航"
+  short_description: "打开 Yandex Maps 并按用户意图直接开始步行或驾车导航"
+  default_prompt: "Use $yandex-maps-route-planner to navigate from the phone's current location to the user's destination in Yandex Maps."

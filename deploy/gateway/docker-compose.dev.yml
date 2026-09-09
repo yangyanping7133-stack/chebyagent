@@ -1,0 +1,36 @@
+name: chebycodex-gateway-dev
+
+services:
+  gateway-dev:
+    build:
+      context: ../..
+      dockerfile: deploy/gateway/Dockerfile
+    image: local/chebycodex-gateway:0.1.0-dev
+    read_only: true
+    user: "10002:10002"
+    environment:
+      CHEBY_GATEWAY_DB: /data/gateway.sqlite3
+      CHEBY_BRIDGE_MODE: fake
+      CHEBY_PAIRING_SECRET_FILE: /run/secrets/pairing_secret
+      # Development may tune finite limits but cannot disable the gate.
+      CHEBY_PAIRING_SOURCE_LIMIT: "20"
+      CHEBY_PAIRING_GLOBAL_LIMIT: "100"
+      CHEBY_WEBSOCKET_CONNECT_GLOBAL_LIMIT: "400"
+    volumes:
+      - gateway-dev-data:/data:rw
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    ports: []
+    secrets:
+      - pairing_secret
+
+volumes:
+  gateway-dev-data:
+
+secrets:
+  pairing_secret:
+    file: ./secrets/pairing_secret.txt

@@ -1,0 +1,24 @@
+{
+  "v": 1,
+  "eventId": "evt_wire_approval_requested",
+  "streamId": "stream_wire_android",
+  "seq": 1,
+  "occurredAt": "2026-07-19T12:00:00Z",
+  "type": "approval.requested",
+  "threadId": "thr_wire_01",
+  "turnId": "turn_wire_01",
+  "itemId": "item_wire_01",
+  "payload": {
+    "approvalId": "approval_wire_01",
+    "threadId": "thr_wire_01",
+    "turnId": "turn_wire_01",
+    "itemId": "item_wire_01",
+    "kind": "command",
+    "summary": "Run verification",
+    "reason": "The command requires confirmation.",
+    "decisions": ["approve", "reject"],
+    "state": "pending",
+    "expiresAt": "2026-07-19T12:05:00Z",
+    "actionToken": "action_token_wire_0123456789"
+  }
+}

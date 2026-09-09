@@ -1,0 +1,50 @@
+worker_processes auto;
+pid /tmp/nginx.pid;
+error_log /dev/stderr warn;
+
+events {
+    worker_connections 512;
+}
+
+http {
+    access_log off;
+    server_tokens off;
+    client_header_timeout 10s;
+    client_body_timeout 10s;
+    client_header_buffer_size 1k;
+    large_client_header_buffers 2 8k;
+    client_max_body_size 1k;
+    keepalive_timeout 10s;
+    keepalive_requests 50;
+    send_timeout 15s;
+    reset_timedout_connection on;
+
+    client_body_temp_path /tmp/client_body;
+    proxy_temp_path /tmp/proxy;
+    fastcgi_temp_path /tmp/fastcgi;
+    uwsgi_temp_path /tmp/uwsgi;
+    scgi_temp_path /tmp/scgi;
+
+    server {
+        listen 8080 default_server;
+        server_name _;
+
+        location = /edge-health {
+            allow 127.0.0.1;
+            allow ::1;
+            deny all;
+            access_log off;
+            return 204;
+        }
+
+        location ^~ /.well-known/acme-challenge/ {
+            root /var/www/acme;
+            default_type text/plain;
+            try_files $uri =404;
+        }
+
+        location / {
+            return 404;
+        }
+    }
+}

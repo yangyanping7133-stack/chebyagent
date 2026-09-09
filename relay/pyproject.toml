@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools==75.8.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chebycodex-relay"
+version = "0.1.0"
+description = "Durable outbound WebSocket relay for ChebyCodex Mobile"
+requires-python = ">=3.10"
+dependencies = [
+  "cryptography==49.0.0",
+  "fastapi==0.139.2",
+  "pydantic==2.13.4",
+  "uvicorn==0.51.0",
+  "websockets==15.0.1",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["cheby_relay*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+asyncio_default_fixture_loop_scope = "function"

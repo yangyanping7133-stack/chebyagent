@@ -1,0 +1,9 @@
+只通过 phonebridge 对当前已打开的 V20 会话做只读最终截图。禁止点击、滑动、输入、发送、新建、删除、归档或重命名。
+
+生产 Gateway SQLite 已证明 V20 规范回复精确为 `CHEBY_V20_HI_OK；phone_online=true；foreground=com.cheby.codex.mobile。`。华为 Android 10 的 Accessibility 文本会去掉 ASCII 下划线，因此 UI 树中的等价规范化文本为 `CHEBYV20HIOK；phoneonline=true；foreground=com.cheby.codex.mobile。`。
+
+1. 调用 android_ui_tree 一次，要求包名 com.cheby.codex.mobile、标题“新会话”、连接状态“服务已连接”。按 package/class/text/content_description/view_id/bounds 去重：包含 CHEBY_V20_HI_20260807_195628 的用户节点恰好1个；回答节点按“去掉下划线后包含 CHEBYV20HIOK 且同时包含 phoneonline=true 和 foreground=com.cheby.codex.mobile”计数，恰好1个；等待发送、发送中、处理中、等待上一条完成、状态待同步、失败等 pending 节点为空；composer 为空且 send_message.enabled=false。
+2. 调用 android_capture_screenshot 一次，记录 artifact path、sha256、宽高、字节数。
+3. 再调用 android_ui_tree 一次，确认上述计数和状态不变。
+
+任一步不满足立即停止。只输出 PASS/FAIL、连接状态、V20 用户/规范化回答/pending 计数、截图证据。

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["packages", "totalItems", "uncertainties"],
+  "properties": {
+    "packages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["page", "heading", "packagePrice", "items"],
+        "properties": {
+          "page": {
+            "type": "integer"
+          },
+          "heading": {
+            "type": "string"
+          },
+          "packagePrice": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "sourceName",
+                "chineseName",
+                "chineseDetail",
+                "serving",
+                "section",
+                "uncertain"
+              ],
+              "properties": {
+                "sourceName": {
+                  "type": "string"
+                },
+                "chineseName": {
+                  "type": "string"
+                },
+                "chineseDetail": {
+                  "type": "string"
+                },
+                "serving": {
+                  "type": "string"
+                },
+                "section": {
+                  "type": "string"
+                },
+                "uncertain": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "totalItems": {
+      "type": "integer"
+    },
+    "uncertainties": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

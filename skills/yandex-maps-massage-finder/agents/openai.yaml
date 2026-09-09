@@ -1,0 +1,4 @@
+interface:
+  display_name: "Yandex Maps 按摩"
+policy:
+  allow_implicit_invocation: true

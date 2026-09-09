@@ -1,0 +1,11 @@
+[Unit]
+Description=Check the ChebyCodex IP TLS endpoint hourly
+
+[Timer]
+OnCalendar=hourly
+RandomizedDelaySec=10min
+Persistent=true
+Unit=chebycodex-cert-monitor.service
+
+[Install]
+WantedBy=timers.target

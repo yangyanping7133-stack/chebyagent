@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application
+        android:allowBackup="false"
+        android:label="Cheby Test IME"
+        android:supportsRtl="true">
+        <service
+            android:name=".ChebyTestImeService"
+            android:exported="true"
+            android:label="Cheby Test IME"
+            android:permission="android.permission.BIND_INPUT_METHOD">
+            <intent-filter>
+                <action android:name="android.view.InputMethod" />
+            </intent-filter>
+            <meta-data
+                android:name="android.view.im"
+                android:resource="@xml/method" />
+        </service>
+
+        <!-- Test-only bridge. The acceptance harness installs this APK temporarily,
+             sends an explicit broadcast from ADB, then restores the user's IME. -->
+        <receiver
+            android:name=".CommitTextReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.cheby.testime.COMMIT_BASE64" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

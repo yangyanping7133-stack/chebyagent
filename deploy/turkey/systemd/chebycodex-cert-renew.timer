@@ -1,0 +1,11 @@
+[Unit]
+Description=Run ChebyCodex short-lived IP certificate renewal every 12 hours
+
+[Timer]
+OnCalendar=*-*-* 00,12:17:00 UTC
+RandomizedDelaySec=20min
+Persistent=true
+Unit=chebycodex-cert-renew.service
+
+[Install]
+WantedBy=timers.target

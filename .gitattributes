@@ -1,0 +1,3 @@
+# Preserve pinned third-party snapshots byte-for-byte. Their upstream whitespace is not product code.
+third_party/termux-app/** -whitespace
+Android/appliance/runtime/codex-base-instructions.md -whitespace

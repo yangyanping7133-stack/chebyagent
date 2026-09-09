@@ -1,0 +1,56 @@
+FROM python:3.12-alpine3.23@sha256:601d3d3797e90e2534782e69c85fafb7971b43f24c7b1b079b7e48dd435e458d AS codex-cli
+
+# Official linux-x64 platform package behind @openai/codex 0.144.6.
+RUN python -c "import urllib.request; urllib.request.urlretrieve('https://registry.npmjs.org/@openai/codex/-/codex-0.144.6-linux-x64.tgz', '/tmp/codex.tgz')" \
+    && python -c "import hashlib, sys; f = open('/tmp/codex.tgz', 'rb'); sys.exit(hashlib.file_digest(f, 'sha512').hexdigest() != 'e04ec49f30a0d0e9c1c42c989f027eaa767058761ed1849caf9b9c2966e7804f6ee3ed17ae95842eaab62a7f639791992bc3038d4ecfac9c05230bac1ce1e3bb')" \
+    && install -d -m 0755 /opt/codex \
+    && tar -xzf /tmp/codex.tgz -C /opt/codex --strip-components=1 \
+    && /opt/codex/vendor/x86_64-unknown-linux-musl/bin/codex --version | grep -Eq '(^| )0\.144\.6($| )'
+
+FROM python:3.12-alpine3.23@sha256:601d3d3797e90e2534782e69c85fafb7971b43f24c7b1b079b7e48dd435e458d
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1 \
+    PYTHONPATH=/app/gateway \
+    HOME=/home/cheby \
+    CODEX_HOME=/home/cheby/.codex \
+    PATH=/usr/local/bin:/usr/bin:/bin
+
+RUN /sbin/apk add --no-cache \
+        bubblewrap=0.11.0-r2 \
+        ca-certificates=20260611-r0 \
+        git=2.52.0-r0 \
+        openssh-client-default=10.2_p1-r0 \
+        ripgrep=15.1.0-r0 \
+    && /usr/sbin/addgroup -S -g 10002 cheby \
+    && /usr/sbin/adduser -S -D -u 10002 -G cheby \
+        -h /home/cheby -s /sbin/nologin cheby \
+    && install -d -o cheby -g cheby -m 0700 \
+        /data \
+        /asset-staging \
+        /home/cheby/.codex \
+        /home/cheby/.cache \
+        /home/cheby/.config \
+        /workspace
+
+COPY --from=codex-cli /opt/codex /opt/codex
+RUN ln -s /opt/codex/vendor/x86_64-unknown-linux-musl/bin/codex /usr/local/bin/codex \
+    && codex --version | grep -Eq '(^| )0\.144\.6($| )'
+
+WORKDIR /app
+
+COPY deploy/turkey/requirements.lock /app/gateway/requirements.lock
+RUN pip install --no-cache-dir --require-hashes --requirement /app/gateway/requirements.lock
+
+COPY gateway/cheby_gateway /app/gateway/cheby_gateway
+
+USER 10002:10002
+WORKDIR /workspace
+
+EXPOSE 8080
+
+HEALTHCHECK --interval=20s --timeout=3s --start-period=30s --retries=5 \
+    CMD ["python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/healthz', timeout=2).read()"]
+
+CMD ["python", "-m", "uvicorn", "cheby_gateway.main:app", "--host", "0.0.0.0", "--port", "8080", "--no-access-log", "--no-proxy-headers", "--workers", "1", "--ws-max-size", "16384", "--ws-max-queue", "4", "--ws-per-message-deflate", "false"]

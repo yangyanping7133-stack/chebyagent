@@ -1,0 +1,65 @@
+#!/usr/bin/env python3
+"""Validate the exact, non-executable Turkey Cosign supply-chain lock."""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+from pathlib import Path
+import stat
+
+
+EXPECTED_LINES = (
+    "COSIGN_UPSTREAM_VERSION=v3.1.2",
+    "COSIGN_CUSTOM_VERSION=v3.1.2-cheby.1",
+    "COSIGN_TAG_OBJECT=dc80df70da727f4abdd843640594025584a270ae",
+    "COSIGN_UPSTREAM_COMMIT=193d2153431f8bb0d945a4c1ee721872f73add67",
+    "COSIGN_RELEASE_URL=https://github.com/sigstore/cosign/releases/tag/v3.1.2",
+    "COSIGN_SOURCE_URL=https://github.com/sigstore/cosign/archive/193d2153431f8bb0d945a4c1ee721872f73add67.tar.gz",
+    "COSIGN_SOURCE_SHA256=566154a32bd9fb05b6893a4bf5fac57c3c92b5be36d5d177b5e3cc91e1dfa438",
+    "COSIGN_UPSTREAM_GO_MOD_SHA256=62ee3f278a7ee61f5a4b5aedd6af3291465ff45035267afc1224c04bd206a939",
+    "COSIGN_UPSTREAM_GO_SUM_SHA256=cfd81b60e95b440397f37e1db9cc0961fac72e32f7d3362dc4ed7432a6852f70",
+    "COSIGN_MATERIALIZED_GO_SUM_SHA256=e05fc44fa4275f87b4b6c3c1d35945abd96e1ef27bb739b255090b508a0a7528",
+    "COSIGN_MODULE_GRAPH_SHA256=6e7e69a8924042ea95a0f9ffc6956772581db453deb3512ddf7e844090e44547",
+    "COSIGN_BUILD_DATE=2026-07-17T14:32:20Z",
+    "GO_BUILDER_REFERENCE=golang:1.26.5-alpine3.24@sha256:0178a641fbb4858c5f1b48e34bdaabe0350a330a1b1149aabd498d0699ff5fb2",
+    "GO_VERSION=1.26.5",
+    "GOENV=off",
+    "GOWORK=off",
+    "GOTOOLCHAIN=local",
+    "GOPROXY=https://proxy.golang.org",
+    "GOSUMDB=sum.golang.org",
+    "GOPRIVATE=",
+    "GONOSUMDB=",
+    "GONOPROXY=",
+    "GOINSECURE=",
+    "COSIGN_BINARY_SHA256=7ba7d877672635f2d7e537ca3d20e751c088d86265c0f8bc6698d0084899c0af",
+    "COSIGN_CA_BUNDLE_SHA256=b8d837841b88bfaa1a0fa827cbca8e2576418dd47c9fc4bb7f1f9d89c83111b9",
+    "OFFICIAL_COSIGN_REFERENCE=ghcr.io/sigstore/cosign/cosign:v3.1.2@sha256:d91bc4e7e95e8d2f549c747a72dc174f90579e410a1695f57f686674f84ce849",
+)
+
+
+def validate_lock(path: Path) -> str:
+    metadata = path.lstat()
+    if stat.S_ISLNK(metadata.st_mode) or not stat.S_ISREG(metadata.st_mode):
+        raise RuntimeError("Cosign lock must be a regular non-symlink file")
+    document = path.read_bytes()
+    try:
+        text = document.decode("utf-8")
+    except UnicodeDecodeError as error:
+        raise RuntimeError("Cosign lock must be UTF-8") from error
+    if not text.endswith("\n") or tuple(text.splitlines()) != EXPECTED_LINES:
+        raise RuntimeError("Cosign lock differs from the reviewed supply-chain constants")
+    return hashlib.sha256(document).hexdigest()
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--lock", type=Path, required=True)
+    args = parser.parse_args()
+    print(validate_lock(args.lock))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

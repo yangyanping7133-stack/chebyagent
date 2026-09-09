@@ -1,0 +1,129 @@
+{
+  "contractVersion": "1.0",
+  "entities": {
+    "thread": {
+      "required": {
+        "id": "string",
+        "title": "string",
+        "preview": "string",
+        "createdAt": "timestamp",
+        "updatedAt": "timestamp",
+        "status": "string",
+        "lastTurnId": "nullable-string",
+        "unread": "boolean"
+      },
+      "enums": {
+        "status": ["idle", "running", "waitingUser", "waitingApproval", "failed", "archived"]
+      }
+    },
+    "event": {
+      "required": {
+        "v": "integer",
+        "eventId": "string",
+        "streamId": "string",
+        "seq": "integer",
+        "occurredAt": "timestamp",
+        "type": "string",
+        "threadId": "string",
+        "payload": "object"
+      },
+      "optional": {
+        "turnId": "string",
+        "itemId": "string"
+      },
+      "enums": {
+        "v": [1],
+        "type": [
+          "thread.snapshot",
+          "thread.updated",
+          "thread.deleted",
+          "turn.started",
+          "turn.completed",
+          "turn.failed",
+          "turn.interrupted",
+          "message.snapshot",
+          "message.patch",
+          "approval.requested",
+          "approval.resolved",
+          "approval.expired",
+          "asset.unavailable",
+          "sync.required",
+          "error",
+          "audit.action"
+        ]
+      }
+    },
+    "richMessage": {
+      "required": {
+        "schema": "string",
+        "messageId": "string",
+        "threadId": "string",
+        "turnId": "string",
+        "sourceItemId": "string",
+        "role": "string",
+        "state": "string",
+        "revision": "integer",
+        "rootBlockIds": "array",
+        "blocks": "object",
+        "fallback": "object",
+        "createdAt": "timestamp",
+        "updatedAt": "timestamp"
+      },
+      "enums": {
+        "schema": ["cheby.rich-message/1.0"],
+        "role": ["assistant", "user"],
+        "state": ["queued", "streaming", "waitingInput", "completed", "failed", "interrupted", "cancelled"]
+      }
+    },
+    "patch": {
+      "required": {
+        "messageId": "string",
+        "baseRevision": "integer",
+        "nextRevision": "integer",
+        "ops": "array"
+      },
+      "enums": {}
+    },
+    "approval": {
+      "required": {
+        "approvalId": "string",
+        "threadId": "string",
+        "turnId": "string",
+        "itemId": "string",
+        "kind": "string",
+        "summary": "string",
+        "reason": "string",
+        "decisions": "array",
+        "state": "string",
+        "expiresAt": "timestamp"
+      },
+      "enums": {
+        "kind": ["command", "fileChange"],
+        "state": ["pending", "approved", "rejected", "expired", "cancelled"]
+      }
+    }
+  },
+  "enums": {
+    "patchOps": [
+      "block.put",
+      "block.merge",
+      "block.text.append",
+      "block.terminal.append",
+      "block.remove",
+      "root.set",
+      "message.state.set",
+      "action.resolve"
+    ],
+    "approvalDecisions": ["approve", "reject"],
+    "tone": ["neutral", "info", "success", "warning", "danger"],
+    "stepState": ["pending", "running", "completed", "failed"],
+    "nativeBlockTypes": ["text", "status", "steps", "metrics", "facts", "media", "source", "relay", "notice", "actions"],
+    "fallbackBlockTypes": ["table", "code", "terminal", "diff", "file", "tool", "test", "form", "chart", "location", "extension"]
+  },
+  "limits": {
+    "maxBlocks": 128,
+    "maxRootBlocks": 64,
+    "maxPatchOps": 64,
+    "maxTextLength": 65536
+  }
+}

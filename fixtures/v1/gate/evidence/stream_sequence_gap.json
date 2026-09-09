@@ -1,0 +1,45 @@
+{
+  "actual": {
+    "approvalStates": {},
+    "lastAppliedSeq": 1,
+    "messageRevisions": {},
+    "mutationPaused": true,
+    "signals": {
+      "event_applied": 1,
+      "gap_detected": 1,
+      "replay_requested": 1
+    },
+    "streamId": "stream_device_alpha"
+  },
+  "caseId": "stream.sequence-gap",
+  "expected": {
+    "lastAppliedSeq": 1,
+    "mutationPaused": true,
+    "signals": {
+      "event_applied": 1,
+      "gap_detected": 1,
+      "replay_requested": 1
+    }
+  },
+  "fixture": "fixtures/v1/event_streams/gap.json",
+  "mismatches": [],
+  "status": "PASS",
+  "trace": [
+    {
+      "eventId": "evt_gap_01",
+      "seq": 1,
+      "signal": "event_applied",
+      "type": "turn.started"
+    },
+    {
+      "expectedSeq": 2,
+      "receivedSeq": 3,
+      "signal": "gap_detected"
+    },
+    {
+      "afterSeq": 1,
+      "signal": "replay_requested"
+    }
+  ],
+  "validationErrors": []
+}

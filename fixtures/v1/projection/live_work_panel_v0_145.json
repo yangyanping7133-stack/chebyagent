@@ -1,0 +1,72 @@
+{
+  "caseId": "projection.live-work-panel.v0.145",
+  "description": "Synthetic Codex 0.145 thread/read shape for a general multi-message Turn.",
+  "thread": {
+    "id": "019c0011-0011-7000-8000-000000000001",
+    "name": "General task",
+    "status": {"type": "idle"},
+    "createdAt": 1784419200,
+    "updatedAt": 1784419208,
+    "turns": [
+      {
+        "id": "019c0011-0011-7000-8000-000000000002",
+        "status": "completed",
+        "startedAt": 1784419201,
+        "completedAt": 1784419208,
+        "items": [
+          {
+            "id": "019c0011-0011-7000-8000-000000000003",
+            "type": "userMessage",
+            "content": [{"type": "text", "text": "Inspect the result."}]
+          },
+          {
+            "id": "019c0011-0011-7000-8000-000000000004",
+            "type": "userMessage",
+            "content": [{"type": "text", "text": "Keep the summary concise."}]
+          },
+          {
+            "id": "019c0011-0011-7000-8000-000000000005",
+            "type": "agentMessage",
+            "text": "I am checking the available evidence.",
+            "phase": "commentary"
+          },
+          {
+            "id": "019c0011-0011-7000-8000-000000000006",
+            "type": "commandExecution",
+            "command": "run verification",
+            "commandActions": [],
+            "cwd": "/workspace/sample",
+            "status": "completed",
+            "durationMs": 240,
+            "exitCode": 0
+          },
+          {
+            "id": "019c0011-0011-7000-8000-000000000007",
+            "type": "fileChange",
+            "changes": [
+              {"path": "/workspace/sample/module.txt", "kind": {"type": "update"}}
+            ],
+            "status": "completed"
+          },
+          {
+            "id": "019c0011-0011-7000-8000-000000000008",
+            "type": "agentMessage",
+            "text": "Verification completed successfully.",
+            "phase": "final_answer"
+          }
+        ]
+      }
+    ]
+  },
+  "expected": {
+    "roles": ["user", "user", "assistant"],
+    "assistantRootBlockIds": ["status", "activity", "metrics", "answer"],
+    "activity": "I am checking the available evidence.\n\nCommand finished with exit code 0.\n\nFile changes completed (1).",
+    "answer": "Verification completed successfully.",
+    "metrics": {
+      "Updates": "2",
+      "Commands": "1",
+      "File changes": "1"
+    }
+  }
+}

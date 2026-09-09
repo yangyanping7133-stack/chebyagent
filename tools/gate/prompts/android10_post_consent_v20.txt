@@ -1,0 +1,8 @@
+只通过 phonebridge 完成 Android 10 截图授权结果验证和 ChebyCodex V20 只读验收。禁止输入、发送、新建、删除、重命名或切换任何会话。
+
+1. 先调用 android_capture_screenshot。截图成功（有 artifact path、sha256、宽高、字节数）就是 MediaProjection 授权成功的唯一确认。若仍出现系统授权页，只能在重新读取 UI 树并精确匹配包名 com.android.systemui、标题“是否允许“ChebyNode”录制/投射您的屏幕”、button1 文本“允许”、button2 文本“禁止”后，点击 button1 实时合法 bounds 中心一次，再重试截图一次。其他情况停止。
+2. 调用 android_press_home 和 android_ui_tree。屏幕区域 x=0..720、y=65..1604。枚举“ChebyCodex”节点；若唯一候选在下一桌面页，最多执行一次从 (600,700) 到 (120,700) 的屏内左滑并重新读树。只点击重新读取后 left<right、top<bottom 且位于屏内的候选实时中心一次，确认进入 com.cheby.codex.mobile。
+3. 只读检查 UI。若 V20 不在视口，最多执行6次屏内垂直滑动，每次重新读取 UI 树，不得点击会话或输入框。去重确认包含 CHEBY_V20_HI_20260807_195628 的用户消息恰好1条、CHEBY_V20_HI_OK 回答恰好1条、pending 为空、composer 为空、send_message.enabled=false。
+4. 调用 android_capture_screenshot 一次，记录 artifact path、sha256、宽高、字节数；随后再读 UI 树确认计数不变。
+
+任一步不满足立即停止，不猜坐标。只输出 PASS/FAIL、授权验证截图证据、ChebyCodex 候选及最终 bounds/中心、最终截图证据、V20 用户/回答/pending 计数。

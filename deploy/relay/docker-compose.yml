@@ -1,0 +1,74 @@
+name: chebycodex-relay
+
+services:
+  relay:
+    platform: linux/amd64
+    image: ${CHEBY_RELAY_IMAGE:?set the reviewed immutable Relay image ID}
+    pull_policy: never
+    restart: unless-stopped
+    init: true
+    read_only: true
+    user: "10001:10001"
+    environment:
+      CHEBY_RELAY_DB_PATH: /data/relay.sqlite3
+      CHEBY_RELAY_ALLOWED_HOSTS: ${CHEBY_RELAY_HOST:?set the exact public Relay host},localhost,127.0.0.1
+      CHEBY_RELAY_TRUSTED_PROXY_CIDRS: ${CHEBY_RELAY_TRUSTED_PROXY_CIDRS:?set only the exact immediate TLS proxy CIDR seen by Relay}
+      CHEBY_RELAY_CLIENT_IP_HEADER: ${CHEBY_RELAY_CLIENT_IP_HEADER:-x-relay-client-ip}
+    ports:
+      - "127.0.0.1:${CHEBY_RELAY_LOOPBACK_PORT:-18080}:8080/tcp"
+    volumes:
+      - type: bind
+        source: ${CHEBY_RELAY_DATA_DIR:?set the private persistent Relay data directory}
+        target: /data
+        read_only: false
+        bind:
+          create_host_path: false
+    tmpfs:
+      - /tmp:size=32m,uid=10001,gid=10001,mode=0700
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 256
+    mem_limit: ${CHEBY_RELAY_MEMORY:-1g}
+    cpus: ${CHEBY_RELAY_CPUS:-1.0}
+    stop_grace_period: 30s
+
+  relay-admin:
+    profiles: ["admin"]
+    platform: linux/amd64
+    image: ${CHEBY_RELAY_IMAGE:?set the reviewed immutable Relay image ID}
+    pull_policy: never
+    init: true
+    read_only: true
+    user: "10001:10001"
+    entrypoint: ["python", "-m", "cheby_relay.admin"]
+    command: ["--help"]
+    healthcheck:
+      disable: true
+    environment:
+      CHEBY_RELAY_DB_PATH: /data/relay.sqlite3
+      CHEBY_RELAY_ALLOWED_HOSTS: localhost
+    network_mode: none
+    volumes:
+      - type: bind
+        source: ${CHEBY_RELAY_DATA_DIR:?set the private persistent Relay data directory}
+        target: /data
+        read_only: false
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ${CHEBY_RELAY_BOOTSTRAP_DIR:?set the private bootstrap output directory}
+        target: /bootstrap
+        read_only: false
+        bind:
+          create_host_path: false
+    tmpfs:
+      - /tmp:size=16m,uid=10001,gid=10001,mode=0700
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    pids_limit: 64
+    mem_limit: 256m
+    cpus: 0.25

@@ -1,0 +1,376 @@
+{
+  "caseId": "contract.validation-matrix",
+  "checks": [
+    {
+      "actual": "valid",
+      "checkId": "thread.valid",
+      "errors": [],
+      "expected": "valid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "thread.required.id",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "thread.required.title",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "thread.required.preview",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "thread.required.createdAt",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "thread.required.updatedAt",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "thread.required.status",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "thread.required.lastTurnId",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "thread.required.unread",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "thread.enum.status",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "valid",
+      "checkId": "event.valid",
+      "errors": [],
+      "expected": "valid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "event.required.v",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "event.required.eventId",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "event.required.streamId",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "event.required.seq",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "event.required.occurredAt",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "event.required.type",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "event.required.threadId",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "event.required.payload",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "event.enum.v",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "event.enum.type",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "valid",
+      "checkId": "richMessage.valid",
+      "errors": [],
+      "expected": "valid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "richMessage.required.schema",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "richMessage.required.messageId",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "richMessage.required.threadId",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "richMessage.required.turnId",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "richMessage.required.sourceItemId",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "richMessage.required.role",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "richMessage.required.state",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "richMessage.required.revision",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "richMessage.required.rootBlockIds",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "richMessage.required.blocks",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "richMessage.required.fallback",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "richMessage.required.createdAt",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "richMessage.required.updatedAt",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "richMessage.enum.schema",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "richMessage.enum.role",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "richMessage.enum.state",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "valid",
+      "checkId": "patch.valid",
+      "errors": [],
+      "expected": "valid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "patch.required.messageId",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "patch.required.baseRevision",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "patch.required.nextRevision",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "patch.required.ops",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "valid",
+      "checkId": "approval.valid",
+      "errors": [],
+      "expected": "valid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "approval.required.approvalId",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "approval.required.threadId",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "approval.required.turnId",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "approval.required.itemId",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "approval.required.kind",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "approval.required.summary",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "approval.required.reason",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "approval.required.decisions",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "approval.required.state",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "approval.required.expiresAt",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "approval.enum.kind",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "approval.enum.state",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "patch.enum.op",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "approval.enum.decision",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "richMessage.enum.tone",
+      "expected": "invalid",
+      "status": "PASS"
+    },
+    {
+      "actual": "invalid",
+      "checkId": "richMessage.enum.stepState",
+      "expected": "invalid",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS",
+  "summary": {
+    "failed": 0,
+    "passed": 60,
+    "total": 60
+  }
+}

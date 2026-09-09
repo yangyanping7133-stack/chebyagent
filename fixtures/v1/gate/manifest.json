@@ -1,0 +1,82 @@
+{
+  "cases": [
+    {
+      "caseId": "contract.validation-matrix",
+      "evidencePath": "fixtures/v1/gate/evidence/contract_validation_matrix.json",
+      "status": "PASS"
+    },
+    {
+      "caseId": "scenario.data-research",
+      "evidencePath": "fixtures/v1/gate/evidence/scenario_data_research.json",
+      "status": "PASS"
+    },
+    {
+      "caseId": "scenario.general-assistance",
+      "evidencePath": "fixtures/v1/gate/evidence/scenario_general_assistance.json",
+      "status": "PASS"
+    },
+    {
+      "caseId": "scenario.software-delivery",
+      "evidencePath": "fixtures/v1/gate/evidence/scenario_software_delivery.json",
+      "status": "PASS"
+    },
+    {
+      "caseId": "stream.duplicate-event",
+      "evidencePath": "fixtures/v1/gate/evidence/stream_duplicate_event.json",
+      "status": "PASS"
+    },
+    {
+      "caseId": "stream.expired-approval",
+      "evidencePath": "fixtures/v1/gate/evidence/stream_expired_approval.json",
+      "status": "PASS"
+    },
+    {
+      "caseId": "stream.sequence-gap",
+      "evidencePath": "fixtures/v1/gate/evidence/stream_sequence_gap.json",
+      "status": "PASS"
+    },
+    {
+      "caseId": "stream.missing-media",
+      "evidencePath": "fixtures/v1/gate/evidence/stream_missing_media.json",
+      "status": "PASS"
+    },
+    {
+      "caseId": "stream.non-retryable-error",
+      "evidencePath": "fixtures/v1/gate/evidence/stream_non_retryable_error.json",
+      "status": "PASS"
+    },
+    {
+      "caseId": "stream.out-of-order-replay",
+      "evidencePath": "fixtures/v1/gate/evidence/stream_out_of_order_replay.json",
+      "status": "PASS"
+    },
+    {
+      "caseId": "stream.reconnect-resume",
+      "evidencePath": "fixtures/v1/gate/evidence/stream_reconnect_resume.json",
+      "status": "PASS"
+    },
+    {
+      "caseId": "stream.revision-conflict",
+      "evidencePath": "fixtures/v1/gate/evidence/stream_revision_conflict.json",
+      "status": "PASS"
+    },
+    {
+      "caseId": "stream.identity-change",
+      "evidencePath": "fixtures/v1/gate/evidence/stream_identity_change.json",
+      "status": "PASS"
+    },
+    {
+      "caseId": "stream.unknown-block",
+      "evidencePath": "fixtures/v1/gate/evidence/stream_unknown_block.json",
+      "status": "PASS"
+    }
+  ],
+  "contractVersion": "1.0",
+  "gate": "chebycodex.protocol-v1",
+  "status": "PASS",
+  "summary": {
+    "failed": 0,
+    "passed": 14,
+    "total": 14
+  }
+}

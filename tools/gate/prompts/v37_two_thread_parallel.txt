@@ -1,0 +1,17 @@
+只通过 phonebridge 在生产 ChebyCodex 中完成两个真实 Thread 的并行与产物隔离验收。禁止删除、归档或重命名任何会话；每条消息只能输入一次、发送一次，任何歧义立即停止。
+
+消息 A 精确为：
+`并行验收 A，业务标识 CHEBY_PAR_A_20260807_134500。请使用 shell 在 /workspace/.cheby/acceptance 中执行一个 60 秒的有界等待，然后以原子替换方式创建文件 parallel-a-20260807-134500.txt，文件精确内容为 CHEBY_PAR_A_OK，最后只回复 CHEBY_PAR_A_OK。`
+
+消息 B 精确为：
+`并行验收 B，业务标识 CHEBY_PAR_B_20260807_134500。请使用 shell 在 /workspace/.cheby/acceptance 中以原子替换方式创建文件 parallel-b-20260807-134500.txt，文件精确内容为 CHEBY_PAR_B_OK，最后只回复 CHEBY_PAR_B_OK。`
+
+1. 读 UI，要求 com.cheby.codex.mobile、服务已连接、当前无 pending、composer 为空。点击 fresh UI 中 view_id=new_thread 的合法可点击父节点中心一次，确认进入新的“新会话”且 composer enabled。
+2. 点击 fresh message_composer 中心，输入消息 A 精确文本，重读证明全文存在且 send_message.enabled=true；点击 fresh send_message 中心一次。重读证明 A 用户消息恰好1条，处于已发送/处理中，而不是失败或待同步。
+3. 不等待 A 回答，立刻点击 fresh view_id=new_thread 中心一次；确认进入另一个新的“新会话”。按同样步骤输入并发送消息 B 恰好一次。
+4. 观察当前 B 会话，直到 B 用户消息恰好1条、回答 CHEBY_PAR_B_OK 恰好1条、pending=0；不得自动重发。
+5. 打开会话列表，找到预览或卡片文本包含 CHEBY_PAR_A_20260807_134500 的唯一 A 会话并点击；观察直到 A 用户消息恰好1条、回答 CHEBY_PAR_A_OK 恰好1条、pending=0。
+6. 再打开列表，找到包含 CHEBY_PAR_B_20260807_134500 的唯一 B 会话，确认 A 标识/回复不在 B；回到 A 时确认 B 标识/回复不在 A。每个会话最多等待/滑动40次，每次都重新读取 UI 树。
+7. 在 B 会话调用 android_capture_screenshot 一次，记录 artifact path、sha256、宽高、字节数。
+
+只输出 PASS/FAIL、A/B 卡片与 Thread 标题证据、两条消息各自的唯一用户/回答/pending 计数、交叉污染计数、发送动作次数、截图证据。没有完整终态就 FAIL。

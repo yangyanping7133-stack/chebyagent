@@ -1,0 +1,10 @@
+只通过 phonebridge 验收 ChebyCodex 0.4.4 的单实例重开、在线恢复和既有 V20。禁止输入、发送、新建、删除、归档、重命名任何会话。
+
+1. 调用 android_press_home 和 android_ui_tree。屏幕有效区域 x=0..720、y=65..1604。寻找文本精确为“ChebyCodex”的合法屏内候选；若只在下一桌面页，最多执行一次从 (600,700) 到 (120,700) 的左滑并重新读树。点击实时合法候选中心一次，确认进入 com.cheby.codex.mobile。
+2. 最多重读 UI 树10次，直到连接状态“服务已连接”出现；不得以“暂时离线”通过。
+3. 再调用 android_press_home，重新读取桌面树并按步骤1重新定位 ChebyCodex；不得沿用旧坐标。再次点击实时合法中心一次。确认仍进入 com.cheby.codex.mobile 且“服务已连接”。
+4. 若当前为“选择一个会话”，点击 fresh UI 树中的“打开会话列表”可点击父节点中心并重读。枚举会话卡片，只选择标题精确“新会话”且预览精确“hi”的唯一候选；若不在视口，最多在列表内垂直滑动6次，每次重读。候选不唯一就停止。点击候选实时合法中心一次。
+5. 确认标题“新会话”和“服务已连接”。若 V20 不在视口，最多在会话内容内垂直滑动6次，每次重读。按 package/class/text/content_description/view_id/bounds 去重，确认包含 CHEBY_V20_HI_20260807_195628 的用户节点恰好1个，包含 CHEBY_V20_HI_OK 的回答节点恰好1个；等待发送、发送中、处理中、等待上一条完成、状态待同步、失败等 pending 节点为空；composer 为空且 send_message.enabled=false。
+6. 调用 android_capture_screenshot 一次，记录 artifact path、sha256、宽高、字节数；再读一次 UI，确认计数不变。
+
+任一步不满足立即停止，不猜坐标。只输出 PASS/FAIL、两次桌面候选 bounds/中心、两次连接状态、会话候选标题/预览/bounds、V20 用户/回答/pending 计数、截图证据。

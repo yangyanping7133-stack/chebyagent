@@ -1,0 +1,40 @@
+{
+  "caseId": "stream.expired-approval",
+  "description": "An approval decision after expiresAt is rejected and cannot cause a side effect.",
+  "initialState": {"streamId": "stream_device_alpha", "lastAppliedSeq": 0, "messages": {}, "approvals": {}},
+  "events": [
+    {
+      "v": 1,
+      "eventId": "evt_approval_01",
+      "streamId": "stream_device_alpha",
+      "seq": 1,
+      "occurredAt": "2026-07-19T11:50:00Z",
+      "type": "approval.requested",
+      "threadId": "thr_stream_demo",
+      "turnId": "turn_approval_01",
+      "itemId": "item_approval_01",
+      "payload": {
+        "approvalId": "approval_expired_01",
+        "threadId": "thr_stream_demo",
+        "turnId": "turn_approval_01",
+        "itemId": "item_approval_01",
+        "kind": "command",
+        "summary": "Publish the prepared result",
+        "reason": "Publishing changes external state.",
+        "decisions": ["approve", "reject"],
+        "state": "pending",
+        "expiresAt": "2026-07-19T11:51:00Z"
+      }
+    }
+  ],
+  "action": {
+    "approvalId": "approval_expired_01",
+    "decision": "approve",
+    "at": "2026-07-19T11:52:00Z"
+  },
+  "expected": {
+    "lastAppliedSeq": 1,
+    "approvalStates": {"approval_expired_01": "expired"},
+    "signals": {"event_applied": 1, "approval_expired_rejected": 1}
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "caseId": "stream.revision-conflict",
+  "description": "A patch with a stale baseRevision does not mutate the message and requests a snapshot.",
+  "initialState": {
+    "lastAppliedSeq": 0,
+    "streamId": "stream_device_alpha",
+    "messages": {"msg_revision_01": {"revision": 2}},
+    "approvals": {}
+  },
+  "events": [
+    {
+      "v": 1,
+      "eventId": "evt_revision_01",
+      "streamId": "stream_device_alpha",
+      "seq": 1,
+      "occurredAt": "2026-07-19T11:30:01Z",
+      "type": "message.patch",
+      "threadId": "thr_stream_demo",
+      "turnId": "turn_revision_01",
+      "itemId": "item_revision_01",
+      "payload": {
+        "messageId": "msg_revision_01",
+        "baseRevision": 1,
+        "nextRevision": 2,
+        "ops": [
+          {"op": "message.state.set", "value": "completed"}
+        ]
+      }
+    }
+  ],
+  "expected": {
+    "lastAppliedSeq": 1,
+    "messageRevisions": {"msg_revision_01": 2},
+    "signals": {"event_applied": 1, "revision_conflict": 1, "snapshot_requested": 1}
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "v": 1,
+  "eventId": "evt_wire_approval_expired",
+  "streamId": "stream_wire_android",
+  "seq": 3,
+  "occurredAt": "2026-07-19T12:05:00Z",
+  "type": "approval.expired",
+  "threadId": "thr_wire_01",
+  "turnId": "turn_wire_01",
+  "itemId": "item_wire_01",
+  "payload": {
+    "approvalId": "approval_wire_01"
+  }
+}

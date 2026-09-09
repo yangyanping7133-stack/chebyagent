@@ -1,0 +1,28 @@
+[Unit]
+Description=Renew and atomically reload the ChebyCodex IP certificate
+After=docker.service network-online.target
+Wants=network-online.target
+Requires=docker.service
+OnFailure=chebycodex-cert-alert@%n.service
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+WorkingDirectory=/opt/chebycodex
+EnvironmentFile=/etc/chebycodex/turkey.env
+UnsetEnvironment=DOCKER_HOST DOCKER_CONTEXT CHEBY_RUNTIME_IMAGE CHEBY_EDGE_IMAGE
+ExecStartPre=/usr/bin/python3 /opt/chebycodex/tools/release/validate_turkey_host_trust.py --repository-root /opt/chebycodex --environment-file /etc/chebycodex/turkey.env --release-manifest /etc/chebycodex/release-manifest.json --require-production-root --require-docker-socket
+ExecStart=/opt/chebycodex/tools/release/renew_ip_certificate.sh
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/opt/chebycodex/deploy/turkey/generated
+ProtectHome=read-only
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectKernelLogs=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+LockPersonality=true
+TimeoutStartSec=20min

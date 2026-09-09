@@ -1,0 +1,178 @@
+worker_processes auto;
+worker_rlimit_nofile 2048;
+pid /tmp/nginx.pid;
+error_log /dev/stderr warn;
+
+events {
+    worker_connections 1024;
+    multi_accept off;
+}
+
+http {
+    access_log off;
+    server_tokens off;
+
+    client_header_timeout 10s;
+    client_body_timeout 15s;
+    client_header_buffer_size 1k;
+    large_client_header_buffers 2 8k;
+    client_body_buffer_size 16k;
+    client_max_body_size 16k;
+    keepalive_timeout 15s;
+    keepalive_requests 100;
+    send_timeout 60s;
+    lingering_timeout 5s;
+    reset_timedout_connection on;
+
+    client_body_temp_path /tmp/client_body;
+    proxy_temp_path /tmp/proxy;
+    fastcgi_temp_path /tmp/fastcgi;
+    uwsgi_temp_path /tmp/uwsgi;
+    scgi_temp_path /tmp/scgi;
+
+    limit_req_status 429;
+    limit_conn_status 429;
+    limit_req_log_level warn;
+    limit_conn_log_level warn;
+    limit_req_zone $binary_remote_addr zone=pair_source:10m rate=8r/m;
+    limit_req_zone $server_addr zone=pair_global:10m rate=80r/m;
+    limit_req_zone $binary_remote_addr zone=refresh_source:10m rate=20r/m;
+    limit_req_zone $server_addr zone=refresh_global:10m rate=200r/m;
+    limit_req_zone $binary_remote_addr zone=ws_source:10m rate=20r/m;
+    limit_req_zone $server_addr zone=ws_global:10m rate=200r/m;
+    limit_conn_zone $binary_remote_addr zone=ws_connection_source:10m;
+    limit_conn_zone $server_addr zone=ws_connection_global:10m;
+
+    upstream relay_backend {
+        server __CHEBY_RELAY_BACKEND_IP__:8080 max_fails=2 fail_timeout=10s;
+        keepalive 16;
+    }
+
+    # Container-local health only. This listener is never host-published.
+    server {
+        listen 8080 default_server;
+        server_name _;
+
+        location = /edge-health {
+            allow 127.0.0.1;
+            allow ::1;
+            deny all;
+            access_log off;
+            return 204;
+        }
+
+        location / {
+            return 404;
+        }
+    }
+
+    server {
+        listen 8443 ssl default_server;
+        server_name __CHEBY_PUBLIC_IP__;
+
+        if ($http_host != "__CHEBY_PUBLIC_AUTHORITY__") {
+            return 421;
+        }
+        if ($is_args != "") {
+            return 400;
+        }
+        if ($http_origin != "") {
+            return 403;
+        }
+        # The Edge is the only trusted proxy. Reject caller-supplied forwarding
+        # metadata instead of merely overwriting it so spoof attempts fail closed.
+        if ($http_forwarded != "") {
+            return 400;
+        }
+        if ($http_x_forwarded_for != "") {
+            return 400;
+        }
+        if ($http_x_forwarded_host != "") {
+            return 400;
+        }
+        if ($http_x_forwarded_port != "") {
+            return 400;
+        }
+        if ($http_x_forwarded_proto != "") {
+            return 400;
+        }
+        if ($http_x_real_ip != "") {
+            return 400;
+        }
+        if ($http_cf_connecting_ip != "") {
+            return 400;
+        }
+        if ($http_x_relay_client_ip != "") {
+            return 400;
+        }
+
+        ssl_certificate /tls/current/fullchain.pem;
+        ssl_certificate_key /tls/current/privkey.pem;
+        ssl_protocols TLSv1.2 TLSv1.3;
+        ssl_session_cache shared:TLS:10m;
+        ssl_session_timeout 10m;
+        ssl_session_tickets off;
+
+        add_header Cache-Control "no-store" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header X-Frame-Options "DENY" always;
+        add_header Referrer-Policy "no-referrer" always;
+
+        error_page 429 = @edge_rate_limited;
+        location @edge_rate_limited {
+            default_type application/json;
+            add_header Cache-Control "no-store" always;
+            add_header Retry-After "60" always;
+            return 429 '{"code":"EDGE_RATE_LIMITED","message":"Too many requests","retryable":true}';
+        }
+
+        location = /healthz {
+            if ($request_method != GET) {
+                return 405;
+            }
+            include /etc/nginx/includes/proxy-http.conf;
+        }
+
+        location = /relay/v1/pairings/exchange {
+            if ($request_method != POST) {
+                return 405;
+            }
+            client_max_body_size 16k;
+            limit_req zone=pair_source burst=2 nodelay;
+            limit_req zone=pair_global burst=10 nodelay;
+            include /etc/nginx/includes/proxy-http.conf;
+        }
+
+        location = /relay/v1/auth/refresh {
+            if ($request_method != POST) {
+                return 405;
+            }
+            client_max_body_size 4k;
+            limit_req zone=refresh_source burst=5 nodelay;
+            limit_req zone=refresh_global burst=20 nodelay;
+            include /etc/nginx/includes/proxy-http.conf;
+        }
+
+        location = /relay/v1/device {
+            if ($request_method != GET) {
+                return 405;
+            }
+            if ($http_upgrade != "websocket") {
+                return 426;
+            }
+            limit_req zone=ws_source burst=4 nodelay;
+            limit_req zone=ws_global burst=20 nodelay;
+            limit_conn ws_connection_source 2;
+            limit_conn ws_connection_global 20;
+            include /etc/nginx/includes/proxy-websocket.conf;
+        }
+
+        location = /relay/v1/node {
+            return 404;
+        }
+
+        location / {
+            return 404;
+        }
+    }
+}

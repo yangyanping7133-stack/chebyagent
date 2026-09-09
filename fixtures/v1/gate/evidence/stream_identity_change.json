@@ -1,0 +1,43 @@
+{
+  "actual": {
+    "approvalStates": {},
+    "lastAppliedSeq": 12,
+    "messageRevisions": {
+      "msg_previous_stream": 3
+    },
+    "mutationPaused": true,
+    "signals": {
+      "snapshot_requested": 1,
+      "stream_changed": 1,
+      "sync_required": 1
+    },
+    "streamId": "stream_device_alpha"
+  },
+  "caseId": "stream.identity-change",
+  "expected": {
+    "lastAppliedSeq": 12,
+    "mutationPaused": true,
+    "signals": {
+      "snapshot_requested": 1,
+      "stream_changed": 1,
+      "sync_required": 1
+    },
+    "streamId": "stream_device_alpha"
+  },
+  "fixture": "fixtures/v1/event_streams/stream_change.json",
+  "mismatches": [],
+  "status": "PASS",
+  "trace": [
+    {
+      "eventId": "evt_new_stream_01",
+      "signal": "stream_changed"
+    },
+    {
+      "signal": "sync_required"
+    },
+    {
+      "signal": "snapshot_requested"
+    }
+  ],
+  "validationErrors": []
+}

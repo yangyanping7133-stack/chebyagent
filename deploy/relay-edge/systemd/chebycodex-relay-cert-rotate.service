@@ -1,0 +1,24 @@
+[Unit]
+Description=Check for an offline-signed ChebyCodex Relay leaf candidate
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+UMask=0077
+EnvironmentFile=/etc/chebycodex-relay-edge/relay-edge.env
+WorkingDirectory=/opt/chebycodex-mobile/deploy/relay-edge
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+ReadWritePaths=/run/lock
+TimeoutStartSec=20min
+ExecStart=/usr/bin/flock --exclusive --timeout 900 /run/lock/chebycodex-relay-cert.lock /opt/chebycodex-mobile/deploy/relay-edge/rotate_certificate.sh

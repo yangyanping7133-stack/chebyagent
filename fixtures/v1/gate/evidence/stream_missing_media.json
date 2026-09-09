@@ -1,0 +1,37 @@
+{
+  "actual": {
+    "approvalStates": {},
+    "lastAppliedSeq": 1,
+    "messageRevisions": {},
+    "mutationPaused": false,
+    "signals": {
+      "asset_fallback": 1,
+      "event_applied": 1
+    },
+    "streamId": "stream_device_alpha"
+  },
+  "caseId": "stream.missing-media",
+  "expected": {
+    "lastAppliedSeq": 1,
+    "signals": {
+      "asset_fallback": 1,
+      "event_applied": 1
+    }
+  },
+  "fixture": "fixtures/v1/event_streams/missing_media.json",
+  "mismatches": [],
+  "status": "PASS",
+  "trace": [
+    {
+      "eventId": "evt_media_01",
+      "seq": 1,
+      "signal": "event_applied",
+      "type": "asset.unavailable"
+    },
+    {
+      "assetId": "asset_preview_missing",
+      "signal": "asset_fallback"
+    }
+  ],
+  "validationErrors": []
+}

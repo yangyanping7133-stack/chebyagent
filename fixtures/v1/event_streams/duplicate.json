@@ -1,0 +1,42 @@
+{
+  "caseId": "stream.duplicate-event",
+  "description": "A repeated eventId is suppressed without advancing the cursor twice.",
+  "initialState": {"streamId": "stream_device_alpha", "lastAppliedSeq": 0, "messages": {}, "approvals": {}},
+  "events": [
+    {
+      "v": 1,
+      "eventId": "evt_duplicate_01",
+      "streamId": "stream_device_alpha",
+      "seq": 1,
+      "occurredAt": "2026-07-19T11:00:00Z",
+      "type": "thread.updated",
+      "threadId": "thr_stream_demo",
+      "payload": {"status": "running"}
+    },
+    {
+      "v": 1,
+      "eventId": "evt_duplicate_01",
+      "streamId": "stream_device_alpha",
+      "seq": 1,
+      "occurredAt": "2026-07-19T11:00:00Z",
+      "type": "thread.updated",
+      "threadId": "thr_stream_demo",
+      "payload": {"status": "running"}
+    },
+    {
+      "v": 1,
+      "eventId": "evt_duplicate_02",
+      "streamId": "stream_device_alpha",
+      "seq": 2,
+      "occurredAt": "2026-07-19T11:00:01Z",
+      "type": "turn.started",
+      "threadId": "thr_stream_demo",
+      "turnId": "turn_stream_01",
+      "payload": {}
+    }
+  ],
+  "expected": {
+    "lastAppliedSeq": 2,
+    "signals": {"event_applied": 2, "duplicate_suppressed": 1}
+  }
+}

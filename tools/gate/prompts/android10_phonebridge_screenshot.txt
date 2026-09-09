@@ -1,0 +1,11 @@
+只通过 phonebridge 完成 ChebyNode Android 10 截图授权与 ChebyCodex V20 只读验收。禁止输入、发送、新建、删除、重命名或切换任何会话。
+
+屏幕有效区域为 x=0..720、y=65..1604。任何点击都必须基于刚刚读取到的、位于屏内且 left<right、top<bottom 的实时 bounds，禁止沿用旧坐标。
+
+1. 先调用 android_press_home，再调用 android_ui_tree。枚举文本精确为“ChebyNode”的全部节点。若唯一候选位于下一桌面页（其 left>=720 或父 workspace 的 left>=720），允许仅执行一次屏内水平左滑：从 (600,700) 到 (120,700)，随后必须重新读取 UI 树。只能选择此时 bounds 合法且屏内可见的 ChebyNode 节点或其最近的合法可点击父节点，点击实时中心一次；确认当前包名为 com.chebysight.chebyagent.phonenode。
+2. 调用 android_capture_screenshot 一次。若返回 Android 10 screenshot permission required，则读取 UI 树。仅当包名为 com.android.systemui、标题明确为“是否允许“ChebyNode”录制/投射您的屏幕”、同时存在唯一“禁止”和唯一“允许”按钮时，点击“允许”的实时合法 bounds 中心一次，并确认结构化 allowed=true。若截图直接成功，则记录结果且不得寻找或点击授权按钮。
+3. 调用 android_press_home，再读 UI 树。对文本精确为“ChebyCodex”的节点重复第1步的下一桌面页判断与最多一次水平左滑。只点击重新读取后合法屏内候选的实时中心一次；确认当前包名为 com.cheby.codex.mobile。
+4. 只读检查 UI。若 V20 记录不在当前视口，可使用屏内垂直滑动并每次重新读树，最多6次；不得点击会话或输入框。去重确认包含标识 CHEBY_V20_HI_20260807_195628 的用户消息恰好1条、CHEBY_V20_HI_OK 回答恰好1条、pending 为空、composer 为空、send_message.enabled=false。
+5. 只调用 android_capture_screenshot 一次，记录 artifact path、sha256、宽高和字节数；再读 UI 树确认上述计数不变。
+
+任一步不满足立即停止。只输出 PASS/FAIL、每次桌面候选与最终两个图标 bounds/中心、首次截图结果、系统标题与授权按钮 bounds/中心/allowed、第二次截图 artifact path/sha256/尺寸/字节数、V20 用户/回答/pending 计数。

@@ -1,0 +1,144 @@
+{
+  "deviceReady": {
+    "v": 1,
+    "type": "ready",
+    "assistantId": "asst_0000000000000000000000",
+    "principalId": "dev_0000000000000000000000",
+    "role": "device",
+    "ackCursor": 0,
+    "nextDeliverySeq": 1,
+    "nodeStatus": "offline"
+  },
+  "nodeReady": {
+    "v": 1,
+    "type": "ready",
+    "assistantId": "asst_0000000000000000000000",
+    "principalId": "node_0000000000000000000000",
+    "role": "node",
+    "ackCursor": 0,
+    "nextDeliverySeq": 1
+  },
+  "nodeOnline": {
+    "v": 1,
+    "type": "node.status",
+    "status": "online"
+  },
+  "command": {
+    "v": 1,
+    "type": "message",
+    "messageId": "msg_0000000000000000000000",
+    "payload": {
+      "kind": "command",
+      "requestId": "req_0000000000000000000000",
+      "deviceId": "dev_0000000000000000000000",
+      "operation": "threads.read",
+      "params": {
+        "threadId": "business-thread-1",
+        "messageLimit": 20
+      }
+    }
+  },
+  "accepted": {
+    "v": 1,
+    "type": "accepted",
+    "messageId": "msg_0000000000000000000000",
+    "deliverySeq": 1,
+    "duplicate": false,
+    "queued": false
+  },
+  "delivery": {
+    "v": 1,
+    "type": "delivery",
+    "deliverySeq": 1,
+    "messageId": "msg_0000000000000000000000",
+    "payload": {
+      "kind": "command",
+      "requestId": "req_0000000000000000000000",
+      "deviceId": "dev_0000000000000000000000",
+      "operation": "threads.read",
+      "params": {
+        "threadId": "business-thread-1",
+        "messageLimit": 20
+      }
+    }
+  },
+  "ack": {
+    "v": 1,
+    "type": "ack",
+    "deliverySeq": 1
+  },
+  "acknowledged": {
+    "v": 1,
+    "type": "acknowledged",
+    "deliverySeq": 1
+  },
+  "response": {
+    "v": 1,
+    "type": "message",
+    "messageId": "msg_1111111111111111111111",
+    "payload": {
+      "kind": "response",
+      "requestId": "req_0000000000000000000000",
+      "deviceId": "dev_0000000000000000000000",
+      "operation": "threads.read",
+      "ok": true,
+      "result": {}
+    }
+  },
+  "event": {
+    "v": 1,
+    "type": "message",
+    "messageId": "msg_2222222222222222222222",
+    "payload": {
+      "kind": "event",
+      "requestId": "req_1111111111111111111111",
+      "deviceId": "dev_0000000000000000000000",
+      "streamId": "business-stream-1",
+      "eventId": "event-0001",
+      "eventSeq": 18,
+      "eventType": "message.patch",
+      "threadId": "business-thread-1",
+      "data": {
+        "occurredAt": "2026-07-20T12:00:00Z",
+        "turnId": "business-turn-1",
+        "itemId": "business-item-1",
+        "payload": {}
+      }
+    }
+  },
+  "ping": {
+    "v": 1,
+    "type": "ping",
+    "nonce": "abcdefgh"
+  },
+  "pong": {
+    "v": 1,
+    "type": "pong",
+    "nonce": "abcdefgh"
+  },
+  "nodeOfflineError": {
+    "v": 1,
+    "type": "error",
+    "code": "NODE_OFFLINE",
+    "message": "The dedicated Node is offline",
+    "retryable": true
+  },
+  "deliveryExpiredResponse": {
+    "v": 1,
+    "type": "delivery",
+    "deliverySeq": 2,
+    "messageId": "msg_3333333333333333333333",
+    "payload": {
+      "kind": "response",
+      "requestId": "req_0000000000000000000000",
+      "deviceId": "dev_0000000000000000000000",
+      "operation": "turns.start",
+      "ok": false,
+      "error": {
+        "code": "DELIVERY_EXPIRED",
+        "message": "Command expired before Node delivery",
+        "retryable": true
+      }
+    }
+  }
+}

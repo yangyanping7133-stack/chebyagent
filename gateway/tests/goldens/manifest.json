@@ -1,0 +1,15 @@
+{
+  "wireVersion": "gateway-v0.1",
+  "cases": [
+    "approval_requested_event.json",
+    "approval_resolved_event.json",
+    "approval_expired_event.json",
+    "approval_decision_http.json",
+    "rate_limited_http.json",
+    "websocket_unauthorized.json",
+    "websocket_rate_limited.json",
+    "turn_accepted_http.json",
+    "turn_lifecycle_transcript.json",
+    "thread_recovery_snapshot.json"
+  ]
+}

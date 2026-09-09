@@ -1,0 +1,7 @@
+<resources>
+    <color name="cheby_bg">#F2F2F7</color>
+    <color name="cheby_text">#1C1C1E</color>
+    <color name="cheby_muted">#6E6E73</color>
+    <color name="cheby_primary">#007AFF</color>
+    <color name="chebynode_icon_background">#26343B</color>
+</resources>

@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["page", "heading", "packagePrice", "rows", "uncertainties"],
+  "properties": {
+    "page": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 10
+    },
+    "heading": {
+      "type": "string"
+    },
+    "packagePrice": {
+      "type": "string"
+    },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "sourceName",
+          "sourceDescription",
+          "serving",
+          "section",
+          "uncertain"
+        ],
+        "properties": {
+          "sourceName": {
+            "type": "string"
+          },
+          "sourceDescription": {
+            "type": "string"
+          },
+          "serving": {
+            "type": "string"
+          },
+          "section": {
+            "type": "string"
+          },
+          "uncertain": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "uncertainties": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

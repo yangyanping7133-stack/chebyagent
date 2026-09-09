@@ -1,0 +1,35 @@
+{
+  "submission": {
+    "id": "turn_wire_01",
+    "threadId": "thr_wire_01",
+    "status": "inProgress",
+    "clientMessageId": "client-message-wire-01",
+    "createdAt": "2026-07-19T12:00:00Z"
+  },
+  "events": [
+    {
+      "v": 1,
+      "eventId": "evt_wire_turn_started",
+      "streamId": "stream_wire_android",
+      "seq": 7,
+      "occurredAt": "2026-07-19T12:00:00Z",
+      "type": "turn.started",
+      "threadId": "thr_wire_01",
+      "turnId": "turn_wire_01",
+      "payload": {}
+    },
+    {
+      "v": 1,
+      "eventId": "evt_wire_turn_completed",
+      "streamId": "stream_wire_android",
+      "seq": 8,
+      "occurredAt": "2026-07-19T12:00:08Z",
+      "type": "turn.completed",
+      "threadId": "thr_wire_01",
+      "turnId": "turn_wire_01",
+      "payload": {
+        "status": "completed"
+      }
+    }
+  ]
+}

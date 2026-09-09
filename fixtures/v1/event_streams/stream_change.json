@@ -1,0 +1,28 @@
+{
+  "caseId": "stream.identity-change",
+  "description": "A changed streamId invalidates the old cursor and requires a full snapshot before mutation resumes.",
+  "initialState": {
+    "streamId": "stream_device_alpha",
+    "lastAppliedSeq": 12,
+    "messages": {"msg_previous_stream": {"revision": 3}},
+    "approvals": {}
+  },
+  "events": [
+    {
+      "v": 1,
+      "eventId": "evt_new_stream_01",
+      "streamId": "stream_device_beta",
+      "seq": 1,
+      "occurredAt": "2026-07-19T12:30:01Z",
+      "type": "sync.required",
+      "threadId": "thr_stream_demo",
+      "payload": {"reason": "streamChanged"}
+    }
+  ],
+  "expected": {
+    "streamId": "stream_device_alpha",
+    "lastAppliedSeq": 12,
+    "mutationPaused": true,
+    "signals": {"stream_changed": 1, "sync_required": 1, "snapshot_requested": 1}
+  }
+}

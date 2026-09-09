@@ -1,0 +1,68 @@
+import groovy.json.JsonOutput
+import java.security.MessageDigest
+import org.gradle.api.artifacts.component.ModuleComponentIdentifier
+import org.gradle.maven.MavenModule
+import org.gradle.maven.MavenPomArtifact
+
+// Invoke with -I and -PchebyInventoryOutput=<new directory>. Resolves the same
+// debug runtime graph as the development APK; this is not a byte-level SBOM.
+gradle.projectsEvaluated {
+    def appliance = gradle.rootProject.findProject(':appliance')
+    if (appliance == null) throw new GradleException('Missing appliance project')
+    appliance.tasks.register('chebyDependencyInventory') {
+        doLast {
+            def outputValue = appliance.findProperty('chebyInventoryOutput')
+            if (!outputValue) throw new GradleException('chebyInventoryOutput is required')
+            def output = new File(outputValue.toString())
+            if (output.exists()) throw new GradleException('Refusing to overwrite inventory')
+            if (!output.mkdirs()) throw new GradleException('Cannot create inventory directory')
+            def digest = { File file ->
+                def hash = MessageDigest.getInstance('SHA-256')
+                file.withInputStream { input ->
+                    byte[] buffer = new byte[65536]
+                    int size
+                    while ((size = input.read(buffer)) != -1) hash.update(buffer, 0, size)
+                }
+                hash.digest().encodeHex().toString()
+            }
+            def configuration = appliance.configurations.getByName('debugRuntimeClasspath')
+            def graph = configuration.incoming.resolutionResult
+            def moduleIds = graph.allComponents.collect { it.id }
+                .findAll { it instanceof ModuleComponentIdentifier }
+            def poms = appliance.dependencies.createArtifactResolutionQuery()
+                .forComponents(moduleIds).withArtifacts(MavenModule, MavenPomArtifact)
+                .execute()
+            def pomRecords = []
+            poms.resolvedComponents.each { component ->
+                component.getArtifacts(MavenPomArtifact).each { artifact ->
+                    def id = component.id
+                    if (artifact instanceof org.gradle.api.artifacts.result.ResolvedArtifactResult) {
+                        def relative = "poms/${id.group}/${id.module}/${id.version}.pom"
+                        def target = new File(output, relative)
+                        target.parentFile.mkdirs()
+                        target.bytes = artifact.file.bytes
+                        pomRecords << [coordinate: id.displayName, path: relative,
+                                       sha256: digest(target)]
+                    } else {
+                        pomRecords << [coordinate: id.displayName, status: 'UNRESOLVED']
+                    }
+                }
+            }
+            // Android project modules expose many build artifacts. Inventory external
+            // inputs through a filtered view; project modules remain in the graph.
+            def externalView = configuration.incoming.artifactView {
+                componentFilter { it instanceof ModuleComponentIdentifier }
+            }
+            def artifacts = externalView.artifacts.artifacts.collect { item ->
+                [coordinate: item.id.componentIdentifier.displayName, name: item.file.name,
+                 file: item.file.absolutePath, bytes: item.file.length(), sha256: digest(item.file)]
+            }.sort { it.coordinate }
+            def result = [configuration: ':appliance:debugRuntimeClasspath',
+                boundary: 'Resolved build inputs; inclusion in final APK and complete notices require separate checks.',
+                components: graph.allComponents.collect { [id: it.id.displayName] }.sort { it.id },
+                artifacts: artifacts, poms: pomRecords.sort { it.coordinate }]
+            new File(output, 'manifest.json').text = JsonOutput.prettyPrint(JsonOutput.toJson(result)) + '\n'
+            println("Saved ${artifacts.size()} resolved artifacts and ${pomRecords.size()} POM results to ${output}")
+        }
+    }
+}

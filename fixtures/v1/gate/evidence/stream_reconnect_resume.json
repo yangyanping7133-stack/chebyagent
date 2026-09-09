@@ -1,0 +1,53 @@
+{
+  "actual": {
+    "approvalStates": {},
+    "lastAppliedSeq": 6,
+    "messageRevisions": {
+      "msg_reconnect_01": 2
+    },
+    "mutationPaused": false,
+    "signals": {
+      "event_applied": 2,
+      "patch_applied": 1,
+      "reconnect_resumed": 1
+    },
+    "streamId": "stream_device_alpha"
+  },
+  "caseId": "stream.reconnect-resume",
+  "expected": {
+    "lastAppliedSeq": 6,
+    "messageRevisions": {
+      "msg_reconnect_01": 2
+    },
+    "signals": {
+      "event_applied": 2,
+      "reconnect_resumed": 1
+    }
+  },
+  "fixture": "fixtures/v1/event_streams/reconnect.json",
+  "mismatches": [],
+  "status": "PASS",
+  "trace": [
+    {
+      "afterSeq": 4,
+      "signal": "reconnect_resumed"
+    },
+    {
+      "eventId": "evt_reconnect_05",
+      "seq": 5,
+      "signal": "event_applied",
+      "type": "message.patch"
+    },
+    {
+      "messageId": "msg_reconnect_01",
+      "signal": "patch_applied"
+    },
+    {
+      "eventId": "evt_reconnect_06",
+      "seq": 6,
+      "signal": "event_applied",
+      "type": "turn.completed"
+    }
+  ],
+  "validationErrors": []
+}

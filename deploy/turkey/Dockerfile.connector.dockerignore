@@ -1,0 +1,17 @@
+**
+!gateway/
+!gateway/cheby_gateway/
+!gateway/cheby_gateway/**
+!connector/
+!connector/cheby_connector/
+!connector/cheby_connector/**
+!connector/phonebridge/**
+!deploy/
+!deploy/turkey/
+!deploy/turkey/Dockerfile.connector
+!deploy/turkey/connector-requirements.lock
+!deploy/turkey/connector_runner.py
+!deploy/turkey/codex-mcp.connector.toml
+**/__pycache__/
+**/*.pyc
+**/*.pyo

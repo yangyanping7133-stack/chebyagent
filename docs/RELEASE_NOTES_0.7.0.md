@@ -1,0 +1,49 @@
+# ChebyAgent 0.7.0
+
+This is the first consolidated ChebyAgent source and binary release.
+
+## Included
+
+- Android conversation UI, resumable Codex app-server sessions and recovery;
+- accessibility-based screen inspection and confirmed phone actions;
+- embedded Termux, PRoot/Debian and ARM64 Codex CLI 0.153.4;
+- PhoneBridge, local MCP and ACE memory adapter;
+- reusable skills for maps, restaurants, coffee, supermarkets, personal
+  services, renting, delivery and ride-hailing;
+- gateway, relay, connector, deployment and audit tooling.
+
+## APK identity
+
+- package: `com.termux`
+- versionCode: `16`
+- versionName: `0.7.0`
+- APK SHA-256: `8f3e36e0767d842242521f7d3b9c4d935a586b4f93cabdb6d700f7f53287f234`
+- signer certificate SHA-256:
+  `dc9a4b8cbefe4da91e1a56233b3d2f164d651df1dcc27996ff8ce381c8bb2730`
+
+The exact APK was installed as a data-preserving update on an Android 12 ARM64
+test phone. Its device-side `base.apk` hash matched the Release APK, the
+accessibility service remained enabled, and a cold launch resumed the main
+activity and foreground agent service.
+
+## Important boundaries
+
+- ChebyAgent uses application ID `com.termux` and conflicts with a separately
+  installed Termux app.
+- The private update signing key is not distributed. Self-built APKs must be
+  signed with the builder's own key and cannot update this signed build in
+  place.
+- Phone actions that purchase, order, book or submit remain user-confirmed.
+- The final accepted coffee scenario took about six minutes; the three-minute
+  response target remains open.
+
+## Source and licenses
+
+The repository is GPL-3.0-only. Release assets include the exact large binary
+inputs plus version-bound Debian, Termux, Codex and Android dependency source
+evidence. See `SHA256SUMS`, `THIRD_PARTY_NOTICES.md`, and
+`docs/RELEASE_AND_CORRESPONDING_SOURCE.md`.
+
+The component inventory is an engineering evidence set, not legal advice. A
+final distributor should complete a human review of package-specific notice,
+source-offer and redistribution obligations before making the release public.

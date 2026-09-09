@@ -1,0 +1,26 @@
+{
+  "caseId": "stream.non-retryable-error",
+  "description": "A terminal product error is surfaced without an automatic retry loop.",
+  "initialState": {"streamId": "stream_device_alpha", "lastAppliedSeq": 0, "messages": {}, "approvals": {}},
+  "events": [
+    {
+      "v": 1,
+      "eventId": "evt_error_01",
+      "streamId": "stream_device_alpha",
+      "seq": 1,
+      "occurredAt": "2026-07-19T12:20:01Z",
+      "type": "error",
+      "threadId": "thr_stream_demo",
+      "turnId": "turn_error_01",
+      "payload": {
+        "code": "TURN_REJECTED",
+        "message": "This turn cannot be resumed.",
+        "retryable": false
+      }
+    }
+  ],
+  "expected": {
+    "lastAppliedSeq": 1,
+    "signals": {"event_applied": 1, "non_retryable_error": 1}
+  }
+}

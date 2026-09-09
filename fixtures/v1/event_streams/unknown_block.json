@@ -1,0 +1,44 @@
+{
+  "caseId": "stream.unknown-block",
+  "description": "An unknown rich block is retained as readable fallback text.",
+  "initialState": {"streamId": "stream_device_alpha", "lastAppliedSeq": 0, "messages": {}, "approvals": {}},
+  "events": [
+    {
+      "v": 1,
+      "eventId": "evt_unknown_01",
+      "streamId": "stream_device_alpha",
+      "seq": 1,
+      "occurredAt": "2026-07-19T11:40:01Z",
+      "type": "message.snapshot",
+      "threadId": "thr_stream_demo",
+      "turnId": "turn_unknown_01",
+      "itemId": "item_unknown_01",
+      "payload": {
+        "schema": "cheby.rich-message/1.0",
+        "messageId": "msg_unknown_01",
+        "threadId": "thr_stream_demo",
+        "turnId": "turn_unknown_01",
+        "sourceItemId": "item_unknown_01",
+        "role": "assistant",
+        "state": "completed",
+        "revision": 1,
+        "rootBlockIds": ["calendar_preview"],
+        "blocks": {
+          "calendar_preview": {
+            "blockId": "calendar_preview",
+            "type": "calendar.timeline",
+            "fallbackText": "Two events are scheduled tomorrow afternoon."
+          }
+        },
+        "fallback": {"text": "Two events are scheduled tomorrow afternoon."},
+        "createdAt": "2026-07-19T11:40:00Z",
+        "updatedAt": "2026-07-19T11:40:01Z"
+      }
+    }
+  ],
+  "expected": {
+    "lastAppliedSeq": 1,
+    "messageRevisions": {"msg_unknown_01": 1},
+    "signals": {"event_applied": 1, "unknown_block_fallback": 1}
+  }
+}

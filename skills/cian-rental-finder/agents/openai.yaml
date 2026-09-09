@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cian 租房"
+policy:
+  allow_implicit_invocation: true

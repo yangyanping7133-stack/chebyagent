@@ -1,0 +1,34 @@
+{
+  "caseId": "stream.sequence-gap",
+  "description": "A missing sequence pauses the newer event and requests replay.",
+  "initialState": {"streamId": "stream_device_alpha", "lastAppliedSeq": 0, "messages": {}, "approvals": {}},
+  "events": [
+    {
+      "v": 1,
+      "eventId": "evt_gap_01",
+      "streamId": "stream_device_alpha",
+      "seq": 1,
+      "occurredAt": "2026-07-19T11:20:01Z",
+      "type": "turn.started",
+      "threadId": "thr_stream_demo",
+      "turnId": "turn_gap_01",
+      "payload": {}
+    },
+    {
+      "v": 1,
+      "eventId": "evt_gap_03",
+      "streamId": "stream_device_alpha",
+      "seq": 3,
+      "occurredAt": "2026-07-19T11:20:03Z",
+      "type": "turn.completed",
+      "threadId": "thr_stream_demo",
+      "turnId": "turn_gap_01",
+      "payload": {"status": "completed"}
+    }
+  ],
+  "expected": {
+    "lastAppliedSeq": 1,
+    "mutationPaused": true,
+    "signals": {"event_applied": 1, "gap_detected": 1, "replay_requested": 1}
+  }
+}

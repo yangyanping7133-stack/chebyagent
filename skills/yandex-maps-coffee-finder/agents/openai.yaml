@@ -1,0 +1,4 @@
+interface:
+  display_name: "Yandex Maps 咖啡厅查找"
+  short_description: "使用 Yandex Maps 查找附近咖啡厅并比较候选"
+  default_prompt: "Use $yandex-maps-coffee-finder to find nearby coffee shops in the installed Yandex Maps app and compare visible candidates."

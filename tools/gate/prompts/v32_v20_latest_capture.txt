@@ -1,0 +1,10 @@
+只通过 phonebridge 从当前 ChebyCodex 会话列表进入唯一最新的 V20 会话并只读验收。禁止输入、发送、新建、删除、归档或重命名。
+
+已由生产 Gateway SQLite 只读核验：标题“新会话”、预览“hi”的活动会话中，V20 的 public_id 为 thr_a0903a37479e45bbaf6ecf5c28327b25，updated_at=2026-08-07T12:19:58Z；其余同名同预览会话全部最后更新于 2026-07-21。列表按 updated_at 倒序。
+
+1. 调用 android_ui_tree，要求当前包名 com.cheby.codex.mobile、连接状态“服务已连接”，并处于会话列表。遍历当前可见卡片，选择标题精确“新会话”、预览精确“hi”且更新时间显示为今天/最新、并且在所有匹配卡片中 top 最小的唯一首项。必须报告该卡片完整子文本和 fresh 合法 bounds；如果首项/更新时间证据不一致就停止。
+2. 点击该卡片实时合法中心一次，重读 UI，确认标题“新会话”和“服务已连接”。
+3. 若 V20 不在视口，只允许在会话消息区域内最多8次垂直滑动，每次重读。按 package/class/text/content_description/view_id/bounds 去重，确认包含 CHEBY_V20_HI_20260807_195628 的用户节点恰好1个，包含 CHEBY_V20_HI_OK 的回答节点恰好1个；等待发送、发送中、处理中、等待上一条完成、状态待同步、失败等 pending 节点为空；composer 为空且 send_message.enabled=false。
+4. 调用 android_capture_screenshot 一次，记录 artifact path、sha256、宽高、字节数；再读一次 UI，确认计数不变。
+
+任一步不满足立即停止，不猜坐标。只输出 PASS/FAIL、选中卡片完整子文本/bounds/中心、连接状态、V20 用户/回答/pending 计数和截图证据。

@@ -1,0 +1,42 @@
+{
+  "actual": {
+    "approvalStates": {},
+    "lastAppliedSeq": 1,
+    "messageRevisions": {
+      "msg_unknown_01": 1
+    },
+    "mutationPaused": false,
+    "signals": {
+      "event_applied": 1,
+      "unknown_block_fallback": 1
+    },
+    "streamId": "stream_device_alpha"
+  },
+  "caseId": "stream.unknown-block",
+  "expected": {
+    "lastAppliedSeq": 1,
+    "messageRevisions": {
+      "msg_unknown_01": 1
+    },
+    "signals": {
+      "event_applied": 1,
+      "unknown_block_fallback": 1
+    }
+  },
+  "fixture": "fixtures/v1/event_streams/unknown_block.json",
+  "mismatches": [],
+  "status": "PASS",
+  "trace": [
+    {
+      "eventId": "evt_unknown_01",
+      "seq": 1,
+      "signal": "event_applied",
+      "type": "message.snapshot"
+    },
+    {
+      "blockId": "calendar_preview",
+      "signal": "unknown_block_fallback"
+    }
+  ],
+  "validationErrors": []
+}

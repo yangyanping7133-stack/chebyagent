@@ -1,0 +1,44 @@
+{
+  "actual": {
+    "approvalStates": {},
+    "lastAppliedSeq": 2,
+    "messageRevisions": {},
+    "mutationPaused": false,
+    "signals": {
+      "duplicate_suppressed": 1,
+      "event_applied": 2
+    },
+    "streamId": "stream_device_alpha"
+  },
+  "caseId": "stream.duplicate-event",
+  "expected": {
+    "lastAppliedSeq": 2,
+    "signals": {
+      "duplicate_suppressed": 1,
+      "event_applied": 2
+    }
+  },
+  "fixture": "fixtures/v1/event_streams/duplicate.json",
+  "mismatches": [],
+  "status": "PASS",
+  "trace": [
+    {
+      "eventId": "evt_duplicate_01",
+      "seq": 1,
+      "signal": "event_applied",
+      "type": "thread.updated"
+    },
+    {
+      "eventId": "evt_duplicate_01",
+      "seq": 1,
+      "signal": "duplicate_suppressed"
+    },
+    {
+      "eventId": "evt_duplicate_02",
+      "seq": 2,
+      "signal": "event_applied",
+      "type": "turn.started"
+    }
+  ],
+  "validationErrors": []
+}

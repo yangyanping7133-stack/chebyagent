@@ -1,0 +1,11 @@
+**
+!relay/
+!relay/cheby_relay/
+!relay/cheby_relay/**
+!deploy/
+!deploy/relay/
+!deploy/relay/Dockerfile
+!deploy/relay/requirements.lock
+**/__pycache__/
+**/*.pyc
+**/*.pyo

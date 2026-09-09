@@ -1,0 +1,4 @@
+interface:
+  display_name: "俄文菜单助手"
+  short_description: "上传1–10页俄文菜单，说点菜即可生成完整可选菜单"
+  default_prompt: "Use $russia-menu-assistant to process every attached menu page and enter selectable ordering mode."

@@ -1,0 +1,7 @@
+{
+  "serverAcceptedHandshake": true,
+  "closeCode": 4429,
+  "closeReason": "retry-after=30",
+  "messagesBeforeClose": [],
+  "retryable": true
+}

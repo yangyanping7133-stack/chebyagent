@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ChebyNode Standalone</string>
+    <string name="agent_node_notification_title">ChebyNode Standalone</string>
+    <string name="agent_node_notification_body">Standalone phone execution service is running locally.</string>
+    <string name="accessibility_service_label">ChebyNode Standalone Control</string>
+    <string name="accessibility_service_description">Lets the standalone ChebyNode read the current screen, capture screenshots, and perform user-authorized gestures on this phone.</string>
+</resources>

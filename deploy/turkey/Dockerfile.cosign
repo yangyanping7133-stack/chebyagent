@@ -1,0 +1,66 @@
+FROM golang:1.26.5-alpine3.24@sha256:0178a641fbb4858c5f1b48e34bdaabe0350a330a1b1149aabd498d0699ff5fb2 AS builder
+
+ENV GOENV=off \
+    GOWORK=off \
+    GOTOOLCHAIN=local \
+    GOPROXY=https://proxy.golang.org \
+    GOSUMDB=sum.golang.org \
+    GOPRIVATE="" \
+    GONOSUMDB="" \
+    GONOPROXY="" \
+    GOINSECURE=""
+
+WORKDIR /src
+
+RUN wget --quiet \
+        --output-document=/tmp/cosign.tar.gz \
+        https://github.com/sigstore/cosign/archive/193d2153431f8bb0d945a4c1ee721872f73add67.tar.gz \
+    && echo '566154a32bd9fb05b6893a4bf5fac57c3c92b5be36d5d177b5e3cc91e1dfa438  /tmp/cosign.tar.gz' \
+        | sha256sum -c - \
+    && tar -xzf /tmp/cosign.tar.gz --strip-components=1 -C /src \
+    && rm -f /tmp/cosign.tar.gz \
+    && echo '62ee3f278a7ee61f5a4b5aedd6af3291465ff45035267afc1224c04bd206a939  go.mod' \
+        | sha256sum -c - \
+    && echo 'cfd81b60e95b440397f37e1db9cc0961fac72e32f7d3362dc4ed7432a6852f70  go.sum' \
+        | sha256sum -c - \
+    && go mod download all \
+    && go mod verify \
+    && echo '62ee3f278a7ee61f5a4b5aedd6af3291465ff45035267afc1224c04bd206a939  go.mod' \
+        | sha256sum -c - \
+    && echo 'e05fc44fa4275f87b4b6c3c1d35945abd96e1ef27bb739b255090b508a0a7528  go.sum' \
+        | sha256sum -c - \
+    && go list -mod=readonly -m all \
+        | sha256sum \
+        | grep -F '6e7e69a8924042ea95a0f9ffc6956772581db453deb3512ddf7e844090e44547  -'
+
+RUN --network=none CGO_ENABLED=0 GOOS=linux GOARCH=amd64 \
+    go build -trimpath -buildvcs=false -mod=readonly \
+        -ldflags="-s -w -buildid= -X sigs.k8s.io/release-utils/version.gitVersion=v3.1.2-cheby.1 -X sigs.k8s.io/release-utils/version.gitCommit=193d2153431f8bb0d945a4c1ee721872f73add67 -X sigs.k8s.io/release-utils/version.gitTreeState=clean -X sigs.k8s.io/release-utils/version.buildDate=2026-07-17T14:32:20Z" \
+        -o /out/cosign ./cmd/cosign \
+    && /out/cosign version | grep -F 'GitVersion:    v3.1.2-cheby.1' \
+    && /out/cosign version | grep -F 'GitCommit:     193d2153431f8bb0d945a4c1ee721872f73add67' \
+    && /out/cosign version | grep -F 'GitTreeState:  clean' \
+    && /out/cosign version | grep -F 'BuildDate:     2026-07-17T14:32:20Z' \
+    && /out/cosign version | grep -F 'GoVersion:     go1.26.5' \
+    && /out/cosign version | grep -F 'Platform:      linux/amd64' \
+    && go version -m /out/cosign | grep -F 'go1.26.5' \
+    && echo '7ba7d877672635f2d7e537ca3d20e751c088d86265c0f8bc6698d0084899c0af  /out/cosign' \
+        | sha256sum -c -
+
+FROM scratch
+
+LABEL io.chebycodex.cosign.module-graph.sha256="6e7e69a8924042ea95a0f9ffc6956772581db453deb3512ddf7e844090e44547" \
+      io.chebycodex.cosign.source.sha256="566154a32bd9fb05b6893a4bf5fac57c3c92b5be36d5d177b5e3cc91e1dfa438" \
+      io.chebycodex.go="1.26.5" \
+      org.opencontainers.image.revision="193d2153431f8bb0d945a4c1ee721872f73add67" \
+      org.opencontainers.image.source="https://github.com/sigstore/cosign" \
+      org.opencontainers.image.version="3.1.2-cheby.1"
+
+ENV PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+WORKDIR /
+
+COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+COPY --from=builder /out/cosign /usr/local/bin/cosign
+
+USER 65532:65532
+ENTRYPOINT ["/usr/local/bin/cosign"]

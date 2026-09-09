@@ -1,0 +1,26 @@
+{
+  "caseId": "stream.missing-media",
+  "description": "Unavailable media preserves a readable result instead of exposing a path or broken surface.",
+  "initialState": {"streamId": "stream_device_alpha", "lastAppliedSeq": 0, "messages": {}, "approvals": {}},
+  "events": [
+    {
+      "v": 1,
+      "eventId": "evt_media_01",
+      "streamId": "stream_device_alpha",
+      "seq": 1,
+      "occurredAt": "2026-07-19T12:10:01Z",
+      "type": "asset.unavailable",
+      "threadId": "thr_stream_demo",
+      "turnId": "turn_media_01",
+      "itemId": "item_media_01",
+      "payload": {
+        "assetId": "asset_preview_missing",
+        "fallbackText": "Preview unavailable; the written result is still available."
+      }
+    }
+  ],
+  "expected": {
+    "lastAppliedSeq": 1,
+    "signals": {"event_applied": 1, "asset_fallback": 1}
+  }
+}

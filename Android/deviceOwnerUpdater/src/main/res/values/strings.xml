@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cheby 更新器</string>
+    <string name="device_admin_description">仅安装通过 Cheby 签名与哈希校验的更新。</string>
+</resources>

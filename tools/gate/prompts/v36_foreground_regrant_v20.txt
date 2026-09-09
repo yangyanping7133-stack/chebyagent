@@ -1,0 +1,11 @@
+只通过 phonebridge 在华为 Android 10 上以前台方式完成 ChebyNode 截图授权，再回到当前 V20 会话做只读最终截图。禁止输入、发送、新建、删除、归档或重命名。
+
+屏幕有效区域 x=0..720、y=65..1604。所有点击必须来自刚读取的合法屏内 bounds。
+
+1. android_press_home 后读 UI。寻找“ChebyNode”；若唯一候选在下一桌面页，最多一次从 (600,700) 到 (120,700) 左滑并重读。点击 fresh 合法候选中心，确认前台为 com.chebysight.chebyagent.phonenode。
+2. 调用 android_capture_screenshot 一次。若返回 Android 10 permission required，立即读 UI；仅当包名 com.android.systemui、标题精确“是否允许“ChebyNode”录制/投射您的屏幕”、唯一 button1“允许”和 button2“禁止”存在时，点击 button1 实时合法中心一次。随后再次调用 android_capture_screenshot，必须取得真实 artifact path、sha256、宽高、字节数作为授权成功证据。
+3. android_press_home 后读 UI。寻找“ChebyCodex”；若唯一候选在下一桌面页，最多一次同样左滑并重读。点击 fresh 合法候选中心，确认前台 com.cheby.codex.mobile、标题“新会话”、连接状态“服务已连接”。单实例应恢复刚才选中的 V20 会话；若不是则停止，禁止切会话。
+4. 按 package/class/text/content_description/view_id/bounds 去重：包含 CHEBY_V20_HI_20260807_195628 的用户节点恰好1个；去掉下划线后包含 CHEBYV20HIOK、phoneonline=true、foreground=com.cheby.codex.mobile 的回答节点恰好1个；pending 节点为空；composer 为空且 send_message.enabled=false。
+5. 调用 android_capture_screenshot 一次，记录最终 artifact path、sha256、宽高、字节数；再读 UI，确认计数不变。
+
+任一步不满足立即停止，不猜坐标。只输出 PASS/FAIL、两个图标 fresh bounds/中心、系统标题与允许按钮 bounds/中心、授权验证截图、连接状态、V20 用户/规范化回答/pending 计数、最终截图证据。

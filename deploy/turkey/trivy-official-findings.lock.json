@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "targetReference": "ghcr.io/aquasecurity/trivy:0.72.0@sha256:cffe3f5161a47a6823fbd23d985795b3ed72a4c806da4c4df16266c02accdd6f",
+  "blockingFindings": [
+    ["CVE-2026-11352", "libcurl", "8.20.0-r1", "8.21.0-r0", "HIGH"],
+    ["CVE-2026-11586", "libcurl", "8.20.0-r1", "8.21.0-r0", "HIGH"],
+    ["CVE-2026-12064", "libcurl", "8.20.0-r1", "8.21.0-r0", "HIGH"],
+    ["CVE-2026-33630", "c-ares", "1.34.6-r0", "1.34.8-r0", "HIGH"],
+    ["CVE-2026-39822", "stdlib", "v1.26.4", "1.25.12, 1.26.5, 1.27.0-rc.2", "HIGH"],
+    ["CVE-2026-50151", "oras.land/oras-go/v2", "v2.6.0", "2.6.1", "HIGH"],
+    ["CVE-2026-50163", "oras.land/oras-go/v2", "v2.6.0", null, "HIGH"],
+    ["CVE-2026-8286", "libcurl", "8.20.0-r1", "8.21.0-r0", "HIGH"],
+    ["CVE-2026-8925", "libcurl", "8.20.0-r1", "8.21.0-r0", "HIGH"],
+    ["CVE-2026-8927", "libcurl", "8.20.0-r1", "8.21.0-r0", "HIGH"],
+    ["CVE-2026-8932", "libcurl", "8.20.0-r1", "8.21.0-r0", "HIGH"],
+    ["CVE-2026-9079", "libcurl", "8.20.0-r1", "8.21.0-r0", "HIGH"],
+    ["CVE-2026-9080", "libcurl", "8.20.0-r1", "8.21.0-r0", "HIGH"],
+    ["CVE-2026-9545", "libcurl", "8.20.0-r1", "8.21.0-r0", "HIGH"],
+    ["CVE-2026-9546", "libcurl", "8.20.0-r1", "8.21.0-r0", "HIGH"],
+    ["CVE-2026-9547", "libcurl", "8.20.0-r1", "8.21.0-r0", "HIGH"]
+  ]
+}

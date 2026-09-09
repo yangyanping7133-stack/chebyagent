@@ -1,0 +1,48 @@
+{
+  "actual": {
+    "approvalStates": {},
+    "lastAppliedSeq": 1,
+    "messageRevisions": {
+      "msg_revision_01": 2
+    },
+    "mutationPaused": false,
+    "signals": {
+      "event_applied": 1,
+      "revision_conflict": 1,
+      "snapshot_requested": 1
+    },
+    "streamId": "stream_device_alpha"
+  },
+  "caseId": "stream.revision-conflict",
+  "expected": {
+    "lastAppliedSeq": 1,
+    "messageRevisions": {
+      "msg_revision_01": 2
+    },
+    "signals": {
+      "event_applied": 1,
+      "revision_conflict": 1,
+      "snapshot_requested": 1
+    }
+  },
+  "fixture": "fixtures/v1/event_streams/revision_conflict.json",
+  "mismatches": [],
+  "status": "PASS",
+  "trace": [
+    {
+      "eventId": "evt_revision_01",
+      "seq": 1,
+      "signal": "event_applied",
+      "type": "message.patch"
+    },
+    {
+      "messageId": "msg_revision_01",
+      "signal": "revision_conflict"
+    },
+    {
+      "messageId": "msg_revision_01",
+      "signal": "snapshot_requested"
+    }
+  ],
+  "validationErrors": []
+}

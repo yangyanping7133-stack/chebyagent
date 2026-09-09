@@ -1,0 +1,19 @@
+ChebyAgent
+Copyright 2026 ChebyAgent contributors
+
+ChebyAgent is distributed under GPL-3.0-only. The complete Android appliance
+contains and links code from termux/termux-app and termux-shared, which are
+GPLv3-only. Their copyright and exception notices remain in
+third_party/termux-app/LICENSE.md and
+third_party/termux-app/termux-shared/LICENSE.md.
+
+The bundled OpenAI Codex CLI payload and retained prompt are Apache-2.0
+components. Their upstream LICENSE and NOTICE are distributed with the
+corresponding-source Release assets. Codex is a trademark of OpenAI; this
+project is independently maintained and is not an official OpenAI product.
+
+The pinned ACE core files under connector/cheby_connector/ace_core are
+Apache-2.0 and retain their upstream LICENSE and provenance file.
+
+Additional component notices and source coordinates are documented in
+THIRD_PARTY_NOTICES.md and docs/licensing/COMPONENT_INVENTORY_20260905.md.

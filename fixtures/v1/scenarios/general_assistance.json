@@ -1,0 +1,79 @@
+{
+  "caseId": "scenario.general-assistance",
+  "description": "A general task with execution relay, media, approval, and final outcome.",
+  "thread": {
+    "id": "thr_general_demo",
+    "title": "Prepare event summary",
+    "preview": "Waiting for permission to share",
+    "createdAt": "2026-07-19T10:00:00Z",
+    "updatedAt": "2026-07-19T10:02:00Z",
+    "status": "waitingApproval",
+    "lastTurnId": "turn_general_01",
+    "unread": false
+  },
+  "messages": [
+    {
+      "schema": "cheby.rich-message/1.0",
+      "messageId": "msg_general_01",
+      "threadId": "thr_general_demo",
+      "turnId": "turn_general_01",
+      "sourceItemId": "item_general_01",
+      "role": "assistant",
+      "state": "waitingInput",
+      "revision": 3,
+      "rootBlockIds": ["handoff_relay", "preview_media", "share_approval", "outcome_notice"],
+      "blocks": {
+        "handoff_relay": {
+          "blockId": "handoff_relay",
+          "type": "relay",
+          "nodes": [
+            {"id": "understand", "label": "Understand", "state": "completed"},
+            {"id": "compose", "label": "Compose", "state": "completed"},
+            {"id": "confirm", "label": "Confirm", "state": "running"},
+            {"id": "share", "label": "Share", "state": "pending"}
+          ],
+          "edges": [["understand", "compose"], ["compose", "confirm"], ["confirm", "share"]],
+          "activeNodeId": "confirm"
+        },
+        "preview_media": {
+          "blockId": "preview_media",
+          "type": "media",
+          "assetId": "asset_summary_preview",
+          "caption": "Summary preview"
+        },
+        "share_approval": {
+          "blockId": "share_approval",
+          "type": "actions",
+          "actions": [
+            {"id": "approve_share", "kind": "approve", "label": "Approve"},
+            {"id": "reject_share", "kind": "reject", "label": "Reject"}
+          ]
+        },
+        "outcome_notice": {
+          "blockId": "outcome_notice",
+          "type": "notice",
+          "tone": "neutral",
+          "title": "Draft ready",
+          "text": "No external action has happened yet."
+        }
+      },
+      "fallback": {"text": "The summary is ready and is waiting for approval before sharing."},
+      "createdAt": "2026-07-19T10:00:05Z",
+      "updatedAt": "2026-07-19T10:02:00Z"
+    }
+  ],
+  "approvals": [
+    {
+      "approvalId": "approval_general_01",
+      "threadId": "thr_general_demo",
+      "turnId": "turn_general_01",
+      "itemId": "item_general_01",
+      "kind": "command",
+      "summary": "Share the prepared summary",
+      "reason": "This action sends content outside the app.",
+      "decisions": ["approve", "reject"],
+      "state": "pending",
+      "expiresAt": "2026-07-19T10:07:00Z"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+[Unit]
+Description=12-hour ChebyCodex Relay offline-signed certificate rotation check
+
+[Timer]
+OnBootSec=15min
+OnUnitActiveSec=12h
+Persistent=true
+RandomizedDelaySec=10min
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Yandex Maps 理发"
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,5 @@
+repository=https://github.com/termux/termux-app
+tag=v0.118.3
+commit=5b657c6adf4304e5198951ce815fe0205dcac29c
+bootstrap_release=2025.03.28-r1+apt-android-7
+bootstrap_aarch64_sha256=c8d702b6f742935001c37cda81b8ac69504a95d5cf28f2899532dd8cd4b057eb

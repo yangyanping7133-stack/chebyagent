@@ -1,0 +1,34 @@
+{
+  "schema": "cheby.relay-operations/1",
+  "operations": [
+    "server.info",
+    "capabilities.get",
+    "threads.list",
+    "threads.create",
+    "threads.read",
+    "threads.resume",
+    "threads.patch",
+    "threads.delete.preview",
+    "threads.delete.confirm",
+    "turns.start",
+    "assets.upload",
+    "turns.interrupt",
+    "approvals.decide",
+    "events.subscribe",
+    "events.ack"
+  ],
+  "transport": {
+    "pairingEndpoint": "/relay/v1/pairings/exchange",
+    "refreshEndpoint": "/relay/v1/auth/refresh",
+    "deviceEndpoint": "/relay/v1/device",
+    "nodeEndpoint": "/relay/v1/node",
+    "deviceAuthorization": "Authorization bearer plus DeviceProofV1",
+    "nodeAuthorization": "Authorization bearer",
+    "queryParametersAllowed": false,
+    "maxFrameBytes": 12582912,
+    "maxCommandBytes": 262144,
+    "maxDecodedAssetBytes": 8388608,
+    "deliverySequenceScope": ["assistantId", "recipientRole"],
+    "resume": "automatic from persisted cumulative ackCursor"
+  }
+}

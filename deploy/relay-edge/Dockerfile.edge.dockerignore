@@ -1,0 +1,7 @@
+**
+!deploy/
+!deploy/relay-edge/
+!deploy/relay-edge/edge/
+!deploy/relay-edge/edge/includes/
+!deploy/relay-edge/edge/includes/**
+!deploy/relay-edge/Dockerfile.edge
