@@ -50,3 +50,28 @@ license declarations and notices are captured by:
 The Release source-evidence asset contains the resolved POM declarations and
 archive notices used for this build. It does not transfer ownership of any
 third-party mark, service or application.
+
+Five resolved Maven artifacts did not repeat a license in their direct POM.
+Their version-bound package or upstream evidence resolves the license identity
+without treating a missing direct POM field as permission to omit attribution:
+
+- `com.atlassian.commonmark:commonmark:0.13.0` and
+  `commonmark-ext-gfm-strikethrough:0.13.0`: BSD-2-Clause; the complete notice
+  is embedded in both resolved JARs and retained in the license-evidence asset.
+- `com.google.guava:guava:24.1-jre`: Apache-2.0; the module inherits its
+  license declaration from the Guava parent project.
+- `commons-io:commons-io:2.5`: Apache-2.0; the complete license and Apache
+  Commons IO NOTICE are embedded in the resolved JAR and retained in the
+  license-evidence asset.
+- `org.codehaus.mojo:animal-sniffer-annotations:1.14`: MIT; the complete MIT
+  grant and copyright notice are retained in the resolved POM comment.
+
+The five Termux bootstrap subpackages whose own package paths omit a standalone
+license file are mapped to their exact parent recipe/source evidence:
+
+- `bzip2` to `libbz2`, `curl` to `libcurl`, `gpgv` to `gnupg`,
+  `libsmartcols` to `util-linux`, and `xz-utils` to `liblzma`.
+
+These mappings close the missing-license-identity gap only. The version-bound
+delivery ledger and compliance audit remain authoritative about unresolved
+package-specific redistribution obligations.

@@ -46,6 +46,10 @@ cd Android
 ./gradlew :app:testStandaloneUnitTest :appliance:testDebugUnitTest :appliance:assembleRelease
 ```
 
+本项目不使用 GitHub Actions。GitHub 仅用于保存源码和已在本地或受控
+项目设备上完成验证的 Release 资产；不在 GitHub 托管运行器上编译、
+签名、打包或发布。
+
 签名私钥、用户凭证、手机数据和大型离线资产不进入 Git 历史。完整构建/源码交付契约见
 [Release 与对应源码说明](docs/RELEASE_AND_CORRESPONDING_SOURCE.md)。
 

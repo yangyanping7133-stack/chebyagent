@@ -81,6 +81,11 @@ REQUIRED_RUNTIME_ASSETS = {
     "/assets/cheby-runtime/start-phonebridge.sh",
     "/assets/cheby-runtime/termux-proot-overlay-aarch64.tar.zst",
 }
+REQUIRED_DISTRIBUTION_NOTICE_ASSETS = {
+    "/assets/cheby-runtime/LICENSE-GPL-3.0.txt",
+    "/assets/cheby-runtime/NOTICE",
+    "/assets/cheby-runtime/THIRD_PARTY_NOTICES.md",
+}
 RUNTIME_SKILL_ASSETS = {
     path.removeprefix("/assets/cheby-runtime/")
     for path in REQUIRED_RUNTIME_ASSETS
@@ -165,7 +170,8 @@ def runtime_assets_are_locked(apk: pathlib.Path) -> bool:
         with zipfile.ZipFile(apk) as archive:
             manifest = archive.read(prefix + "runtime-assets.sha256").decode("ascii")
             expected_files = {
-                path.removeprefix("/" + prefix) for path in REQUIRED_RUNTIME_ASSETS
+                path.removeprefix("/" + prefix)
+                for path in REQUIRED_RUNTIME_ASSETS | REQUIRED_DISTRIBUTION_NOTICE_ASSETS
             }
             expected_files.remove("runtime-assets.sha256")
             locked_files: set[str] = set()
@@ -401,7 +407,9 @@ def main() -> int:
         "required_services": REQUIRED_SERVICES.issubset(services),
         "boot_recovery_receiver": REQUIRED_RECEIVERS.issubset(receivers),
         "native_app_package_visibility": REQUIRED_VISIBLE_PACKAGES.issubset(visible_packages),
-        "runtime_assets": REQUIRED_RUNTIME_ASSETS.issubset(files),
+        "runtime_assets": (
+            REQUIRED_RUNTIME_ASSETS | REQUIRED_DISTRIBUTION_NOTICE_ASSETS
+        ).issubset(files),
         "runtime_assets_locked": runtime_assets_are_locked(apk),
         "offline_runtime_bundled": runtime_is_offline_and_bundled(apk),
         "runtime_skills_native_glm_images": runtime_skills_use_native_glm_images(apk),

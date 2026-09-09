@@ -5,6 +5,12 @@ GitHub Releases store the large APK and immutable build/source assets. Signing
 keys, provider credentials, phone state and private operational evidence are
 never Release assets.
 
+GitHub Actions is intentionally disabled. GitHub-hosted runners must not build,
+sign, package, test or publish this project. Release inputs are produced and
+verified locally or on explicitly controlled project hardware, then uploaded
+from a locally checked staging directory. The repository and Release pages are
+distribution surfaces only.
+
 For each version, publish:
 
 1. the signed universal ARM64 APK;

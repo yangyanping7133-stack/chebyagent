@@ -47,3 +47,14 @@ evidence. See `SHA256SUMS`, `THIRD_PARTY_NOTICES.md`, and
 The component inventory is an engineering evidence set, not legal advice. A
 final distributor should complete a human review of package-specific notice,
 source-offer and redistribution obligations before making the release public.
+
+## Compliance addendum
+
+- GitHub Actions is disabled for this repository. GitHub is not used to
+  compile, test, sign, package or automatically publish ChebyAgent.
+- All `v0.7.0` binaries were built outside GitHub and were uploaded only after
+  local, version-bound verification.
+- The Release includes direct license, notice, delivery-ledger and audit-report
+  assets in addition to the corresponding-source archives.
+- Delivery integrity and source-archive integrity pass. The repository remains
+  private because the package-specific legal-obligation review is not complete.

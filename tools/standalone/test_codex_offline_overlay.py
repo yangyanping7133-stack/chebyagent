@@ -151,7 +151,7 @@ class RuntimeArchiveGateTest(unittest.TestCase):
         self.apk = Path(self.temp.name) / "fixture.apk"
         self.assets = {
             name.removeprefix("/assets/cheby-runtime/"): b"fixture asset"
-            for name in gate.REQUIRED_RUNTIME_ASSETS
+            for name in gate.REQUIRED_RUNTIME_ASSETS | gate.REQUIRED_DISTRIBUTION_NOTICE_ASSETS
         }
         for name in gate.RUNTIME_SKILL_ASSETS:
             self.assets[name] = (
@@ -209,6 +209,11 @@ class RuntimeArchiveGateTest(unittest.TestCase):
         self.assertTrue(gate.runtime_food_skill_requires_fresh_intent(self.apk))
         self.assertTrue(gate.runtime_blocks_browser_tool(self.apk))
         self.assertTrue(gate.runtime_instructions_digest_is_pinned(self.apk))
+
+    def test_distribution_notice_asset_is_required(self):
+        self.assets.pop("NOTICE")
+        self.write_apk()
+        self.assertFalse(gate.runtime_assets_are_locked(self.apk))
 
     def test_provider_launcher_must_pin_bundled_instructions(self):
         self.assets["provider-launcher.py"] = (

@@ -19,6 +19,10 @@
 ## Delivery
 
 - Keep commits coherent and run the smallest relevant test before submitting them.
+- GitHub Actions is disabled for this repository. Do not add files under
+  `.github/workflows/`, use GitHub-hosted runners, or compile, sign, package, or
+  publish ChebyAgent through GitHub automation. Run verification locally or on
+  explicitly controlled project hardware and preserve bounded evidence.
 - Treat external checkouts and device state as independent inputs; never absorb an
   unrelated dirty worktree into this repository.
 - Android 12 or newer on arm64 is the primary appliance target.
@@ -44,3 +48,5 @@
   `docs/RELEASE_AND_CORRESPONDING_SOURCE.md`.
 - Never publish production credentials, device serials, operator paths, or live
   deployment addresses. Use documented placeholders in examples.
+- Upload Release assets only from a locally verified staging directory. GitHub is
+  an artifact host for this project, not a build or signing environment.
