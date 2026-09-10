@@ -117,7 +117,7 @@ public final class TermuxEmbeddedRuntime implements EmbeddedRuntime {
     private static final String PROVISION_ROOT = TERMUX_HOME + "/.cheby/provision";
     private static final String PROVISION_ASSETS = PROVISION_ROOT + "/assets";
     private static final String PROVISION_SCRIPT = PROVISION_ASSETS + "/provision-runtime.sh";
-    private static final String READY_MARKER = TERMUX_HOME + "/.cheby/runtime/ready-4.1.0-dev34";
+    private static final String READY_MARKER = TERMUX_HOME + "/.cheby/runtime/ready-4.1.0-dev35";
     private static final String FAILED_MARKER = TERMUX_HOME + "/.cheby/runtime/provision-failed";
     private static final String DEBIAN_ROOT =
         TERMUX_PREFIX + "/var/lib/cheby-runtime/debian-rootfs";

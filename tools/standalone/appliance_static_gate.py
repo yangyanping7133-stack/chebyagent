@@ -96,7 +96,7 @@ PINNED_NATIVE_APP_SKILLS = {
     "skill-yandex-go-food-order.md": "ru.yandex.taxi",
 }
 PINNED_RUNTIME_LOCK = {
-    "CHEBY_RUNTIME_VERSION": "4.1.0-dev34",
+    "CHEBY_RUNTIME_VERSION": "4.1.0-dev35",
     "TERMUX_PROOT_OVERLAY_ASSET": "termux-proot-overlay-aarch64.tar.zst",
     "TERMUX_PROOT_OVERLAY_SHA256": (
         "334a0e6aa93cf3264f416879d4a95ee5ad9df52a9c202f12436b07eaf7bc067c"

@@ -297,6 +297,12 @@ class OfficialAppServerIntegrationTest(unittest.TestCase):
     def test_cian_skill_requires_fixed_scope_exhaustion_before_completion(self):
         skill = (ROOT / "skills/cian-rental-finder/SKILL.md").read_text()
         report = (ROOT / "skills/cian-rental-finder/references/report.md").read_text()
+        self.assertIn("quick nearby mode", skill)
+        self.assertIn("Hard stop after 24 phone actions or six minutes", skill)
+        self.assertIn("do not open Yandex Maps", skill)
+        self.assertIn("one fully observed sample is a completed", skill)
+        self.assertIn("Quick nearby report override", report)
+        self.assertIn("one to three listing cards are valid", report)
         self.assertIn("at most 1.5 km by an actual walking route", skill)
         self.assertIn("Do not end the task merely because", skill)
         self.assertIn("Before `task_complete`", skill)
@@ -335,7 +341,7 @@ class OfficialAppServerIntegrationTest(unittest.TestCase):
 
     def test_runtime_version_bump_forces_existing_appliance_refresh(self):
         version = gate.PINNED_RUNTIME_LOCK["CHEBY_RUNTIME_VERSION"]
-        self.assertEqual(version, "4.1.0-dev34")
+        self.assertEqual(version, "4.1.0-dev35")
         files = (
             ROOT / "Android/appliance/runtime/runtime.lock",
             ROOT / "Android/appliance/runtime/provision-runtime.sh",

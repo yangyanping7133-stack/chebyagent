@@ -6,7 +6,7 @@ HOME_ROOT='/data/data/com.termux/files/home'
 ASSET_ROOT="$HOME_ROOT/.cheby/provision/assets"
 LOCK_FILE="$ASSET_ROOT/runtime.lock"
 STATE_ROOT="$HOME_ROOT/.cheby/runtime"
-READY_MARKER="$STATE_ROOT/ready-4.1.0-dev34"
+READY_MARKER="$STATE_ROOT/ready-4.1.0-dev35"
 FAILED_MARKER="$STATE_ROOT/provision-failed"
 LOG_FILE="$STATE_ROOT/provision.log"
 ENTER_DEBIAN="$PREFIX/bin/cheby-enter-debian"
@@ -53,7 +53,7 @@ STEP='verify_assets'
 test -r "$LOCK_FILE"
 # shellcheck disable=SC1090
 . "$LOCK_FILE"
-test "$CHEBY_RUNTIME_VERSION" = '4.1.0-dev34'
+test "$CHEBY_RUNTIME_VERSION" = '4.1.0-dev35'
 test "$PROOT_VERSION" = '5.1.107.89'
 test "$BASE_CODEX_VERSION" = '0.147.0'
 test "$CODEX_VERSION" = '0.153.4'

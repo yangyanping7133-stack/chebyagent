@@ -10,13 +10,17 @@ App，并把结果带回同一个会话。模型推理由你选择的服务提�
 
 ## 真实手机演示
 
-[![ChebyAgent 在 Yandex Maps 查找附近咖啡厅，并在 Yandex Go 预览去冬宫的叫车价格](docs/media/chebyagent-yandex-demo.png)](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Yandex-Demo.mp4)
+以下是两段相互独立的 Huawei ALN-AL00 真机原始连续录屏。视频没有剪辑、裁切或打码；
+录制前使用了公开地点和公开商户信息，因此不展示账号、支付资料或私人地址。
 
-**▶ [观看 1 分 35 秒完整演示视频](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Yandex-Demo.mp4)**
+| 打车去冬宫 | 找附近的咖啡厅 |
+|---|---|
+| [![ChebyAgent 用中文发起打车去冬宫，Yandex Go 显示实时车型和价格](docs/media/demo-taxi-winter-palace.png)](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Demo-Taxi-to-Winter-Palace.mp4) | [![ChebyAgent 用中文查找附近咖啡厅，并展示完整结果报告](docs/media/demo-nearby-coffee.png)](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Demo-Nearby-Coffee.mp4) |
+| **▶ [观看完整视频（1 分 47 秒）](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Demo-Taxi-to-Winter-Palace.mp4)** | **▶ [观看完整视频（9 分 10 秒）](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Demo-Nearby-Coffee.mp4)** |
+| 输入中文“打车去冬宫”，展示 ChebyAgent 操作 Yandex Go，最后停在实时叫车确认页；没有下单。 | 输入中文“找附近的咖啡厅”，展示 ChebyAgent 操作 Yandex Maps，并回到会话展示完整咖啡厅报告；没有预订、致电或导航。 |
 
-这段视频来自 Huawei ALN-AL00 真机：ChebyAgent 打开 Yandex Maps 查找附近咖啡厅，
-并在 Yandex Go 将目的地设为 Winter Palace（冬宫）后展示可选车型和当时价格。
-上车位置与地图已在公开版中遮挡；全程没有叫车下单，也没有预订咖啡厅。
+校验文件：[打车视频 SHA-256](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Demo-Taxi-to-Winter-Palace.mp4.sha256) ·
+[咖啡厅视频 SHA-256](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Demo-Nearby-Coffee.mp4.sha256)
 
 > 当前发布版：`0.7.3`。已在 Huawei ALN-AL00（Android 12、ARM64）完成覆盖安装、
 > 冷启动、会话恢复、图片输入、手机移动网络和手机操作验证；Codex 与

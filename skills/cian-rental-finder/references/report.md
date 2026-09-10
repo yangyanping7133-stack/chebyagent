@@ -6,6 +6,36 @@ fenced `html` fragment followed by at most a short handoff sentence. Do not put
 doctype, head, scripts, stylesheets, inline styles, forms or iframes in the
 fragment.
 
+## Quick nearby report override
+
+For the Skill's quick nearby mode, this section overrides the comprehensive
+selection requirements below:
+
+- Deliver one complete mobile-friendly HTML report after inspecting one usable
+  real Cian listing; one to three listing cards are valid and no Top 5 claim is
+  required.
+- Title it as a quick nearby report and label the principal card `真实房源样例`.
+  The first screen must show the actual result, observed monthly rent and the
+  number of listings inspected.
+- A partial gallery review is valid when it visibly covers the living/sleeping
+  area and one other material room if available. State how many photos were
+  actually viewed; never imply a full-gallery audit.
+- Use Cian's displayed area, metro, distance or walking text. Do not open Yandex
+  Maps, do not claim an independently verified walking route and do not expose a
+  private saved work address.
+- Include an observed Cian HTTPS link when the app exposes one without leaving the
+  bounded flow. Otherwise provide the public listing title/address label or ID
+  needed to find it again and state that the direct link was not captured. A
+  missing link does not demote an otherwise observed quick-mode sample.
+- Use one real observed Cian interior image or PhoneBridge screenshot when
+  available. If an image artifact cannot be embedded, keep the listing in the
+  report and candidly state that the photo was inspected in Cian but not attached.
+- End with compact coverage counts and a note that no landlord was contacted and
+  no booking or payment was made. Unknown fees, lease terms or restrictions must
+  remain visibly unknown.
+
+The rest of this document defines comprehensive work-distance mode only.
+
 ## Selection before presentation
 
 - Build a sufficiently broad, deduplicated candidate pool first. Rank only after

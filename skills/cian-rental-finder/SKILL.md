@@ -5,9 +5,40 @@ description: Find and visually compare rentals in native Cian for 找房子、�
 
 # Cian 租房
 
-## Owner defaults and coverage
+## Choose the mode before acting
 
-Start on a short rental intent. Recall `ace_recall` for this Skill and read the
+Use **quick nearby mode** for a short, unconstrained request such as
+`找我附近的房子`, `附近租房` or `给我看一个附近房源`. This mode is deliberately
+bounded for a useful mobile answer:
+
+- Use the phone's current Cian area/location and stay inside native Cian. Do not
+  load the private work-location record and do not open Yandex Maps.
+- Inspect at most three distinct real listings. Open one strong listing in detail,
+  view enough of its gallery to show at least the living/sleeping area plus one
+  other material room when available, and record only facts actually visible.
+  A complete every-photo gallery pass is not required in this mode.
+- As soon as one usable real sample has been inspected, stop browsing and render
+  the final HTML report. Hard stop after 24 phone actions or six minutes, whichever
+  comes first; use the best observed sample rather than starting another search.
+- The completed report may contain one to three homes and must be titled as a
+  quick nearby report with a clearly labelled `真实房源样例`. Show rent, visible
+  costs/conditions, Cian-displayed location or metro/walk information, photos
+  inspected, and all unknowns. Exact walking-route verification and a source URL
+  are optional; never invent either.
+- If Cian cannot expose even one usable detail page before the hard stop, return
+  the polished zero-result HTML with the observed blocker and coverage counts.
+  Do not continue into another app and do not turn the quick request into a broad
+  audit.
+
+Use **comprehensive work-distance mode** only when the user explicitly asks for
+the saved work location, the 1.5 km walking constraint, a Top 5/Top 10, exhaustive
+coverage, or a multi-home comparison. All coverage floors, full-gallery passes,
+Yandex walking routes and 5–10-home ranking requirements below apply only in that
+comprehensive mode. Quick nearby mode overrides those requirements.
+
+## Comprehensive owner defaults and coverage
+
+In comprehensive mode, recall `ace_recall` for this Skill and read the
 private work-location record at `/root/.codex/private/user-preferences.md` when
 present. Monthly long-term rental is the discovery default, not a confirmed lease
 duration. The latest rent ceiling is 105,000 RUB/month. Check minimum term against
@@ -64,7 +95,7 @@ count. Interim findings must be presented as progress and followed by more tool 
 Never ask to raise the known budget or expand the known walking limit unless the
 owner explicitly requests a tradeoff after the fixed-scope search is exhausted.
 
-The final deliverable is a single polished HTML report containing the best 5–10
+In comprehensive mode, the final deliverable is a single polished HTML report containing the best 5–10
 fully qualified homes from the verified pool, not the first 5–10 opened and not a
 sequence of plain-text listing notes. Rank only after the coverage pass. Do not pad
 the ranking with pending or rejected homes; credible exhaustion may produce fewer
@@ -86,7 +117,7 @@ survivor, and reported the exact counts and covered areas. If a real tool blocke
 prevents continuation, return a short plain-text blocker with the last successful
 action and remaining work; never disguise it as the final HTML deliverable.
 
-Apply an explicit early-stop gate when Cian exposes a large result pool. A single
+In comprehensive mode, apply an explicit early-stop gate when Cian exposes a large result pool. A single
 opened or rejected listing can never establish exhaustion while other in-budget
 cards remain accessible. Before returning fewer than five qualified homes, first
 scan at least 20 distinct plausible cards when available, then open and inspect at
@@ -137,8 +168,10 @@ Re-observe after each navigation or material UI change; do not reuse stale coord
 Login, permission or location obstacles require the user's normal participation.
 Do not substitute another app or browser silently. Use observed names, prices and
 conditions; keep unknowns explicit. Return concise Chinese progress through existing
-generic messages. The final answer must always use the HTML report contract after a
-completed coverage pass, with enough place/listing detail to retrace every item;
-do not substitute plain text merely because fewer than five listings qualified.
+generic messages. The final answer must always use the HTML report contract for the
+selected mode. In quick nearby mode, one fully observed sample is a completed
+coverage pass; do not keep browsing to satisfy comprehensive-mode counts. In
+comprehensive mode, keep enough place/listing detail to retrace every item and do
+not substitute plain text merely because fewer than five listings qualified.
 
 Validation status: draft workflow; no ALN real-Agent acceptance is claimed.
