@@ -1,0 +1,3401 @@
+{
+  "boundary": "This report reconciles identity, inventory and delivery evidence. It records no component-level legal conclusion and is not legal advice or a compliance certificate.",
+  "components": [
+    {
+      "id": "debian:adduser:3.152:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:apt:3.0.3:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:base-files:13.8+deb13u6:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:base-passwd:3.6.7:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:bash:5.2.37-2+b9:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:bsdutils:1:2.41-5:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:ca-certificates:20250419:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:coreutils:9.7-3:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:curl:8.14.1-2+deb13u4:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:dash:0.5.12-12:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:debconf:1.5.91:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:debian-archive-keyring:2025.1:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:debianutils:5.23.2:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:diffutils:1:3.10-4:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:dpkg:1.22.22:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:findutils:4.10.0-3:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:gcc-14-base:14.2.0-19:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:git:1:2.47.3-0+deb13u1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:git-man:1:2.47.3-0+deb13u1:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:grep:3.11-4+b1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:gzip:1.13-1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:hostname:3.25:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:init-system-helpers:1.69~deb13u1:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libacl1:2.3.2-2+b1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libapt-pkg7.0:3.0.3:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libattr1:1:2.5.2-3:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libaudit-common:1:4.0.2-2:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libaudit1:1:4.0.2-2+b2:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libblkid1:2.41-5:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libbrotli1:1.1.0-2+b7:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libbsd0:0.12.2-2:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libbz2-1.0:1.0.8-6:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libc-bin:2.41-12+deb13u3:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libc6:2.41-12+deb13u3:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libcap-ng0:0.8.5-4+b1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libcap2:1:2.75-10+deb13u1+b1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libcares2:1.34.5-1+deb13u1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libcbor0.10:0.10.2-2:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libcom-err2:1.47.2-3+b11:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libcrypt1:1:4.4.38-1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libcurl3t64-gnutls:8.14.1-2+deb13u4:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libcurl4t64:8.14.1-2+deb13u4:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libdb5.3t64:5.3.28+dfsg2-9:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libdebconfclient0:0.280:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libedit2:3.1-20250104-1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:liberror-perl:0.17030-1:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libexpat1:2.8.2-1~deb13u1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libffi8:3.4.8-2:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libfido2-1:1.15.0-1+b1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libgcc-s1:14.2.0-19:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libgdbm-compat4t64:1.24-2:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libgdbm6t64:1.24-2:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libgmp10:2:6.3.0+dfsg-3:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libgnutls30t64:3.8.9-3+deb13u4:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libgssapi-krb5-2:1.21.3-5+deb13u1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libhogweed6t64:3.10.1-1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libicu76:76.1-4:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libidn2-0:2.3.8-2:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libk5crypto3:1.21.3-5+deb13u1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libkeyutils1:1.6.3-6:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libkrb5-3:1.21.3-5+deb13u1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libkrb5support0:1.21.3-5+deb13u1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:liblastlog2-2:2.41-5:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libldap2:2.6.10+dfsg-1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:liblz4-1:1.10.0-4:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:liblzma5:5.8.1-1+deb13u1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libmd0:1.1.0-2+b1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libmount1:2.41-5:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libncursesw6:6.5+20250216-2:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libnettle8t64:3.10.1-1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libnghttp2-14:1.64.0-1.1+deb13u1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libnghttp3-9:1.8.0-1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libngtcp2-16:1.11.0-1+deb13u1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libngtcp2-crypto-gnutls8:1.11.0-1+deb13u1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libnode115:20.19.2+dfsg-1+deb13u2:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libp11-kit0:0.25.5-3:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libpam-modules:1.7.0-5:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libpam-modules-bin:1.7.0-5:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libpam-runtime:1.7.0-5:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libpam0g:1.7.0-5:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libpcre2-8-0:10.46-1~deb13u1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libperl5.40:5.40.1-6:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libpsl5t64:0.21.2-1.1+b1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libpython3-stdlib:3.13.5-1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libpython3.13-minimal:3.13.5-2+deb13u4:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libpython3.13-stdlib:3.13.5-2+deb13u4:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libreadline8t64:8.2-6:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:librtmp1:2.4+20151223.gitfa8646d.1-2+b5:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libsasl2-2:2.1.28+dfsg1-9:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libsasl2-modules-db:2.1.28+dfsg1-9:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libseccomp2:2.6.0-2:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libselinux1:3.8.1-1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libsemanage-common:3.8.1-1:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libsemanage2:3.8.1-1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libsepol2:3.8.1-1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libsmartcols1:2.41-5:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libsqlite3-0:3.46.1-7+deb13u1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libssh2-1t64:1.11.1-1+deb13u1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libssl3t64:3.5.6-1~deb13u2:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libstdc++6:14.2.0-19:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libsystemd0:257.13-1~deb13u1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libtasn1-6:4.20.0-2+deb13u1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libtinfo6:6.5+20250216-2:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libudev1:257.13-1~deb13u1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libunistring5:1.3-2:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libuuid1:2.41-5:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libuv1t64:1.50.0-2:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libxxhash0:0.8.3-2:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:libzstd1:1.5.7+dfsg-1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:login:1:4.16.0-2+really2.41-5:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:login.defs:1:4.17.4-2:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:mawk:1.3.4.20250131-1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:media-types:13.0.0:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:mount:2.41-5:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:ncurses-base:6.5+20250216-2:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:ncurses-bin:6.5+20250216-2:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:netbase:6.5:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:node-acorn:8.8.1+ds+~cs25.17.7-2:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:node-balanced-match:2.0.0-1:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:node-brace-expansion:2.0.1+~1.1.0-2:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:node-cjs-module-lexer:1.2.3+dfsg-1:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:node-corepack:0.24.0-5:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:node-minimatch:9.0.3-6:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:node-undici:7.3.0+dfsg1+~cs24.12.11-1:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:node-xtend:4.0.2-3:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:nodejs:20.19.2+dfsg-1+deb13u2:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:openssh-client:1:10.0p1-7+deb13u4:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:openssl:3.5.6-1~deb13u2:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:openssl-provider-legacy:3.5.6-1~deb13u2:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:passwd:1:4.17.4-2:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:perl:5.40.1-6:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:perl-base:5.40.1-6:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:perl-modules-5.40:5.40.1-6:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:python3:3.13.5-1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:python3-minimal:3.13.5-1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:python3.13:3.13.5-2+deb13u4:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:python3.13-minimal:3.13.5-2+deb13u4:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:readline-common:8.2-6:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:sed:4.9-2+deb13u1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:sqv:1.3.0-3+b2:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:sysvinit-utils:3.14-4:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:tar:1.35+dfsg-3.1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:tzdata:2026b-0+deb13u1:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:util-linux:2.41-5:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "debian:zlib1g:1:1.3.dfsg+really1.3.1-1+b1:arm64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-debian-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:apt:2.8.1-1:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:bash:5.2.37-2:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:bzip2:1.0.8-6:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": {
+        "evidence": "bzip2 maps to libbz2",
+        "license": "parent package evidence"
+      },
+      "license_identity_state": "EXPLICIT_PARENT_OR_UPSTREAM_MAPPING",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:ca-certificates:1:2025.02.25:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:command-not-found:2.4.0-68:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:coreutils:9.6-1:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:curl:8.12.1:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": {
+        "evidence": "curl maps to libcurl",
+        "license": "parent package evidence"
+      },
+      "license_identity_state": "EXPLICIT_PARENT_OR_UPSTREAM_MAPPING",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:dash:0.5.12:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:debianutils:5.21:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:dialog:1.3-20240307-0:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:diffutils:3.11:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:dos2unix:7.5.2:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:dpkg:1.22.6-1:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:ed:1.21.1:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:findutils:4.10.0:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:gawk:5.3.0:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:gpgv:2.4.5-3:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": {
+        "evidence": "gpgv maps to gnupg",
+        "license": "parent package evidence"
+      },
+      "license_identity_state": "EXPLICIT_PARENT_OR_UPSTREAM_MAPPING",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:grep:3.11:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:gzip:1.13:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:inetutils:2.6:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:less:668:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libandroid-glob:0.6-2:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libandroid-selinux:14.0.0.11:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libandroid-support:29:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libassuan:3.0.1-2:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libbz2:1.0.8-6:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libc++:27c:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libcap-ng:2:0.8.5:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libcurl:8.12.1:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libevent:2.1.12-2:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libgcrypt:1.11.0:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libgmp:6.3.0-1:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libgnutls:3.8.9:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libgpg-error:1.50:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libiconv:1.18:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libidn2:2.3.7:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:liblz4:1.10.0:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:liblzma:5.8.0:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libmd:1.1.0:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libmpfr:4.2.1:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libnettle:3.10.1:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libnghttp2:1.65.0:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libnghttp3:1.8.0:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libnpth:1.6-2:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libsmartcols:2.40.2-3:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": {
+        "evidence": "libsmartcols maps to util-linux",
+        "license": "parent package evidence"
+      },
+      "license_identity_state": "EXPLICIT_PARENT_OR_UPSTREAM_MAPPING",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libssh2:1.11.1:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libtirpc:1.3.6:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libunbound:1.22.0:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:libunistring:1.3:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:lsof:4.99.4:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:nano:8.3:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:ncurses:6.5.20240831-2:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:net-tools:2.10.0:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:openssl:1:3.4.1:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:patch:2.7.6-4:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:pcre2:10.45:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:procps:3.3.17-5:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:psmisc:23.7:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:readline:8.2.13:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:resolv-conf:1.3:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:sed:4.9-1:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:tar:1.35:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:termux-am:0.8.0-1:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:termux-am-socket:1.5.0:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:termux-core:0.3.0:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:termux-exec:1:2.3.0:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:termux-keyring:3.12-1:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:termux-licenses:2.1:all",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:termux-tools:1.45.0:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:unzip:6.0-9:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:util-linux:2.40.2-3:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:xxhash:0.8.3:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:xz-utils:5.8.0:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": {
+        "evidence": "xz-utils maps to liblzma",
+        "license": "parent package evidence"
+      },
+      "license_identity_state": "EXPLICIT_PARENT_OR_UPSTREAM_MAPPING",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:zlib:1.3.1:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-bootstrap:zstd:1.5.7:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-overlay:proot:5.1.107.89:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-overlay:libandroid-shmem:0.7:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "termux-overlay:libtalloc:2.4.3:aarch64",
+      "kind": "runtime_package",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-termux-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "extra:0:Codex upstream payload:0.147.0",
+      "kind": "runtime_extra_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-codex-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "extra:1:Codex upstream payload:0.153.4",
+      "kind": "runtime_extra_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-codex-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "extra:2:Codex prompt asset:unversioned",
+      "kind": "runtime_extra_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": "ChebyAgent-0.7.0-codex-corresponding-source.tar",
+      "release_source_state": "BOUND_TO_RELEASE_SOURCE_ARCHIVE"
+    },
+    {
+      "id": "maven:androidx.activity:activity-compose:1.10.1",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.activity:activity-ktx:1.10.1",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.activity:activity:1.10.1",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.annotation:annotation-experimental:1.4.1",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.annotation:annotation-jvm:1.8.1",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.annotation:annotation:1.8.1",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.appcompat:appcompat-resources:1.3.1",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.appcompat:appcompat:1.3.1",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.arch.core:core-common:2.2.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.arch.core:core-runtime:2.2.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.autofill:autofill:1.0.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.cardview:cardview:1.0.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.collection:collection-jvm:1.4.4",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.collection:collection-ktx:1.4.4",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.collection:collection:1.4.4",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.animation:animation-android:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.animation:animation-core-android:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.animation:animation-core:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.animation:animation:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.foundation:foundation-android:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.foundation:foundation-layout-android:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.foundation:foundation-layout:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.foundation:foundation:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.material3:material3-android:1.3.1",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.material3:material3:1.3.1",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.material:material-android:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.material:material-icons-core-android:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.material:material-icons-core:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.material:material-ripple-android:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.material:material-ripple:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.material:material:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.runtime:runtime-android:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.runtime:runtime-saveable-android:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.runtime:runtime-saveable:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.runtime:runtime:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.ui:ui-android:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.ui:ui-geometry-android:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.ui:ui-geometry:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.ui:ui-graphics-android:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.ui:ui-graphics:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.ui:ui-text-android:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.ui:ui-text:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.ui:ui-tooling-android:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.ui:ui-tooling-data-android:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.ui:ui-tooling-data:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.ui:ui-tooling-preview-android:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.ui:ui-tooling-preview:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.ui:ui-tooling:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.ui:ui-unit-android:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.ui:ui-unit:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.ui:ui-util-android:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.ui:ui-util:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose.ui:ui:1.7.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.compose:compose-bom:2024.12.01",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.concurrent:concurrent-futures:1.1.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.constraintlayout:constraintlayout-solver:2.0.1",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.constraintlayout:constraintlayout:2.0.1",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.coordinatorlayout:coordinatorlayout:1.1.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.core:core-ktx:1.15.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.core:core-viewtree:1.0.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.core:core:1.15.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.cursoradapter:cursoradapter:1.0.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.customview:customview-poolingcontainer:1.0.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.customview:customview:1.1.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.documentfile:documentfile:1.0.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.drawerlayout:drawerlayout:1.1.1",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.dynamicanimation:dynamicanimation:1.0.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.emoji2:emoji2:1.3.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.exifinterface:exifinterface:1.3.7",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.fragment:fragment:1.3.6",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.graphics:graphics-path:1.0.1",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.interpolator:interpolator:1.0.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.legacy:legacy-support-core-utils:1.0.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.lifecycle:lifecycle-common-java8:2.8.7",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.lifecycle:lifecycle-common-jvm:2.8.7",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.lifecycle:lifecycle-common:2.8.7",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.lifecycle:lifecycle-livedata-core-ktx:2.8.7",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.lifecycle:lifecycle-livedata-core:2.8.7",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.lifecycle:lifecycle-livedata:2.8.7",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.lifecycle:lifecycle-process:2.8.7",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.lifecycle:lifecycle-runtime-android:2.8.7",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.lifecycle:lifecycle-runtime-compose-android:2.8.7",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.lifecycle:lifecycle-runtime-compose:2.8.7",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.lifecycle:lifecycle-runtime-ktx-android:2.8.7",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.lifecycle:lifecycle-runtime-ktx:2.8.7",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.lifecycle:lifecycle-runtime:2.8.7",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.lifecycle:lifecycle-viewmodel-android:2.8.7",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.lifecycle:lifecycle-viewmodel-compose-android:2.8.7",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.lifecycle:lifecycle-viewmodel-savedstate:2.8.7",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.lifecycle:lifecycle-viewmodel:2.8.7",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.loader:loader:1.0.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.localbroadcastmanager:localbroadcastmanager:1.0.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.preference:preference:1.1.1",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.print:print:1.0.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.profileinstaller:profileinstaller:1.4.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.recyclerview:recyclerview:1.1.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.savedstate:savedstate-ktx:1.2.1",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.savedstate:savedstate:1.2.1",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.startup:startup-runtime:1.1.1",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.tracing:tracing:1.2.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.transition:transition:1.2.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.vectordrawable:vectordrawable-animated:1.1.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.vectordrawable:vectordrawable:1.1.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.versionedparcelable:versionedparcelable:1.1.1",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.viewpager2:viewpager2:1.0.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.viewpager:viewpager:1.0.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:androidx.window:window:1.0.0-alpha09",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:com.atlassian.commonmark:commonmark-ext-gfm-strikethrough:0.13.0",
+      "kind": "android_maven_component",
+      "license_identity_override": {
+        "evidence": "resolved JAR notice",
+        "license": "BSD-2-Clause"
+      },
+      "license_identity_state": "EXPLICIT_PARENT_OR_UPSTREAM_MAPPING",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:com.atlassian.commonmark:commonmark:0.13.0",
+      "kind": "android_maven_component",
+      "license_identity_override": {
+        "evidence": "resolved JAR notice",
+        "license": "BSD-2-Clause"
+      },
+      "license_identity_state": "EXPLICIT_PARENT_OR_UPSTREAM_MAPPING",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:com.google.android.material:material:1.4.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:com.google.code.findbugs:jsr305:1.3.9",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:com.google.errorprone:error_prone_annotations:2.1.3",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:com.google.guava:guava:24.1-jre",
+      "kind": "android_maven_component",
+      "license_identity_override": {
+        "evidence": "Guava parent project declaration",
+        "license": "Apache-2.0"
+      },
+      "license_identity_state": "EXPLICIT_PARENT_OR_UPSTREAM_MAPPING",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:com.google.j2objc:j2objc-annotations:1.1",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:com.squareup.okhttp3:okhttp:4.12.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:com.squareup.okio:okio-jvm:3.6.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:com.squareup.okio:okio:3.6.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:commons-io:commons-io:2.5",
+      "kind": "android_maven_component",
+      "license_identity_override": {
+        "evidence": "resolved JAR LICENSE and NOTICE",
+        "license": "Apache-2.0"
+      },
+      "license_identity_state": "EXPLICIT_PARENT_OR_UPSTREAM_MAPPING",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:io.noties.markwon:core:4.6.2",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:io.noties.markwon:ext-strikethrough:4.6.2",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:io.noties.markwon:linkify:4.6.2",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:io.noties.markwon:recycler:4.6.2",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:org.checkerframework:checker-compat-qual:2.0.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:org.codehaus.mojo:animal-sniffer-annotations:1.14",
+      "kind": "android_maven_component",
+      "license_identity_override": {
+        "evidence": "resolved POM comment",
+        "license": "MIT"
+      },
+      "license_identity_state": "EXPLICIT_PARENT_OR_UPSTREAM_MAPPING",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:org.jetbrains.kotlin:kotlin-stdlib-common:2.0.21",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.10",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.10",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:org.jetbrains.kotlin:kotlin-stdlib:2.0.21",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:org.jetbrains.kotlinx:kotlinx-coroutines-bom:1.9.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.9.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:org.jetbrains.kotlinx:kotlinx-coroutines-core:1.9.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:org.jetbrains.kotlinx:kotlinx-serialization-bom:1.7.3",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:org.jetbrains.kotlinx:kotlinx-serialization-core-jvm:1.7.3",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:org.jetbrains.kotlinx:kotlinx-serialization-core:1.7.3",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:org.jetbrains.kotlinx:kotlinx-serialization-json-jvm:1.7.3",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:org.jetbrains:annotations:23.0.0",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    },
+    {
+      "id": "maven:org.lsposed.hiddenapibypass:hiddenapibypass:6.1",
+      "kind": "android_maven_component",
+      "license_identity_override": null,
+      "license_identity_state": "DIRECT_EVIDENCE",
+      "obligation_state": "FAMILY_POLICY_RECORDED; DISTRIBUTOR_ATTESTATION_REQUIRED",
+      "release_source_asset": null,
+      "release_source_state": "LICENSE_FAMILY_RECORDED; SOURCE_DELIVERY_NOT_INFERRED"
+    }
+  ],
+  "counts": {
+    "component_rows": 367,
+    "license_identity_closed": 367,
+    "license_identity_missing": 0,
+    "release_level_distributor_decisions_open": 1,
+    "row_level_legal_conclusions": 0,
+    "runtime_and_extra_source_rows_bound": 226
+  },
+  "distributor_attestation": {
+    "not_delegated_to_tool": true,
+    "required_action": "An authorized distributor must accept DISTRIBUTOR_ATTESTATION_0.7.0.md before changing the repository or Release to public.",
+    "state": "PENDING"
+  },
+  "inputs": {
+    "ledger_sha256": "96a65223429cbb9b93f839ac6b780c010fa1142ded5ebfeb30ad587d85f87d82",
+    "policy_id": "chebyagent-0.7.0-evidence-reconciliation-1",
+    "sha256_manifest_entries": 16
+  },
+  "outcome": "ENGINEERING_EVIDENCE_RECONCILED_DISTRIBUTOR_ATTESTATION_REQUIRED",
+  "release": "0.7.0",
+  "release_level_findings": [
+    {
+      "basis": "GPL-3.0-only license is in the repository, APK and Release",
+      "id": "project-license",
+      "state": "CLOSED"
+    },
+    {
+      "basis": "357 direct records plus 10 explicit parent or upstream mappings",
+      "id": "component-license-identity",
+      "state": "CLOSED_BY_LEDGER_AND_EXPLICIT_MAPPINGS"
+    },
+    {
+      "basis": "226 runtime and extra rows bind to hash-named Release source archives",
+      "id": "runtime-corresponding-source",
+      "state": "CLOSED_FOR_ARCHIVE_IDENTITY_AND_DELIVERY"
+    },
+    {
+      "basis": "resolved Gradle artifacts and POMs are hash-recorded; DEX/resource transforms do not retain a one-to-one byte map",
+      "id": "maven-final-byte-map",
+      "state": "RECLASSIFIED_AS_NON_BLOCKING_ENGINEERING_DIAGNOSTIC"
+    },
+    {
+      "basis": "signature verification is desirable authenticity evidence but is not treated as a license-identity or source-delivery gate",
+      "id": "debian-dsc-signatures",
+      "state": "RECLASSIFIED_AS_SUPPLY_CHAIN_ASSURANCE"
+    },
+    {
+      "basis": "the delivered archive retains the fetched content and equivalent source-tree proof; the historical unpinned URL is disclosed",
+      "id": "historical-termux-inputs",
+      "state": "CLOSED_WITH_DISCLOSED_EXCEPTION"
+    },
+    {
+      "basis": "fixed upstream source, LICENSE and NOTICE are delivered; binary reproducibility is not claimed",
+      "id": "codex-reproducible-build",
+      "state": "RECLASSIFIED_AS_REPRODUCIBILITY_ASSURANCE"
+    },
+    {
+      "basis": "INSTALLATION_INFORMATION.md documents own-key rebuild and replacement installation",
+      "id": "installation-information",
+      "state": "DOCUMENTED_FOR_SOFTWARE_ONLY_DISTRIBUTION"
+    }
+  ],
+  "schema": 2
+}

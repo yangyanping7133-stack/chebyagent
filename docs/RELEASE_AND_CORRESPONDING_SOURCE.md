@@ -25,6 +25,8 @@ For each version, publish:
 9. direct copies of GPL-3.0-only and Apache-2.0, the project NOTICE,
    third-party notices, Codex notice, delivery license ledger and the current
    release compliance audit.
+10. installation information, upstream modification notice, evidence
+    reconciliation and the distributor's release decision.
 
 The repository plus these versioned Release assets are the preferred form for
 modifying and rebuilding the distributed APK. Users may build and sign with
@@ -40,8 +42,8 @@ No source offer should be inferred from a moving branch. A Release is complete
 only when its tag, APK hash, binary-input hashes and corresponding-source asset
 hashes are mutually bound in `SHA256SUMS`.
 
-For `v0.7.0`, this asset-integrity gate passes, but public distribution remains
-blocked by the unresolved component obligations recorded in
-`docs/licensing/RELEASE_COMPLIANCE_AUDIT_0.7.0.md`. Archive completeness and a
+For `v0.7.0`, the asset-integrity and mechanical reconciliation gates pass, but
+public distribution remains blocked until the distributor completes
+`docs/licensing/DISTRIBUTOR_ATTESTATION_0.7.0.md`. Archive completeness and a
 project-level source license are necessary evidence, not a substitute for that
-review.
+release-level decision.

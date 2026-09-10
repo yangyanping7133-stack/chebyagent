@@ -9,12 +9,16 @@ advice or a blanket legal-compliance declaration.
 - APK-to-large-input binding: **PASS**.
 - Corresponding-source archive integrity: **PASS**.
 - Direct distribution of core license and notice files: **PASS**.
-- Per-component legal-obligation review: **BLOCKED**.
-- Public-release gate: **BLOCKED; keep the repository and Release private**.
+- Mechanical component-evidence reconciliation: **PASS**.
+- Distributor acceptance: **PENDING**.
+- Public-release gate: **BLOCKED; keep the repository and Release private**
+  until the distributor attestation is completed.
 
-The private Release may be used by recipients who also receive access to the
-matching source and license assets. It must not yet be described as a fully
-legally reviewed public open-source distribution.
+The original immutable ledger conservatively marked all 367 rows unassessed.
+The later schema-2 reconciliation closes the duplicated identity and archive
+binding placeholders without rewriting that ledger or making a legal
+conclusion. The private Release must not yet be described as a fully legally
+reviewed public open-source distribution.
 
 ## No GitHub-hosted build
 
@@ -50,30 +54,40 @@ audit history.
 7. The five Maven direct-POM omissions and five Termux subpackage direct-path
    omissions have explicit license/source identity mappings in
    `THIRD_PARTY_NOTICES.md`.
+8. The schema-2 reconciliation verifies 367/367 component license identities
+   and binds all 226 runtime/extra rows to hash-named corresponding-source
+   archives. It deliberately records zero row-level legal conclusions.
+9. `INSTALLATION_INFORMATION.md` now records the own-key rebuild, replacement
+   installation and runtime-component replacement path for the software-only
+   APK distribution.
 
-## Remaining blockers
+## Reclassified findings
 
-1. All 367 component rows remain fail-closed pending package-specific review of
-   notice, attribution, source-offer, installation-information and relinking
-   obligations. License identity alone does not close those obligations.
-2. Android/JNI components are not yet mapped byte-for-byte from the signed APK
-   back to every dependency record.
-3. Debian `.dsc` signatures are retained but were not cryptographically
-   verified.
-4. The Termux `command-not-found` historical input used an unpinned `master`
-   URL, and the `foot` 1.21.0 source is preserved through a verified equivalent
-   source tree rather than the unavailable historical compressed bytes.
-5. Codex source archives are version- and commit-bound, but a complete
-   dependency-by-dependency legal adjudication and reproducible binary rebuild
-   have not been established.
-6. GPLv3 Installation Information applicability to every eventual device and
-   distribution arrangement needs a distributor-side legal determination.
+The following remain disclosed but are not repeated as 367 separate legal
+blockers:
+
+1. Gradle artifacts, POMs and notices are hash-recorded build inputs. A
+   one-to-one final DEX byte map is an engineering diagnostic, not a claimed
+   property of the transformed APK.
+2. Retained but unverified Debian `.dsc` signatures are a supply-chain
+   assurance caveat, not an identity or source-archive gap.
+3. The Termux `command-not-found` historical unpinned URL and `foot` equivalent
+   source-tree proof remain explicit acquisition exceptions.
+4. Codex binary reproducibility is not claimed. Fixed source, LICENSE and NOTICE
+   are delivered for both bundled versions.
+
+## Remaining release decision
+
+One release-level decision remains. The actual distributor must complete
+`DISTRIBUTOR_ATTESTATION_0.7.0.md`, accepting the recorded software-only scope,
+recipient access to the source/notice/install assets, signing-key position and
+disclosed source-acquisition exceptions. A script cannot sign or accept that
+decision for the distributor.
 
 ## Public-release acceptance condition
 
-Do not change repository visibility to public until the version-bound delivery
-ledger has no unresolved mandatory obligations, the APK/JNI mapping is closed,
-all required notices are confirmed readable to binary recipients, and the
-distributor accepts the remaining signing and installation-information
-position. A later public release should use a new immutable version rather than
-moving or replacing tag `v0.7.0`.
+Do not change repository visibility to public until the distributor attestation
+is complete and the direct Release assets include the reconciliation,
+modification and installation-information addendum. A later public release
+should use a new immutable version rather than moving or replacing tag
+`v0.7.0`.

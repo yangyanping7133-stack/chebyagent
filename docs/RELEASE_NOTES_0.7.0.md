@@ -51,9 +51,11 @@ inputs plus version-bound Debian, Termux, Codex and Android dependency source
 evidence. See `SHA256SUMS`, `THIRD_PARTY_NOTICES.md`, and
 `docs/RELEASE_AND_CORRESPONDING_SOURCE.md`.
 
-The component inventory is an engineering evidence set, not legal advice. A
-final distributor should complete a human review of package-specific notice,
-source-offer and redistribution obligations before making the release public.
+The component inventory and schema-2 reconciliation are engineering evidence,
+not legal advice. The reconciliation closes 367/367 license identities and
+binds 226/226 runtime/extra rows to source archives without recording a legal
+conclusion. The actual distributor must complete the release-level attestation
+before making the release public.
 
 ## Compliance addendum
 
@@ -63,5 +65,6 @@ source-offer and redistribution obligations before making the release public.
   local, version-bound verification.
 - The Release includes direct license, notice, delivery-ledger and audit-report
   assets in addition to the corresponding-source archives.
-- Delivery integrity and source-archive integrity pass. The repository remains
-  private because the package-specific legal-obligation review is not complete.
+- Delivery integrity, source-archive integrity and mechanical evidence
+  reconciliation pass. The repository remains private because the authorized
+  distributor attestation is still pending.

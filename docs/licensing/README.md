@@ -14,8 +14,11 @@ explicit component-by-component decision. It is not legal advice.
 | Termux corresponding-source archive | Pass for inventory and archive integrity | 75 binary packages, 71 recipes, 123 inputs |
 | Codex fixed-version source and license evidence | Pass for archive integrity | Versions 0.147.0 and 0.153.4 |
 | Android/JVM declared dependency inventory | Present | 141 Maven declarations plus extracted notices |
-| Package-specific redistribution obligations | **Open** | 367 ledger rows require human review |
-| Public distribution approval | **Not approved** | Repository and Release stay private |
+| Component license identity | Pass | 367/367 direct or explicitly mapped |
+| Runtime/source release binding | Pass | 226/226 runtime and extra rows |
+| Row-level legal conclusions | None claimed | The reconciler records evidence only |
+| Distributor acceptance | **Pending** | One release-level attestation remains |
+| Public distribution approval | **Not approved** | Repository and Release stay private until acceptance |
 
 “Pass” in this table means the named engineering gate passed. It does not mean
 that every legal obligation of every component has been adjudicated.
@@ -31,23 +34,35 @@ that every legal obligation of every component has been adjudicated.
 - [`../RELEASE_AND_CORRESPONDING_SOURCE.md`](../RELEASE_AND_CORRESPONDING_SOURCE.md)
   defines the per-version Release asset contract.
 - The `ChebyAgent-0.7.0-delivery-license-ledger.json` Release asset is the
-  machine-readable fail-closed review ledger.
+  original machine-readable fail-closed review ledger.
+- [`RECONCILIATION_POLICY_0.7.0.json`](RECONCILIATION_POLICY_0.7.0.json) and
+  [`RELEASE_COMPLIANCE_RECONCILIATION_0.7.0.json`](RELEASE_COMPLIANCE_RECONCILIATION_0.7.0.json)
+  reconcile the later source delivery without mutating the original ledger.
+- [`../../INSTALLATION_INFORMATION.md`](../../INSTALLATION_INFORMATION.md)
+  explains how to rebuild, self-sign, replace an installation and replace
+  bundled runtime components.
+- [`MODIFICATIONS_0.7.0.md`](MODIFICATIONS_0.7.0.md) records changes to imported
+  upstream code and disclosed acquisition exceptions.
+- [`DISTRIBUTOR_ATTESTATION_0.7.0.md`](DISTRIBUTOR_ATTESTATION_0.7.0.md) is the
+  remaining human-owned release decision.
 
 ## Public-release acceptance gate
 
-Do not change the repository or Release to public merely because project code
-and source archives are visible to the distributor. Before public release, an
-authorized reviewer must resolve every ledger row and record, where applicable:
+The original 367 row-level placeholders are now reconciled as evidence states,
+not auto-approved as legal conclusions. Before public release, an authorized
+distributor must complete the single release-level attestation and ensure the
+addendum files are direct Release assets. If the distribution expands to
+hardware, a commercial bundle or a different signing/installation model, the
+attestation must be redone for that scope. Do not rewrite the existing `v0.7.0`
+tag to make a later decision retroactive.
 
-1. the exact license and copyright attribution;
-2. which license/NOTICE text must accompany the binary;
-3. which corresponding source, build scripts and modification notices apply;
-4. whether source-offer, relinking or Installation Information obligations
-   apply to this APK and distribution method;
-5. the byte-to-component mapping from the signed APK to the reviewed record.
+Reproduce the reconciliation locally (no GitHub Actions):
 
-The review must also close the unresolved boundaries listed in the current
-audit, including Debian signature verification, historical Termux inputs and
-the Codex dependency review. Only then may the version receive a new, immutable
-public-release decision. Do not rewrite the existing `v0.7.0` tag to make that
-decision retroactive.
+```bash
+cd tools/standalone
+python3 reconcile_delivery_license_ledger.py \
+  --ledger /path/to/ChebyAgent-0.7.0-delivery-license-ledger.json \
+  --policy ../../docs/licensing/RECONCILIATION_POLICY_0.7.0.json \
+  --sha256s /path/to/SHA256SUMS \
+  --output /tmp/ChebyAgent-0.7.0-compliance-reconciliation.json
+```

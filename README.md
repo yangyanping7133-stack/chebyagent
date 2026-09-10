@@ -195,11 +195,14 @@ GPLv3-only 的 Termux app/shared 代码。Codex CLI、ACE、Android/JVM 依赖�
 对应源码、第三方声明和当前仍未关闭的审阅项见：
 
 - [第三方软件与对应源码](THIRD_PARTY_NOTICES.md)
+- [修改版安装、替换与重链接说明](INSTALLATION_INFORMATION.md)
 - [许可与对应源码状态总览](docs/licensing/README.md)
 - [组件库存](docs/licensing/COMPONENT_INVENTORY_20260905.md)
 - [0.7.0 合规审计](docs/licensing/RELEASE_COMPLIANCE_AUDIT_0.7.0.md)
+- [0.7.0 证据调和结果](docs/licensing/RELEASE_COMPLIANCE_RECONCILIATION_0.7.0.json)
 - [Release 与对应源码策略](docs/RELEASE_AND_CORRESPONDING_SOURCE.md)
 
-这些材料是可复核的工程证据，不是法律意见。当前交付完整性和对应源码归档校验已通过，
-但逐组件 notice、归属、源码提供、安装信息和重链接义务尚未全部完成，因此仓库和 Release
-暂不作为“已经完成法律审阅的公开发行版”宣传。
+这些材料是可复核的工程证据，不是法律意见。当前 367/367 个组件的许可证身份和全部
+226 个运行组件的源码归档绑定已经调和；脚本没有自动生成法律结论。公开发行前仍需由实际
+发行方完成一份发行级确认，因此仓库和 Release 暂不作为“已经完成法律审阅的公开发行版”
+宣传。
