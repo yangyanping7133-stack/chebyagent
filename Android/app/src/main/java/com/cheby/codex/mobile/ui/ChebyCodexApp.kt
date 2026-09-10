@@ -146,10 +146,14 @@ fun ChebyCodexApp(viewModel: AppViewModel) {
     var embeddedRuntimeStatus by remember {
         mutableStateOf(EmbeddedRuntimeRegistry.status())
     }
+    var embeddedRuntimeFailureDetail by remember {
+        mutableStateOf(EmbeddedRuntimeRegistry.failureDetail())
+    }
     LaunchedEffect(uiState.gatewayKind) {
         if (uiState.gatewayKind != GatewayKind.LOCAL) return@LaunchedEffect
         while (true) {
             embeddedRuntimeStatus = EmbeddedRuntimeRegistry.status()
+            embeddedRuntimeFailureDetail = EmbeddedRuntimeRegistry.failureDetail()
             delay(1_000)
         }
     }
@@ -204,6 +208,7 @@ fun ChebyCodexApp(viewModel: AppViewModel) {
             onPair = viewModel::enrollAssistant,
             onChangeServer = viewModel::changeAssistantServer,
             embeddedRuntimeStatus = embeddedRuntimeStatus,
+            embeddedRuntimeFailureDetail = embeddedRuntimeFailureDetail,
             onOpenProviderSettings = { showProviderSettings = true },
             onOpenSessionModelSettings = { showSessionModelSettings = true },
             onApplyProviderSettings = {
@@ -212,6 +217,13 @@ fun ChebyCodexApp(viewModel: AppViewModel) {
                 } else {
                     "当前任务仍在进行，配置暂未切换。任务结束后，请再点“应用已保存的模型配置”。"
                 }
+            },
+            onRetryEmbeddedRuntime = {
+                val retryError = EmbeddedRuntimeRegistry.retryProvisioning()
+                embeddedRuntimeStatus = EmbeddedRuntimeRegistry.status()
+                embeddedRuntimeFailureDetail = EmbeddedRuntimeRegistry.failureDetail()
+                localSetupMessage = retryError
+                    ?: "已开始安全重试。本机已有的登录、会话和记忆数据会保留。"
             },
             onOpenAccessibilitySettings = {
                 context.startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
@@ -340,9 +352,11 @@ private fun ConversationScreen(
     onPair: (String, String, String) -> Unit,
     onChangeServer: (String) -> Unit,
     embeddedRuntimeStatus: EmbeddedRuntimeStatus,
+    embeddedRuntimeFailureDetail: String,
     onOpenProviderSettings: () -> Unit,
     onOpenSessionModelSettings: () -> Unit,
     onApplyProviderSettings: () -> Unit,
+    onRetryEmbeddedRuntime: () -> Unit,
     onOpenAccessibilitySettings: () -> Unit,
 ) {
     var menuExpanded by remember { mutableStateOf(false) }
@@ -390,6 +404,7 @@ private fun ConversationScreen(
                                 uiState.connectionState,
                                 if (uiState.showPairing) GatewayKind.UNCONFIGURED else uiState.gatewayKind,
                                 embeddedRuntimeStatus,
+                                embeddedRuntimeFailureDetail,
                             )
                         }
                         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -431,6 +446,15 @@ private fun ConversationScreen(
                             onDismissRequest = { menuExpanded = false },
                         ) {
                             if (uiState.gatewayKind == GatewayKind.LOCAL) {
+                                if (embeddedRuntimeStatus == EmbeddedRuntimeStatus.FAILED) {
+                                    DropdownMenuItem(
+                                        text = { Text("重试本机环境安装") },
+                                        onClick = {
+                                            menuExpanded = false
+                                            onRetryEmbeddedRuntime()
+                                        },
+                                    )
+                                }
                                 DropdownMenuItem(
                                     text = { Text("当前会话的模型") },
                                     enabled = uiState.currentThreadKey != null && uiState.availableModels.isNotEmpty(),
@@ -1441,6 +1465,7 @@ private fun ConnectionBadge(
     state: GatewayConnectionState,
     kind: GatewayKind,
     embeddedRuntimeStatus: EmbeddedRuntimeStatus,
+    embeddedRuntimeFailureDetail: String,
 ) {
     val localProblem = kind == GatewayKind.LOCAL && embeddedRuntimeStatus in setOf(
         EmbeddedRuntimeStatus.READY_NEEDS_AUTH,
@@ -1459,7 +1484,11 @@ private fun ConnectionBadge(
             EmbeddedRuntimeStatus.PREPARING -> "正在展开内置运行环境"
             EmbeddedRuntimeStatus.INSTALLING -> "正在离线安装内置 Codex"
             EmbeddedRuntimeStatus.READY_NEEDS_AUTH -> "请在更多菜单配置模型凭证"
-            EmbeddedRuntimeStatus.FAILED -> "本机运行环境安装失败"
+            EmbeddedRuntimeStatus.FAILED -> if (embeddedRuntimeFailureDetail.isBlank()) {
+                "本机运行环境安装失败"
+            } else {
+                "安装失败 · $embeddedRuntimeFailureDetail"
+            }
             EmbeddedRuntimeStatus.UNAVAILABLE -> "本机运行环境不可用"
             EmbeddedRuntimeStatus.READY -> when (state) {
                 GatewayConnectionState.ONLINE -> "本机 Codex 已连接"

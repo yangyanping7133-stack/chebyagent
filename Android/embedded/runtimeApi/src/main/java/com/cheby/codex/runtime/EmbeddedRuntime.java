@@ -15,6 +15,12 @@ public interface EmbeddedRuntime {
     /** Explicitly confirmed recovery of unreadable credentials; callers must hold an idle-turn guard. */
     default String rebuildProviderSettings() { return "当前版本没有内置运行环境。"; }
 
+    /** Safe user-facing failure detail. Never returns raw logs, paths, or exception messages. */
+    default String failureDetail() { return ""; }
+
+    /** Null means a data-preserving retry was started. */
+    default String retryProvisioning() { return "当前版本没有内置运行环境。"; }
+
     void prepare(Activity activity);
 
     EmbeddedRuntimeStartResult ensureStarted(String tokenSha256);

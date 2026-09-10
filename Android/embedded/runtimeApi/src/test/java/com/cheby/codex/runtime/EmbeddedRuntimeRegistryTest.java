@@ -31,6 +31,16 @@ public final class EmbeddedRuntimeRegistryTest {
             public EmbeddedRuntimeStatus status() {
                 return EmbeddedRuntimeStatus.INSTALLING;
             }
+
+            @Override
+            public String failureDetail() {
+                return "Debian 环境迁移失败";
+            }
+
+            @Override
+            public String retryProvisioning() {
+                return null;
+            }
         };
         EmbeddedRuntimeRegistry.install(owner);
 
@@ -39,6 +49,8 @@ public final class EmbeddedRuntimeRegistryTest {
             EmbeddedRuntimeRegistry.ensureStarted(repeat("a", 64))
         );
         assertEquals(EmbeddedRuntimeStatus.INSTALLING, EmbeddedRuntimeRegistry.status());
+        assertEquals("Debian 环境迁移失败", EmbeddedRuntimeRegistry.failureDetail());
+        assertEquals(null, EmbeddedRuntimeRegistry.retryProvisioning());
         assertThrows(
             IllegalStateException.class,
             () -> EmbeddedRuntimeRegistry.install(owner)

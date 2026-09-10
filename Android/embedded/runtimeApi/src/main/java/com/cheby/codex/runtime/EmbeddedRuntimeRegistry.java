@@ -28,6 +28,16 @@ public final class EmbeddedRuntimeRegistry {
         return runtime == null ? "当前版本没有内置运行环境。" : runtime.rebuildProviderSettings();
     }
 
+    public static String failureDetail() {
+        EmbeddedRuntime runtime = OWNER.get();
+        return runtime == null ? "" : runtime.failureDetail();
+    }
+
+    public static String retryProvisioning() {
+        EmbeddedRuntime runtime = OWNER.get();
+        return runtime == null ? "当前版本没有内置运行环境。" : runtime.retryProvisioning();
+    }
+
     public static void install(EmbeddedRuntime runtime) {
         Objects.requireNonNull(runtime, "runtime");
         if (!OWNER.compareAndSet(null, runtime)) {

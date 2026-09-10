@@ -328,7 +328,7 @@ class OfficialAppServerIntegrationTest(unittest.TestCase):
 
     def test_runtime_version_bump_forces_existing_appliance_refresh(self):
         version = gate.PINNED_RUNTIME_LOCK["CHEBY_RUNTIME_VERSION"]
-        self.assertEqual(version, "4.1.0-dev32")
+        self.assertEqual(version, "4.1.0-dev33")
         files = (
             ROOT / "Android/appliance/runtime/runtime.lock",
             ROOT / "Android/appliance/runtime/provision-runtime.sh",
@@ -337,6 +337,14 @@ class OfficialAppServerIntegrationTest(unittest.TestCase):
         )
         for path in files:
             self.assertIn(version, path.read_text())
+
+    def test_runtime_upgrade_preserves_durable_state_and_rolls_back_on_failure(self):
+        script = (ROOT / "Android/appliance/runtime/provision-runtime.sh").read_text()
+        self.assertIn("STEP='migrate_debian_rootfs'", script)
+        self.assertIn("for relative in .codex .cheby", script)
+        self.assertIn('MIGRATION_ACTIVE=1', script)
+        self.assertIn('mv "$DEBIAN_PREVIOUS" "$DEBIAN_ROOT"', script)
+        self.assertNotIn("Unrecognized Debian runtime exists; refusing to replace it", script)
 
     def test_phone_runtime_registers_persistent_memory_and_skill_servers(self):
         provision = (

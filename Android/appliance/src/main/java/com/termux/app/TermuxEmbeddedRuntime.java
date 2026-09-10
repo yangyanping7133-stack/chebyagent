@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.SystemClock;
+import android.util.Log;
 
 import com.cheby.codex.runtime.EmbeddedRuntime;
 import com.cheby.codex.runtime.EmbeddedRuntimeImportResult;
@@ -113,7 +114,7 @@ public final class TermuxEmbeddedRuntime implements EmbeddedRuntime {
     private static final String PROVISION_ROOT = TERMUX_HOME + "/.cheby/provision";
     private static final String PROVISION_ASSETS = PROVISION_ROOT + "/assets";
     private static final String PROVISION_SCRIPT = PROVISION_ASSETS + "/provision-runtime.sh";
-    private static final String READY_MARKER = TERMUX_HOME + "/.cheby/runtime/ready-4.1.0-dev32";
+    private static final String READY_MARKER = TERMUX_HOME + "/.cheby/runtime/ready-4.1.0-dev33";
     private static final String FAILED_MARKER = TERMUX_HOME + "/.cheby/runtime/provision-failed";
     private static final String DEBIAN_ROOT =
         TERMUX_PREFIX + "/var/lib/cheby-runtime/debian-rootfs";
@@ -128,6 +129,7 @@ public final class TermuxEmbeddedRuntime implements EmbeddedRuntime {
     private static final String EXTRA_WORKDIR = "com.termux.execute.cwd";
     private static final String EXTRA_BACKGROUND = "com.termux.execute.background";
     private static final String EXTRA_LABEL = "com.termux.execute.command_label";
+    private static final String LOG_TAG = "ChebyRuntime";
 
     private final Context context;
     private final ProviderSettingsStore providerStore;
@@ -138,6 +140,7 @@ public final class TermuxEmbeddedRuntime implements EmbeddedRuntime {
     private boolean runtimeReady;
     private boolean provisioning;
     private boolean failed;
+    private String failureDetail = "";
     private String pendingTokenSha256;
     private long lastCodexStartRequestElapsedMs;
     private String lastCodexStartTokenSha256;
@@ -170,7 +173,7 @@ public final class TermuxEmbeddedRuntime implements EmbeddedRuntime {
                 }
                 markRuntimeReady();
             } catch (IOException | RuntimeException error) {
-                markFailed();
+                markFailed("resume", error);
             }
         });
     }
@@ -216,6 +219,26 @@ public final class TermuxEmbeddedRuntime implements EmbeddedRuntime {
         }
         if (provisioning) return EmbeddedRuntimeStatus.INSTALLING;
         return EmbeddedRuntimeStatus.PREPARING;
+    }
+
+    @Override
+    public synchronized String failureDetail() {
+        return failureDetail;
+    }
+
+    @Override
+    public String retryProvisioning() {
+        synchronized (this) {
+            if (provisioning || preparingBootstrap) return "本机环境正在安装，请稍候。";
+            if (!bootstrapReady || !new File(BASH).canExecute()) {
+                return "基础运行组件尚未就绪，请重新打开应用后再试。";
+            }
+            runtimeReady = false;
+            failed = false;
+            failureDetail = "";
+        }
+        prepareProvisionedRuntime();
+        return null;
     }
 
     @Override
@@ -284,6 +307,7 @@ public final class TermuxEmbeddedRuntime implements EmbeddedRuntime {
                 if (provisioning) return;
                 provisioning = true;
                 failed = false;
+                failureDetail = "";
             }
             new File(FAILED_MARKER).delete();
             EmbeddedRuntimeStartResult result = startFixedCommand(
@@ -292,28 +316,40 @@ public final class TermuxEmbeddedRuntime implements EmbeddedRuntime {
                 "ChebyCodex runtime setup"
             );
             if (result == EmbeddedRuntimeStartResult.FAILED) {
-                markFailed();
+                markFailed("service_start", null);
                 return;
             }
             startProvisionMonitor();
         } catch (IOException | RuntimeException error) {
-            markFailed();
+            markFailed("asset_staging", error);
         }
     }
 
     private void startProvisionMonitor() {
         if (!monitorStarted.compareAndSet(false, true)) return;
-        monitor.scheduleWithFixedDelay(() -> {
+        scheduleProvisionCheck();
+    }
+
+    private void scheduleProvisionCheck() {
+        monitor.schedule(() -> {
             if (new File(READY_MARKER).isFile()) {
+                monitorStarted.set(false);
                 markRuntimeReady();
-                monitor.shutdown();
                 return;
             }
             if (new File(FAILED_MARKER).isFile()) {
-                markFailed();
-                monitor.shutdown();
+                monitorStarted.set(false);
+                markFailed(readFailureStep(), null);
+                return;
             }
-        }, 1, 1, TimeUnit.SECONDS);
+            synchronized (this) {
+                if (!provisioning) {
+                    monitorStarted.set(false);
+                    return;
+                }
+            }
+            scheduleProvisionCheck();
+        }, 1, TimeUnit.SECONDS);
     }
 
     private void markRuntimeReady() {
@@ -322,14 +358,71 @@ public final class TermuxEmbeddedRuntime implements EmbeddedRuntime {
             runtimeReady = true;
             provisioning = false;
             failed = false;
+            failureDetail = "";
             pending = pendingTokenSha256;
         }
         if (pending != null) startCodex(pending);
     }
 
-    private synchronized void markFailed() {
-        provisioning = false;
-        failed = true;
+    private void markFailed(String stage, Throwable error) {
+        String safeStage = normalizeFailureStep(stage);
+        synchronized (this) {
+            provisioning = false;
+            failed = true;
+            failureDetail = failureDetailForStep(safeStage);
+        }
+        String type = error == null ? "none" : error.getClass().getSimpleName();
+        Log.e(LOG_TAG, "provision_failed stage=" + safeStage + " type=" + type);
+    }
+
+    private static String readFailureStep() {
+        File marker = new File(FAILED_MARKER);
+        if (!marker.isFile() || Files.isSymbolicLink(marker.toPath()) || marker.length() > 128) {
+            return "unknown";
+        }
+        try (
+            BufferedReader reader = new BufferedReader(
+                new InputStreamReader(new FileInputStream(marker), StandardCharsets.US_ASCII)
+            )
+        ) {
+            String step = reader.readLine();
+            return step != null && reader.readLine() == null ? step : "unknown";
+        } catch (IOException error) {
+            return "unknown";
+        }
+    }
+
+    static String failureDetailForStep(String step) {
+        switch (normalizeFailureStep(step)) {
+            case "verify_assets": return "内置资源校验失败";
+            case "install_proot_overlay": return "Linux 启动组件安装失败";
+            case "install_debian_rootfs": return "Debian 环境安装失败";
+            case "migrate_debian_rootfs": return "Debian 环境迁移失败";
+            case "finalize_guest": return "Codex 环境配置失败";
+            case "complete": return "本机环境收尾失败";
+            case "asset_staging": return "内置资源准备失败";
+            case "service_start": return "安装服务启动失败";
+            case "resume": return "本机环境恢复失败";
+            default: return "安装步骤未完成";
+        }
+    }
+
+    private static String normalizeFailureStep(String step) {
+        if (step == null) return "unknown";
+        switch (step) {
+            case "verify_assets":
+            case "install_proot_overlay":
+            case "install_debian_rootfs":
+            case "migrate_debian_rootfs":
+            case "finalize_guest":
+            case "complete":
+            case "asset_staging":
+            case "service_start":
+            case "resume":
+                return step;
+            default:
+                return "unknown";
+        }
     }
 
     private void stageBundledAssets(boolean includeProvisioningBundles) throws IOException {
