@@ -8,6 +8,16 @@ Codex CLI、PRoot/Debian Linux 运行环境、手机控制工具和生活服务 
 App，并把结果带回同一个会话。模型推理由你选择的服务提供；模型凭证只在手机的
 “服务与登录”页面填写，不要发到聊天里。
 
+## 真实手机演示
+
+[![ChebyAgent 在 Yandex Maps 查找附近咖啡厅，并在 Yandex Go 预览去冬宫的叫车价格](docs/media/chebyagent-yandex-demo.png)](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Yandex-Demo.mp4)
+
+**▶ [观看 1 分 35 秒完整演示视频](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Yandex-Demo.mp4)**
+
+这段视频来自 Huawei ALN-AL00 真机：ChebyAgent 打开 Yandex Maps 查找附近咖啡厅，
+并在 Yandex Go 将目的地设为 Winter Palace（冬宫）后展示可选车型和当时价格。
+上车位置与地图已在公开版中遮挡；全程没有叫车下单，也没有预订咖啡厅。
+
 > 当前发布版：`0.7.3`。已在 Huawei ALN-AL00（Android 12、ARM64）完成覆盖安装、
 > 冷启动、会话恢复、图片输入、手机移动网络和手机操作验证；Codex 与
 > GLM 5.3 Flash 均已实际调用 Yandex Maps 完成附近咖啡厅搜索。工程最低
