@@ -67,7 +67,6 @@ object GatewayFactory {
                     )
                     when (settings.getString("provider")) {
                         "glm" -> "glm-5.3-flash"
-                        "minimax" -> "MiniMax-M3"
                         "openai" -> "gpt-5.6-sol"
                         else -> throw GatewayTransportException("Saved model configuration is unavailable")
                     }
@@ -81,7 +80,6 @@ object GatewayFactory {
                         .getJSONObject(provider).getString("reasoningEffort")
                     val supported = when (provider) {
                         "glm" -> setOf("low", "high", "max")
-                        "minimax" -> setOf("low", "medium", "high", "xhigh", "max")
                         "openai" -> setOf("none", "low", "medium", "high", "xhigh", "max")
                         else -> emptySet()
                     }

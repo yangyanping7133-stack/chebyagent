@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Local Responses-to-Chat adapter for appliance chat-completions providers.
+"""Local Responses-to-Chat adapter for the appliance GLM provider.
 
-Codex 0.153.4 speaks the Responses wire protocol. GLM-5.3-Flash and MiniMax-M3
-are exposed through OpenAI-compatible Chat Completions APIs. This loopback-only
+Codex 0.153.4 speaks the Responses wire protocol. GLM-5.3-Flash is exposed
+through an OpenAI-compatible Chat Completions API. This loopback-only
 adapter translates the small, auditable subset used by the appliance without
 placing upstream credentials in Codex's environment or command line.
 """
@@ -21,7 +21,6 @@ import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import urllib.error
 import urllib.request
-from collections import OrderedDict
 
 
 MAX_REQUEST = 16 * 1024 * 1024
@@ -33,8 +32,6 @@ PHONEBRIDGE_ARTIFACT_PATTERN = re.compile(
     r"/root/\.cheby/phonebridge/artifacts/[A-Za-z0-9._-]+"
 )
 MAX_PHONEBRIDGE_IMAGE = 2 * 1024 * 1024
-MAX_REASONING_CACHE_ENTRIES = 64
-MAX_REASONING_CACHE_CHARS = 256 * 1024
 
 
 class NoRedirect(urllib.request.HTTPRedirectHandler):
@@ -254,7 +251,7 @@ def alias_for_history(item, aliases):
     return safe_tool_name((namespace + "__" if isinstance(namespace, str) else "") + str(name))
 
 
-def chat_messages(payload, aliases, reasoning_by_call=None, preserve_reasoning=False):
+def chat_messages(payload, aliases):
     messages = []
     instructions = payload.get("instructions")
     if isinstance(instructions, str) and instructions:
@@ -271,14 +268,6 @@ def chat_messages(payload, aliases, reasoning_by_call=None, preserve_reasoning=F
         if pending_calls:
             assistant = {"role": "assistant", "content": None,
                          "tool_calls": list(pending_calls)}
-            if preserve_reasoning and reasoning_by_call:
-                remembered = []
-                for call in pending_calls:
-                    value = reasoning_by_call.get(call["id"])
-                    if isinstance(value, str) and value and value not in remembered:
-                        remembered.append(value)
-                if remembered:
-                    assistant["reasoning_content"] = "\n".join(remembered)
             messages.append(assistant)
             pending_calls.clear()
 
@@ -365,32 +354,23 @@ def chat_messages(payload, aliases, reasoning_by_call=None, preserve_reasoning=F
     return messages
 
 
-def chat_request(payload, model="glm-5.3-flash", provider="glm", reasoning_by_call=None):
-    if provider not in ("glm", "minimax"):
+def chat_request(payload, model="glm-5.3-flash", provider="glm"):
+    if provider != "glm":
         raise ValueError("Invalid chat provider")
     if not isinstance(payload, dict) or payload.get("model") != model:
         raise ValueError("Invalid model request")
     tools, aliases = chat_tools(payload.get("tools", []))
     request = {
         "model": model,
-        "messages": chat_messages(
-            payload, aliases, reasoning_by_call,
-            preserve_reasoning=provider == "minimax",
-        ),
+        "messages": chat_messages(payload, aliases),
         "stream": False,
     }
     reasoning = payload.get("reasoning")
     effort = reasoning.get("effort") if isinstance(reasoning, dict) else None
-    if provider == "glm":
-        # Preserved thinking is valid only when every earlier reasoning block is
-        # returned complete and in order, so use a clean turn-local GLM state.
-        request["thinking"] = {"type": "enabled", "clear_thinking": True}
-        request["reasoning_effort"] = effort if effort in ("low", "high", "max") else "max"
-    else:
-        if effort not in ("low", "medium", "high", "xhigh", "max"):
-            effort = "medium"
-        request["reasoning_split"] = True
-        request["thinking"] = {"type": "disabled" if effort == "low" else "adaptive"}
+    # Preserved thinking is valid only when every earlier reasoning block is
+    # returned complete and in order, so use a clean turn-local GLM state.
+    request["thinking"] = {"type": "enabled", "clear_thinking": True}
+    request["reasoning_effort"] = effort if effort in ("low", "high", "max") else "max"
     for name in ("temperature", "top_p", "parallel_tool_calls"):
         if isinstance(payload.get(name), (int, float, bool)):
             request[name] = payload[name]
@@ -402,27 +382,6 @@ def chat_request(payload, model="glm-5.3-flash", provider="glm", reasoning_by_ca
         if choice in ("auto", "none", "required"):
             request["tool_choice"] = choice
     return request, aliases
-
-
-def remember_reasoning(chat, cache):
-    """Retain MiniMax reasoning only long enough to replay a tool continuation."""
-    if not isinstance(chat, dict) or not isinstance(cache, OrderedDict):
-        return
-    choices = chat.get("choices")
-    message = choices[0].get("message") if isinstance(choices, list) and choices else None
-    if not isinstance(message, dict):
-        return
-    reasoning = message.get("reasoning_content")
-    calls = message.get("tool_calls")
-    if not isinstance(reasoning, str) or not reasoning or not isinstance(calls, list):
-        return
-    for call in calls:
-        call_id = call.get("id") if isinstance(call, dict) else None
-        if isinstance(call_id, str) and call_id:
-            cache[call_id] = reasoning
-            cache.move_to_end(call_id)
-    while len(cache) > MAX_REASONING_CACHE_ENTRIES or sum(map(len, cache.values())) > MAX_REASONING_CACHE_CHARS:
-        cache.popitem(last=False)
 
 
 def response_base(model, output, usage, status="completed", incomplete=None):
@@ -584,11 +543,8 @@ class Handler(BaseHTTPRequestHandler):
             if not 0 < length <= MAX_REQUEST:
                 raise ValueError("Invalid request length")
             payload = json.loads(self.rfile.read(length))
-            with self.server.reasoning_cache_lock:
-                reasoning_by_call = dict(self.server.reasoning_cache)
             upstream_payload, aliases = chat_request(
                 payload, self.server.upstream_model, self.server.upstream_provider,
-                reasoning_by_call,
             )
             request = urllib.request.Request(
                 self.server.upstream_base + "/chat/completions",
@@ -605,9 +561,6 @@ class Handler(BaseHTTPRequestHandler):
             if len(data) > MAX_RESPONSE:
                 raise ValueError("Provider response too large")
             upstream_response = json.loads(data)
-            if self.server.upstream_provider == "minimax":
-                with self.server.reasoning_cache_lock:
-                    remember_reasoning(upstream_response, self.server.reasoning_cache)
             events = responses_events(upstream_response, aliases, self.server.upstream_model)
             body = "".join(
                 "event: " + event["type"] + "\n" + "data: " + compact(event) + "\n\n"
@@ -651,9 +604,7 @@ def serve():
     server.upstream_base = values["CHEBY_UPSTREAM_BASE_URL"].rstrip("/")
     server.upstream_provider = values["CHEBY_UPSTREAM_PROVIDER"]
     server.upstream_model = values["CHEBY_UPSTREAM_MODEL"]
-    server.reasoning_cache = OrderedDict()
-    server.reasoning_cache_lock = threading.Lock()
-    if server.upstream_provider not in ("glm", "minimax"):
+    if server.upstream_provider != "glm":
         raise ValueError("Invalid chat provider")
     server.opener = urllib.request.build_opener(NoRedirect())
 

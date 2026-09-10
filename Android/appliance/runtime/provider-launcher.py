@@ -18,11 +18,6 @@ PROVIDERS = {
         'model': 'glm-5.3-flash', 'url': 'https://api.z.ai/api/paas/v4',
         'default_effort': 'low', 'efforts': ('low', 'high', 'max'), 'chat_adapter': True,
     },
-    'minimax': {
-        'model': 'MiniMax-M3', 'url': 'https://api.minimaxi.com/v1',
-        'default_effort': 'medium',
-        'efforts': ('low', 'medium', 'high', 'xhigh', 'max'), 'chat_adapter': True,
-    },
     'openai': {
         'model': 'gpt-5.6-sol', 'url': 'https://api.openai.com/v1',
         'default_effort': 'high',

@@ -8,9 +8,10 @@ Codex CLI、PRoot/Debian Linux 运行环境、手机控制工具和生活服务 
 App，并把结果带回同一个会话。模型推理由你选择的服务提供；模型凭证只在手机的
 “服务与登录”页面填写，不要发到聊天里。
 
-> 当前发布版：`0.7.0`。已在 Huawei ALN-AL00（Android 12、ARM64）完成覆盖安装、
-> 冷启动、会话恢复、图片输入和手机操作验证。工程最低 Android 9；其他品牌和系统版本
-> 尚未逐一验证。仓库暂时保持私有，直到逐组件开源许可审阅完成。
+> 当前发布版：`0.7.3`。已在 Huawei ALN-AL00（Android 12、ARM64）完成覆盖安装、
+> 冷启动、会话恢复、图片输入、手机移动网络和手机操作验证；Codex 与
+> GLM 5.3 Flash 均已实际调用 Yandex Maps 完成附近咖啡厅搜索。工程最低
+> Android 9；其他品牌和系统版本尚未逐一验证。
 
 ## 它能做什么
 
@@ -29,20 +30,20 @@ ChebyAgent 不是离线大模型：APK 内置的是 Codex CLI 和 Linux 运行�
 ## 安装前先确认
 
 1. 手机是 ARM64，Android 9 或更高版本，并留有足够空间解压内置运行环境。
-2. 手机能访问你准备使用的模型服务；GLM 和 MiniMax 需要各自的 API Token，
-   ChatGPT/Codex 使用套餐账号登录。
-3. 手机上没有需要保留数据的 Termux。ChebyAgent 0.7.0 使用应用标识 `com.termux`，
+2. 手机能访问你准备使用的模型服务；GLM 需要 Z.AI API Token，ChatGPT/Codex
+   使用套餐账号登录。
+3. 手机上没有需要保留数据的 Termux。ChebyAgent 0.7.3 使用应用标识 `com.termux`，
    不能与正式 Termux 同时安装。若已有 Termux，先备份数据；不要直接卸载或清除。
 4. 需要操作的目标 App 已安装，并由你本人完成账号登录、定位和必要授权。
 
 ## 下载和安装
 
-1. 打开 [ChebyAgent 0.7.0 Release](https://github.com/yangyanping7133-stack/chebyagent/releases/tag/v0.7.0)，
-   下载 `ChebyAgent-0.7.0.apk`。当前仓库为私有仓库，需要登录已获授权的 GitHub 账号。
+1. 打开 [ChebyAgent 0.7.3 Release](https://github.com/yangyanping7133-stack/chebyagent/releases/tag/v0.7.3)，
+   下载 `ChebyAgent-0.7.3.apk`。
 2. 在同一页面查看 `SHA256SUMS`。APK 的 SHA-256 应为：
 
    ```text
-   8f3e36e0767d842242521f7d3b9c4d935a586b4f93cabdb6d700f7f53287f234
+   e0945173cf3d72947297dc040d26276e33fd7e03a6c24e4bb218a116f4330e44
    ```
 
 3. 点开 APK。系统询问时，只给当前浏览器或文件管理器“允许安装未知应用”的权限；
@@ -65,9 +66,11 @@ ChebyAgent 不是离线大模型：APK 内置的是 Codex CLI 和 Linux 运行�
 
 | 入口 | 怎么登录 | 默认设置 |
 |---|---|---|
-| GPT-5.6 Sol | 点“生成登录码”，在任意已登录 ChatGPT 的设备上打开页面并输入一次性代码；本机页面会自动刷新 | 新安装默认入口，高强度 |
+| GPT-5.6 Sol | 点“生成登录码”完成设备登录；也可点“导入登录文件”选择你自己的 Codex `auth.json`，然后保存并重连 | 新安装默认入口，高强度 |
 | GLM 5.3 Flash | 填写 Z.AI API Token。普通 API 地址为 `https://api.z.ai/api/paas/v4`；Coding Plan 使用 `https://api.z.ai/api/coding/paas/v4` | 低强度 |
-| MiniMax M3 | 填写 MiniMax API Token；默认地址为 `https://api.minimaxi.com/v1` | 中强度 |
+
+会话里的推理强度使用模型原生英文值：GLM 为 `low / high / max`；GPT-5.6 Sol
+为 `none / low / medium / high / xhigh / max`。
 
 点 **保存** 后，空闲状态会重新连接。若当前任务仍在运行，它会继续使用旧配置；任务结束后
 再点 **更多（⋮）→ 应用已保存的模型配置**，或者重新打开应用。
@@ -162,7 +165,7 @@ Android 11 及以上版本可直接通过无障碍服务截图；较旧版本可
 | `third_party/termux-app/` | 固定版本的 Termux 上游源码 |
 | `connector/` | PhoneBridge、本地 MCP 和 ACE 记忆适配 |
 | `skills/` | 随 APK 提供的手机任务 Skills |
-| `gateway/`、`relay/`、`deploy/` | 保留的分布式/服务器模式，不是 0.7.0 纯手机使用的必需项 |
+| `gateway/`、`relay/`、`deploy/` | 保留的分布式/服务器模式，不是 0.7.3 纯手机使用的必需项 |
 | `tools/` | 本地构建、静态检查、来源库存和发布核验工具 |
 | `contracts/`、`fixtures/` | 协议定义与测试夹具 |
 | `docs/` | 架构、验收、发布和许可证据 |
@@ -198,11 +201,12 @@ GPLv3-only 的 Termux app/shared 代码。Codex CLI、ACE、Android/JVM 依赖�
 - [修改版安装、替换与重链接说明](INSTALLATION_INFORMATION.md)
 - [许可与对应源码状态总览](docs/licensing/README.md)
 - [组件库存](docs/licensing/COMPONENT_INVENTORY_20260905.md)
-- [0.7.0 合规审计](docs/licensing/RELEASE_COMPLIANCE_AUDIT_0.7.0.md)
-- [0.7.0 证据调和结果](docs/licensing/RELEASE_COMPLIANCE_RECONCILIATION_0.7.0.json)
+- [0.7.3 发布与对应源绑定](docs/RELEASE_SOURCE_BINDING_0.7.3.md)
+- [0.7.0 历史合规审计](docs/licensing/RELEASE_COMPLIANCE_AUDIT_0.7.0.md)
+- [0.7.0 历史证据调和结果](docs/licensing/RELEASE_COMPLIANCE_RECONCILIATION_0.7.0.json)
 - [Release 与对应源码策略](docs/RELEASE_AND_CORRESPONDING_SOURCE.md)
 
 这些材料是可复核的工程证据，不是法律意见。当前 367/367 个组件的许可证身份和全部
-226 个运行组件的源码归档绑定已经调和；脚本没有自动生成法律结论。公开发行前仍需由实际
-发行方完成一份发行级确认，因此仓库和 Release 暂不作为“已经完成法律审阅的公开发行版”
-宣传。
+226 个运行组件的源码归档绑定已经调和；脚本没有自动生成法律结论。本项目仅公开发行
+软件，不连同手机或其他硬件销售、出租或交付；实际发行方仍应根据自己的地区和发行模式
+完成必要的法律复核。

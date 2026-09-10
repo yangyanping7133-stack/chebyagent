@@ -136,7 +136,7 @@ final class ProviderSettingsStore {
     synchronized String publicSettings() throws Exception {
         JSONObject result = load();
         JSONObject profiles = result.getJSONObject("profiles");
-        for (String provider : new String[]{"glm", "minimax", "openai"}) redact(profiles.getJSONObject(provider), "apiKey");
+        for (String provider : new String[]{"glm", "openai"}) redact(profiles.getJSONObject(provider), "apiKey");
         JSONArray servers = result.getJSONArray("mcpServers");
         for (int i = 0; i < servers.length(); i++) redact(servers.getJSONObject(i), "token");
         return result.toString();
@@ -187,7 +187,6 @@ final class ProviderSettingsStore {
         return new JSONObject().put("provider", "openai")
             .put("profiles", new JSONObject()
                 .put("glm", new JSONObject().put("baseUrl", "https://api.z.ai/api/paas/v4").put("reasoningEffort", "low").put("apiKey", ""))
-                .put("minimax", new JSONObject().put("baseUrl", "https://api.minimaxi.com/v1").put("reasoningEffort", "medium").put("apiKey", ""))
                 .put("openai", new JSONObject().put("baseUrl", "https://api.openai.com/v1").put("reasoningEffort", "high").put("apiKey", "")))
             .put("mcpServers", new JSONArray());
     }
@@ -209,11 +208,17 @@ final class ProviderSettingsStore {
                 changed = true;
             } else {
                 JSONObject clean = defaults().getJSONObject("profiles");
-                for (String id : new String[]{"glm", "minimax", "openai"}) {
+                for (String id : new String[]{"glm", "openai"}) {
                     if (!profiles.has(id)) {
                         profiles.put(id, clean.getJSONObject(id));
                         changed = true;
                     }
+                }
+                // MiniMax is no longer a product provider. Delete the whole encrypted
+                // profile during upgrade so a retired token cannot remain orphaned.
+                if (profiles.has("minimax")) {
+                    profiles.remove("minimax");
+                    changed = true;
                 }
                 // OpenAI now uses Codex-managed ChatGPT OAuth. Retire any previously stored,
                 // unused API key instead of silently retaining a credential with no UI owner.
@@ -233,7 +238,7 @@ final class ProviderSettingsStore {
                     changed = true;
                 }
             }
-            if (!Set.of("glm", "minimax", "openai").contains(settings.optString("provider"))) {
+            if (!Set.of("glm", "openai").contains(settings.optString("provider"))) {
                 settings.put("provider", "glm");
                 changed = true;
             }
@@ -275,18 +280,16 @@ final class ProviderSettingsStore {
     static JSONObject merge(JSONObject incoming, JSONObject old) throws Exception {
         JSONObject result = defaults();
         String provider = incoming.getString("provider");
-        if (!Set.of("glm", "minimax", "openai").contains(provider))
+        if (!Set.of("glm", "openai").contains(provider))
             throw new IllegalArgumentException("请选择可用的多模态模型。");
         result.put("provider", provider);
-        for (String id : new String[]{"glm", "minimax", "openai"}) {
+        for (String id : new String[]{"glm", "openai"}) {
             JSONObject source = incoming.getJSONObject("profiles").getJSONObject(id);
             JSONObject previous = old.getJSONObject("profiles").getJSONObject(id);
             String effort = source.getString("reasoningEffort");
             Set<String> efforts = "glm".equals(id)
                 ? Set.of("low", "high", "max")
-                : "minimax".equals(id)
-                    ? Set.of("low", "medium", "high", "xhigh", "max")
-                    : Set.of("none", "low", "medium", "high", "xhigh", "max");
+                : Set.of("none", "low", "medium", "high", "xhigh", "max");
             if (!efforts.contains(effort)) throw new IllegalArgumentException("推理强度无效。");
             String baseUrl = "openai".equals(id)
                 ? "https://api.openai.com/v1"

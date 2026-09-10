@@ -34,7 +34,10 @@ class CodexOfflineOverlayTest(unittest.TestCase):
         declaration = re.search(r"REQUIRED_ASSETS = Set\.of\((.*?)\n    \);", source, re.S)
         self.assertIsNotNone(declaration)
         accepted = set(re.findall(r'"([A-Za-z0-9._-]+)"', declaration.group(1)))
-        packaged = {Path(name).name for name in gate.REQUIRED_RUNTIME_ASSETS}
+        packaged = {
+            Path(name).name
+            for name in gate.REQUIRED_RUNTIME_ASSETS | gate.REQUIRED_DISTRIBUTION_NOTICE_ASSETS
+        }
         packaged.remove("runtime-assets.sha256")
         self.assertEqual(accepted, packaged)
 
@@ -317,18 +320,22 @@ class OfficialAppServerIntegrationTest(unittest.TestCase):
         self.assertNotIn("codex-stdio-bridge.mjs", build)
         self.assertNotIn("/assets/cheby-runtime/codex-stdio-bridge.mjs", gate.REQUIRED_RUNTIME_ASSETS)
 
-    def test_model_proxy_is_scoped_to_official_app_server(self):
+    def test_legacy_model_proxy_is_retired_before_app_server_start(self):
         script = (ROOT / "tools/standalone/phone_start_codex_appserver.sh").read_text()
-        self.assertIn('MODEL_PROXY_FILE="$STATE_ROOT/model-proxy-url"', script)
-        self.assertIn("^http://127\\.0\\.0\\.1:[0-9]{1,5}$", script)
-        self.assertIn('HTTPS_PROXY="$model_proxy_url"', script)
-        self.assertIn('HTTP_PROXY="$model_proxy_url"', script)
-        self.assertIn('NO_PROXY="127.0.0.1,localhost"', script)
-        self.assertNotIn("0.0.0.0", script)
+        self.assertIn('rm -f "$STATE_ROOT/model-proxy-url"', script)
+        self.assertNotIn("HTTPS_PROXY", script)
+        self.assertNotIn("HTTP_PROXY", script)
+
+    def test_guest_resolver_tracks_the_active_android_network(self):
+        script = (ROOT / "Android/appliance/runtime/enter-debian.sh").read_text()
+        self.assertIn("/system/bin/getprop", script)
+        self.assertIn("net.rmnet0.dns1", script)
+        self.assertIn("RESOLV_STAGING", script)
+        self.assertNotIn("nameserver 8.8.8.8", script)
 
     def test_runtime_version_bump_forces_existing_appliance_refresh(self):
         version = gate.PINNED_RUNTIME_LOCK["CHEBY_RUNTIME_VERSION"]
-        self.assertEqual(version, "4.1.0-dev33")
+        self.assertEqual(version, "4.1.0-dev34")
         files = (
             ROOT / "Android/appliance/runtime/runtime.lock",
             ROOT / "Android/appliance/runtime/provision-runtime.sh",

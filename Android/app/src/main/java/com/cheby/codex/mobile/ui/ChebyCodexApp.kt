@@ -656,7 +656,7 @@ private fun SessionModelDialog(
                                 selected = effort.value == selectedEffort,
                                 onClick = { selectedEffort = effort.value },
                             )
-                            Text(effortLabel(effort.value, effort.description))
+                            Text(effortLabel(effort.value))
                         }
                     }
                 }
@@ -672,16 +672,7 @@ private fun SessionModelDialog(
     )
 }
 
-private fun effortLabel(value: String, description: String): String = when (value) {
-    "none" -> "关闭"
-    "minimal" -> "最低"
-    "low" -> "低"
-    "medium" -> "中"
-    "high" -> "高"
-    "xhigh" -> "更高"
-    "max" -> "最高"
-    else -> description.ifBlank { value }
-}
+private fun effortLabel(value: String): String = value
 
 @Composable
 private fun ThreadMessageList(

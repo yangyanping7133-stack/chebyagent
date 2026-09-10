@@ -22,6 +22,31 @@ mkdir -p \
 chmod 700 "$ROOTFS/root"
 chmod 1777 "$ROOTFS/dev/shm" "$ROOTFS/tmp"
 
+# Glibc inside PRoot cannot consult Android's netd resolver. Refresh the guest
+# resolver from the active Android network before every entry so cellular use
+# does not depend on a stale public DNS server or a Mac-side proxy.
+RESOLV_STAGING="$ROOTFS/etc/.resolv.conf.cheby.$$"
+: >"$RESOLV_STAGING"
+for dns_key in \
+  net.dns1 net.dns2 \
+  net.rmnet0.dns1 net.rmnet0.dns2 \
+  net.rmnet_data0.dns1 net.rmnet_data0.dns2 \
+  net.wlan0.dns1 net.wlan0.dns2
+do
+  dns_value="$(/system/bin/getprop "$dns_key" 2>/dev/null || true)"
+  case "$dns_value" in
+    ''|*[!0-9A-Fa-f:.]*) continue ;;
+  esac
+  printf 'nameserver %s\n' "$dns_value" >>"$RESOLV_STAGING"
+done
+if test -s "$RESOLV_STAGING"; then
+  chmod 644 "$RESOLV_STAGING"
+  rm -f "$ROOTFS/etc/resolv.conf"
+  mv "$RESOLV_STAGING" "$ROOTFS/etc/resolv.conf"
+else
+  rm -f "$RESOLV_STAGING"
+fi
+
 if test -n "${CHEBY_ASSET_BIND:-}"; then
   case "$CHEBY_ASSET_BIND" in
     "$FILES_ROOT"/*) ;;

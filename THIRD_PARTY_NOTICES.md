@@ -1,6 +1,6 @@
 # Third-party software and corresponding source
 
-ChebyAgent 0.7.0 is a combined Android appliance. The top-level license is
+ChebyAgent 0.7.3 is a combined Android appliance. The top-level license is
 GPL-3.0-only because the application derives from and links GPLv3-only Termux
 app/shared code. Files carrying a narrower or different upstream license keep
 that license and attribution.

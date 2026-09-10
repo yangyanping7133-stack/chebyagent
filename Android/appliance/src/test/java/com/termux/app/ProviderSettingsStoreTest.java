@@ -83,25 +83,26 @@ public class ProviderSettingsStoreTest {
     }
 
     @Test public void supportedModelsAndPerModelEffortsAreValidated() throws Exception {
-        for (String provider : new String[]{"glm", "minimax", "openai"}) {
+        for (String provider : new String[]{"glm", "openai"}) {
             JSONObject input = ProviderSettingsStore.defaults().put("provider", provider);
             assertEquals(provider, ProviderSettingsStore.merge(input, ProviderSettingsStore.defaults()).getString("provider"));
         }
         JSONObject invalidProvider = ProviderSettingsStore.defaults().put("provider", "deepseek");
         assertThrows(IllegalArgumentException.class, () -> ProviderSettingsStore.merge(invalidProvider, ProviderSettingsStore.defaults()));
+        JSONObject retiredProvider = ProviderSettingsStore.defaults().put("provider", "minimax");
+        assertThrows(IllegalArgumentException.class, () -> ProviderSettingsStore.merge(retiredProvider, ProviderSettingsStore.defaults()));
         JSONObject invalidGlm = ProviderSettingsStore.defaults();
         invalidGlm.getJSONObject("profiles").getJSONObject("glm").put("reasoningEffort", "xhigh");
         assertThrows(IllegalArgumentException.class, () -> ProviderSettingsStore.merge(invalidGlm, ProviderSettingsStore.defaults()));
-        JSONObject invalidMiniMax = ProviderSettingsStore.defaults();
-        invalidMiniMax.getJSONObject("profiles").getJSONObject("minimax").put("reasoningEffort", "ultra");
-        assertThrows(IllegalArgumentException.class, () -> ProviderSettingsStore.merge(invalidMiniMax, ProviderSettingsStore.defaults()));
     }
 
-    @Test public void legacyDeepseekProfileMigratesToThreeMultimodalModels() throws Exception {
-        JSONObject legacy = new JSONObject().put("provider", "deepseek")
+    @Test public void retiredProvidersAndCredentialsMigrateToTwoMultimodalModels() throws Exception {
+        JSONObject legacy = new JSONObject().put("provider", "minimax")
             .put("profiles", new JSONObject()
                 .put("glm", new JSONObject().put("baseUrl", "https://api.z.ai/api/paas/v4")
                     .put("reasoningEffort", "low").put("apiKey", "test-placeholder"))
+                .put("minimax", new JSONObject().put("baseUrl", "https://api.minimaxi.com/v1")
+                    .put("reasoningEffort", "medium").put("apiKey", "retired-minimax-placeholder"))
                 .put("deepseek", new JSONObject().put("baseUrl", "https://api.deepseek.com")
                     .put("reasoningEffort", "high").put("apiKey", "retired-placeholder")))
             .put("mcpServers", new JSONArray());
@@ -109,7 +110,7 @@ public class ProviderSettingsStoreTest {
         assertEquals("glm", legacy.getString("provider"));
         JSONObject profiles = legacy.getJSONObject("profiles");
         assertTrue(profiles.has("glm"));
-        assertTrue(profiles.has("minimax"));
+        assertFalse(profiles.has("minimax"));
         assertTrue(profiles.has("openai"));
         assertFalse(profiles.has("deepseek"));
         assertEquals("test-placeholder", profiles.getJSONObject("glm").getString("apiKey"));
@@ -118,14 +119,13 @@ public class ProviderSettingsStoreTest {
     @Test public void retainedCredentialsCannotPushMergedConfigurationPastReadLimit() throws Exception {
         JSONObject old = ProviderSettingsStore.defaults();
         old.getJSONObject("profiles").getJSONObject("glm").put("apiKey", "g".repeat(8192));
-        old.getJSONObject("profiles").getJSONObject("minimax").put("apiKey", "m".repeat(8192));
         JSONObject incoming = ProviderSettingsStore.defaults();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 6; i++) {
             old.getJSONArray("mcpServers").put(server("service" + i, "http://localhost:" + (8000 + i), false)
                 .put("token", "t".repeat(8192)));
             incoming.getJSONArray("mcpServers").put(server("service" + i, "http://localhost:" + (8000 + i), false));
         }
-        incoming.getJSONArray("mcpServers").put(server("service5", "http://localhost:8005", false)
+        incoming.getJSONArray("mcpServers").put(server("service6", "http://localhost:8006", false)
             .put("token", "n".repeat(8192)));
         assertTrue(ProviderSettingsStore.boundedPlaintext(old).length <= 65536);
         assertTrue(incoming.toString().getBytes(StandardCharsets.UTF_8).length < 65536);
@@ -157,7 +157,7 @@ public class ProviderSettingsStoreTest {
                     assertFalse(clean.has("visionKey"));
                     assertEquals(0, clean.getJSONArray("mcpServers").length());
                     assertEquals("", clean.getJSONObject("profiles").getJSONObject("glm").getString("apiKey"));
-                    assertEquals("", clean.getJSONObject("profiles").getJSONObject("minimax").getString("apiKey"));
+                    assertFalse(clean.getJSONObject("profiles").has("minimax"));
                     assertEquals("", clean.getJSONObject("profiles").getJSONObject("openai").getString("apiKey"));
                 }
             });

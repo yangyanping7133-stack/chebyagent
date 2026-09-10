@@ -9,7 +9,7 @@ MCP_PATH='/opt/cheby/connector/cheby_connector/local_mcp.py'
 test -r "$LOCK_FILE"
 # shellcheck disable=SC1090
 . "$LOCK_FILE"
-test "$CHEBY_RUNTIME_VERSION" = '4.1.0-dev33'
+test "$CHEBY_RUNTIME_VERSION" = '4.1.0-dev34'
 test "$CODEX_VERSION" = '0.153.4'
 CODEX_VERSION_ROOT="/opt/cheby/runtime/codex-$CODEX_VERSION"
 python3 -I "$ASSET_ROOT/install-codex-overlay.py" \

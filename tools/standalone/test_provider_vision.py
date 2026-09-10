@@ -7,7 +7,6 @@ from pathlib import Path
 import subprocess
 import tempfile
 import unittest
-from collections import OrderedDict
 from unittest.mock import patch
 
 REPO = Path(__file__).resolve().parents[2]
@@ -34,8 +33,16 @@ def config(values):
 
 
 class ProviderTests(unittest.TestCase):
+    def test_mobile_picker_preserves_provider_reasoning_enums(self):
+        ui = (REPO / 'Android/app/src/main/java/com/cheby/codex/mobile/ui/ChebyCodexApp.kt').read_text()
+        settings_ui = (REPO / 'Android/app/src/main/java/com/cheby/codex/mobile/ui/ProviderSettingsDialog.kt').read_text()
+        self.assertIn('private fun effortLabel(value: String): String = value', ui)
+        self.assertIn('"low" to "low", "high" to "high", "max" to "max"', settings_ui)
+        self.assertNotIn('"low" -> "低"', ui)
+        self.assertNotIn('"xhigh" -> "更高"', ui)
+
     def test_account_apps_disabled_without_disabling_local_mcp(self):
-        for name in ('glm', 'minimax', 'openai'):
+        for name in ('glm', 'openai'):
             with self.subTest(provider=name):
                 values, _, _ = config(settings(provider=name, mcpServers=[
                     {'name': 'local', 'url': 'http://127.0.0.1:3111'}
@@ -46,7 +53,7 @@ class ProviderTests(unittest.TestCase):
 
     def test_mobile_experience_instructions_apply_to_every_main_provider(self):
         expected = (provider.BASE_INSTRUCTIONS.parent / 'mobile-experience-instructions.md').read_text(encoding='utf-8')
-        for name in ('glm', 'minimax', 'openai'):
+        for name in ('glm', 'openai'):
             with self.subTest(provider=name):
                 values, _, catalog = config(settings(provider=name))
                 self.assertEqual(json.loads(values['developer_instructions']), expected)
@@ -70,7 +77,7 @@ class ProviderTests(unittest.TestCase):
         self.assertFalse(any(name.startswith('CHEBY_VISION_') for name in env))
 
     def test_preserves_pinned_upstream_instructions_and_rejects_corruption(self):
-        for name in ('glm', 'minimax', 'openai'):
+        for name in ('glm', 'openai'):
             _, _, catalog = config(settings(provider=name))
             self.assertEqual(catalog['models'][0]['base_instructions'].encode(),
                              provider.BASE_INSTRUCTIONS.read_bytes())
@@ -88,7 +95,6 @@ class ProviderTests(unittest.TestCase):
     def test_only_authorized_models_and_provider_defaults(self):
         for name, model, base, effort in [
             ('glm', 'glm-5.3-flash', 'https://api.z.ai/api/paas/v4', 'low'),
-            ('minimax', 'MiniMax-M3', 'https://api.minimaxi.com/v1', 'medium'),
             ('openai', 'gpt-5.6-sol', 'https://api.openai.com/v1', 'high'),
         ]:
             values, env, catalog = config(settings(provider=name))
@@ -104,14 +110,13 @@ class ProviderTests(unittest.TestCase):
                 self.assertEqual(json.loads(values['model_providers.cheby_user.base_url']), base)
                 self.assertEqual(json.loads(values['model_providers.cheby_user.wire_api']), 'responses')
                 self.assertEqual(env['CHEBY_MODEL_API_KEY'], 'fixture-main-secret')
-        for name in ('deepseek', None, [], ''):
+        for name in ('minimax', 'deepseek', None, [], ''):
             with self.subTest(name=name), self.assertRaises(ValueError):
                 config(settings(provider=name))
 
     def test_reasoning_config_is_respected_and_bounded(self):
         supported = {
             'glm': ('low', 'high', 'max'),
-            'minimax': ('low', 'medium', 'high', 'xhigh', 'max'),
             'openai': ('none', 'low', 'medium', 'high', 'xhigh', 'max'),
         }
         for name, efforts in supported.items():
@@ -123,8 +128,6 @@ class ProviderTests(unittest.TestCase):
                 config(settings(reasoningEffort=effort))
         with self.assertRaises(ValueError):
             config(settings(provider='glm', reasoningEffort='xhigh'))
-        with self.assertRaises(ValueError):
-            config(settings(provider='minimax', reasoningEffort='ultra'))
 
     def test_credential_shapes_rejected(self):
         for key in (None, '', 'a b', 'a\nb', 'a\x00b', 123, 'ключ', 'x' * 8193):
@@ -207,19 +210,6 @@ class ProviderTests(unittest.TestCase):
             self.assertEqual(env['CHEBY_MODEL_API_KEY'], 'fixture-local-token')
             self.assertNotIn('fixture-main-secret', json.dumps(env))
 
-    def test_minimax_main_routes_codex_through_local_adapter(self):
-        with tempfile.TemporaryDirectory() as directory, \
-                patch.object(provider, 'SETTINGS', Path(directory) / 'settings.json'), \
-                patch.dict(os.environ, {'CHEBY_PROVIDER_SETTINGS': json.dumps(settings(provider='minimax'))}, clear=True), \
-                patch.object(provider, 'start_chat_adapter', return_value=('http://127.0.0.1:34568', 'fixture-local-token')) as start, \
-                patch.object(provider.os, 'execvpe') as execute:
-            provider.main()
-            start.assert_called_once_with('minimax', 'https://api.minimaxi.com/v1', 'fixture-main-secret')
-            joined = ' '.join(execute.call_args.args[1])
-            self.assertIn('http://127.0.0.1:34568', joined)
-            self.assertNotIn('https://api.minimaxi.com/v1', joined)
-
-
 class GlmAdapterTests(unittest.TestCase):
     def payload(self):
         return {
@@ -256,63 +246,6 @@ class GlmAdapterTests(unittest.TestCase):
             'kind': 'namespace', 'namespace': 'mcp__phonebridge',
             'name': 'android_phone_status',
         })
-
-    def test_minimax_reasoning_effort_maps_to_supported_thinking_toggle(self):
-        payload = self.payload()
-        payload['model'] = 'MiniMax-M3'
-        payload['reasoning'] = {'effort': 'high'}
-        request, _ = glm_adapter.chat_request(payload, 'MiniMax-M3', 'minimax')
-        self.assertEqual(request['model'], 'MiniMax-M3')
-        self.assertTrue(request['reasoning_split'])
-        self.assertEqual(request['thinking'], {'type': 'adaptive'})
-        self.assertNotIn('reasoning_effort', request)
-        payload['reasoning'] = {'effort': 'low'}
-        request, _ = glm_adapter.chat_request(payload, 'MiniMax-M3', 'minimax')
-        self.assertEqual(request['thinking'], {'type': 'disabled'})
-
-    def test_minimax_replays_real_reasoning_on_tool_continuation(self):
-        payload = self.payload()
-        payload['model'] = 'MiniMax-M3'
-        payload['input'].extend([
-            {
-                'type': 'function_call', 'call_id': 'call_minimax',
-                'name': 'android_phone_status', 'namespace': 'mcp__phonebridge',
-                'arguments': '{}',
-            },
-            {
-                'type': 'function_call_output', 'call_id': 'call_minimax',
-                'output': '{"phone_online":true}',
-            },
-        ])
-        request, _ = glm_adapter.chat_request(
-            payload, 'MiniMax-M3', 'minimax', {'call_minimax': 'private reasoning'},
-        )
-        assistant = request['messages'][-2]
-        self.assertEqual(assistant['reasoning_content'], 'private reasoning')
-        self.assertEqual(assistant['tool_calls'][0]['id'], 'call_minimax')
-
-    def test_minimax_reasoning_cache_is_bounded_and_only_records_tool_turns(self):
-        cache = OrderedDict()
-        glm_adapter.remember_reasoning({
-            'choices': [{'message': {
-                'reasoning_content': 'private reasoning',
-                'tool_calls': [{'id': 'call_minimax'}],
-            }}],
-        }, cache)
-        self.assertEqual(cache, {'call_minimax': 'private reasoning'})
-        glm_adapter.remember_reasoning({
-            'choices': [{'message': {'reasoning_content': 'unused', 'tool_calls': []}}],
-        }, cache)
-        self.assertNotIn('unused', cache.values())
-        for index in range(glm_adapter.MAX_REASONING_CACHE_ENTRIES + 2):
-            glm_adapter.remember_reasoning({
-                'choices': [{'message': {
-                    'reasoning_content': f'r{index}',
-                    'tool_calls': [{'id': f'call_{index}'}],
-                }}],
-            }, cache)
-        self.assertLessEqual(len(cache), glm_adapter.MAX_REASONING_CACHE_ENTRIES)
-        self.assertNotIn('call_minimax', cache)
 
     def test_tool_call_and_history_round_trip(self):
         request, aliases = glm_adapter.chat_request(self.payload())
@@ -451,9 +384,9 @@ write({provider:'glm',apiKey:'fixture-first'});
 const first = context.consumeProviderSettings();
 assert.equal(fs.existsSync(process.argv[2]), false);
 assert.equal(context.consumeProviderSettings(), first);
-write({provider:'minimax',apiKey:'fixture-second'});
+write({provider:'openai',apiKey:'fixture-second'});
 assert.equal(JSON.parse(context.consumeProviderSettings()).apiKey, 'fixture-second');
-write({provider:'minimax',apiKey:''});
+write({provider:'openai',apiKey:''});
 assert.equal(JSON.parse(context.consumeProviderSettings()).apiKey, '');
 fs.writeFileSync(process.argv[2], '{bad', {mode:0o600});
 assert.throws(() => context.consumeProviderSettings());

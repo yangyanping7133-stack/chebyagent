@@ -96,7 +96,7 @@ PINNED_NATIVE_APP_SKILLS = {
     "skill-yandex-go-food-order.md": "ru.yandex.taxi",
 }
 PINNED_RUNTIME_LOCK = {
-    "CHEBY_RUNTIME_VERSION": "4.1.0-dev33",
+    "CHEBY_RUNTIME_VERSION": "4.1.0-dev34",
     "TERMUX_PROOT_OVERLAY_ASSET": "termux-proot-overlay-aarch64.tar.zst",
     "TERMUX_PROOT_OVERLAY_SHA256": (
         "334a0e6aa93cf3264f416879d4a95ee5ad9df52a9c202f12436b07eaf7bc067c"
@@ -261,7 +261,7 @@ def runtime_skills_use_native_glm_images(apk: pathlib.Path) -> bool:
 
 
 def runtime_omits_independent_vision_mcp(apk: pathlib.Path) -> bool:
-    """Require the retired MiniMax vision entry and credential route to be absent."""
+    """Require every retired MiniMax entry and credential route to be absent."""
     forbidden_assets = {
         "assets/cheby-runtime/vision-mcp.py",
     }
@@ -270,6 +270,9 @@ def runtime_omits_independent_vision_mcp(apk: pathlib.Path) -> bool:
         "CHEBY_VISION_",
         "vision-mcp.py",
         "api.minimax.io",
+        "api.minimaxi.com",
+        "MiniMax-M3",
+        "'minimax'",
     )
     try:
         with zipfile.ZipFile(apk) as archive:

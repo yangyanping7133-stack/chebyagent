@@ -6,7 +6,6 @@ PID_FILE="$STATE_ROOT/app-server.pid"
 LOG_FILE="$STATE_ROOT/app-server.log"
 VERIFIER_FILE="$STATE_ROOT/token.sha256"
 SETTINGS_FILE="/root/.cheby/provider-settings.json"
-MODEL_PROXY_FILE="$STATE_ROOT/model-proxy-url"
 PROVIDER_LAUNCHER="/opt/cheby/appserver/provider-launcher.py"
 MCP_PATH="/opt/cheby/connector/cheby_connector/local_mcp.py"
 PHONEBRIDGE_STATE="/root/.cheby/phonebridge"
@@ -93,25 +92,10 @@ rm -f "$PID_FILE"
 printf '%s\n' "$token_sha256" >"$VERIFIER_FILE"
 chmod 600 "$VERIFIER_FILE"
 
-# Optional owner-managed loopback proxy for model traffic only. The file lives
-# in the private app-server state directory and accepts only a loopback HTTP
-# endpoint, so native Android apps keep using the phone's normal network.
-if test -f "$MODEL_PROXY_FILE" && ! test -L "$MODEL_PROXY_FILE"; then
-  model_proxy_url="$(head -n 1 "$MODEL_PROXY_FILE")"
-  if ! printf '%s\n' "$model_proxy_url" | grep -Eq '^http://127\.0\.0\.1:[0-9]{1,5}$'; then
-    echo "codex_model_proxy_invalid=true" >&2
-    exit 1
-  fi
-  model_proxy_port="${model_proxy_url##*:}"
-  if test "$model_proxy_port" -lt 1 || test "$model_proxy_port" -gt 65535; then
-    echo "codex_model_proxy_invalid=true" >&2
-    exit 1
-  fi
-  HTTPS_PROXY="$model_proxy_url"
-  HTTP_PROXY="$model_proxy_url"
-  NO_PROXY="127.0.0.1,localhost"
-  export HTTPS_PROXY HTTP_PROXY NO_PROXY
-fi
+# Retire the old Mac-assisted model proxy. A stale loopback endpoint silently
+# breaks native phone networking after USB is unplugged; all model traffic now
+# follows Android's validated default network directly.
+rm -f "$STATE_ROOT/model-proxy-url"
 
 if test "$foreground" -eq 1; then
   : >"$LOG_FILE"

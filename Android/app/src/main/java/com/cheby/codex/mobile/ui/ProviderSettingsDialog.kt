@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Context
 import android.content.ContextWrapper
 import android.view.WindowManager
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -46,6 +48,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.window.SecureFlagPolicy
+import com.cheby.codex.runtime.EmbeddedRuntimeImportResult
 import com.cheby.codex.runtime.EmbeddedRuntimeRegistry
 import com.cheby.codex.mobile.gateway.OpenAiAccountState
 import com.cheby.codex.mobile.gateway.OpenAiDeviceLogin
@@ -168,7 +171,7 @@ internal fun ProviderSettingsDialog(
                     recoveryNotice?.let { Text(it, style = MaterialTheme.typography.bodySmall) }
                     if (current != null) {
                         Text("模型服务", style = MaterialTheme.typography.titleMedium)
-                        Text("三个入口都支持文字、工具调用和图片理解。", style = MaterialTheme.typography.bodySmall)
+                        Text("两个入口都支持文字、工具调用和图片理解。", style = MaterialTheme.typography.bodySmall)
                         PROVIDER_SPECS.forEach { (id, spec) ->
                             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
                                 RadioButton(
@@ -292,6 +295,7 @@ private fun ChatGptLoginSettings(
     onCancelLogin: suspend (String) -> Unit,
     onLogout: suspend () -> Unit,
 ) {
+    val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val clipboard = LocalClipboardManager.current
     var account by remember { mutableStateOf<OpenAiAccountState?>(null) }
@@ -299,17 +303,50 @@ private fun ChatGptLoginSettings(
     var busy by remember { mutableStateOf(false) }
     var error by remember { mutableStateOf<String?>(null) }
     var confirmLogout by remember { mutableStateOf(false) }
+    var importedLoginPendingReconnect by remember { mutableStateOf(false) }
 
     suspend fun refresh(refreshToken: Boolean) {
         try {
             val current = onReadAccount(refreshToken)
             account = current
-            if (current.signedIn) login = null
+            if (current.signedIn) {
+                login = null
+                importedLoginPendingReconnect = false
+            }
             error = null
         } catch (cancelled: CancellationException) {
             throw cancelled
         } catch (_: Exception) {
             error = "暂时无法读取 ChatGPT 登录状态。"
+        }
+    }
+
+    val authDocumentPicker = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.OpenDocument(),
+    ) { uri ->
+        if (uri == null) return@rememberLauncherForActivityResult
+        busy = true
+        scope.launch {
+            try {
+                when (withContext(Dispatchers.IO) {
+                    EmbeddedRuntimeRegistry.importCodexAuth(context, uri)
+                }) {
+                    EmbeddedRuntimeImportResult.IMPORTED -> {
+                        importedLoginPendingReconnect = true
+                        refresh(true)
+                    }
+                    EmbeddedRuntimeImportResult.NOT_READY -> error = "本地运行环境尚未准备好，请稍后重试。"
+                    EmbeddedRuntimeImportResult.INVALID -> error = "所选文件不是有效的 Codex 登录文件。"
+                    EmbeddedRuntimeImportResult.FAILED -> error = "导入失败，请重新选择登录文件。"
+                    EmbeddedRuntimeImportResult.UNAVAILABLE -> error = "当前版本没有内置登录导入能力。"
+                }
+            } catch (cancelled: CancellationException) {
+                throw cancelled
+            } catch (_: Exception) {
+                error = "导入后暂时无法刷新登录状态，请重试。"
+            } finally {
+                busy = false
+            }
         }
     }
 
@@ -404,22 +441,35 @@ private fun ChatGptLoginSettings(
             Text("本机不会自动打开浏览器；完成后此页会自动更新。", style = MaterialTheme.typography.bodySmall)
         }
         else -> {
-            Text("未登录。这里使用 ChatGPT/Codex 套餐，不需要填 API Token。", style = MaterialTheme.typography.bodySmall)
-            Button(enabled = enabled && !busy, onClick = {
-                busy = true
-                scope.launch {
-                    try {
-                        login = onStartLogin()
-                        error = null
-                    } catch (cancelled: CancellationException) {
-                        throw cancelled
-                    } catch (_: Exception) {
-                        error = "无法生成登录码，请确认本机服务已连接后重试。"
-                    } finally {
-                        busy = false
+            Text(
+                if (importedLoginPendingReconnect) {
+                    "登录文件已安全导入。点击“保存”后会重连并生效。"
+                } else {
+                    "未登录。这里使用 ChatGPT/Codex 套餐，不需要填 API Token。"
+                },
+                style = MaterialTheme.typography.bodySmall,
+            )
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                Button(enabled = enabled && !busy, onClick = {
+                    busy = true
+                    scope.launch {
+                        try {
+                            login = onStartLogin()
+                            error = null
+                        } catch (cancelled: CancellationException) {
+                            throw cancelled
+                        } catch (_: Exception) {
+                            error = "无法生成登录码，请确认本机服务已连接后重试。"
+                        } finally {
+                            busy = false
+                        }
                     }
-                }
-            }) { Text("生成登录码") }
+                }) { Text("生成登录码") }
+                TextButton(
+                    enabled = enabled && !busy,
+                    onClick = { authDocumentPicker.launch(arrayOf("application/json", "text/json")) },
+                ) { Text("导入登录文件") }
+            }
         }
     }
     if (busy) CircularProgressIndicator(Modifier.size(24.dp))
@@ -543,26 +593,16 @@ private val PROVIDER_SPECS = linkedMapOf(
         label = "GLM 5.3 Flash",
         baseUrl = "https://api.z.ai/api/paas/v4",
         defaultEffort = "low",
-        efforts = listOf("low" to "低", "high" to "高", "max" to "最高"),
+        efforts = listOf("low" to "low", "high" to "high", "max" to "max"),
         note = "默认主流程，响应快。",
-    ),
-    "minimax" to ProviderUiSpec(
-        label = "MiniMax M3",
-        baseUrl = "https://api.minimaxi.com/v1",
-        defaultEffort = "medium",
-        efforts = listOf(
-            "low" to "低", "medium" to "中", "high" to "高",
-            "xhigh" to "更高", "max" to "最高",
-        ),
-        note = "中国区 Coding Plan，低强度关闭思考，其余为自适应思考。",
     ),
     "openai" to ProviderUiSpec(
         label = "GPT-5.6 Sol",
         baseUrl = "https://api.openai.com/v1",
         defaultEffort = "high",
         efforts = listOf(
-            "none" to "关闭", "low" to "低", "medium" to "中",
-            "high" to "高", "xhigh" to "更高", "max" to "最高",
+            "none" to "none", "low" to "low", "medium" to "medium",
+            "high" to "high", "xhigh" to "xhigh", "max" to "max",
         ),
         note = "使用 ChatGPT/Codex 套餐登录。新会话默认 Sol 高强度。",
     ),

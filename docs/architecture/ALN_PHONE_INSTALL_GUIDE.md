@@ -37,16 +37,17 @@ Huawei ALN-AL00，不能据此承诺所有品牌都可用。需要足够空间�
 
 ## 填写模型设置
 
-在更多菜单打开“服务与登录”，可选 GLM 5.3 Flash、MiniMax M3 或
-GPT-5.6 Sol。Token、服务地址和登录信息作为软件级服务配置持久化；
-模型与推理强度属于会话，由 Codex `model/list` 返回每个模型的原生档位。GLM 默认低强度，
-MiniMax 默认中强度，Sol 默认高强度。“保存成功”不表示服务已接通。
+在更多菜单打开“服务与登录”，可选 GLM 5.3 Flash 或 GPT-5.6 Sol。Token、服务地址
+和登录信息作为软件级服务配置持久化；模型与推理强度属于会话，由 Codex `model/list`
+返回每个模型的原生英文档位。GLM 为 `low / high / max`，Sol 为
+`none / low / medium / high / xhigh / max`。GLM 默认 `low`，Sol 默认 `high`。
+“保存成功”不表示服务已接通。
 
 普通 Z.AI API 默认地址为 `https://api.z.ai/api/paas/v4`；若 Token 属于 Coding Plan，
 按账号产品使用 `https://api.z.ai/api/coding/paas/v4`。应用在手机本机回环地址运行
 Responses → Chat Completions 适配层，用户不需要另装服务，也不要把回环地址改成公网地址。
 
-三个模型入口都按原生图片输入接入；不再提供独立视觉 MCP。
+两个模型入口都按原生图片输入接入；不再提供独立视觉 MCP。
 未成功发送和理解图片时，助手不能声称已经看过。
 
 已保存的 Token 不回显；输入框留空保留原值，明确选择清除才移除。
