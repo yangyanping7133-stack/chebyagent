@@ -59,6 +59,9 @@ public final class TermuxEmbeddedRuntime implements EmbeddedRuntime {
         "ace-core-insight_source.py",
         "ace-core-LICENSE",
         "ace-core-UPSTREAM.md",
+        "LICENSE-GPL-3.0.txt",
+        "NOTICE",
+        "THIRD_PARTY_NOTICES.md",
         "mobile-experience-instructions.md",
         "coffee-poster-reference.md",
         "cian-rental-report-reference.md",
@@ -427,7 +430,7 @@ public final class TermuxEmbeddedRuntime implements EmbeddedRuntime {
 
     private void stageBundledAssets(boolean includeProvisioningBundles) throws IOException {
         Map<String, String> expected = readAssetManifest();
-        if (!expected.keySet().equals(REQUIRED_ASSETS)) {
+        if (!assetManifestContainsRequired(expected.keySet())) {
             throw new IOException("Embedded runtime asset set is invalid");
         }
         File assetRoot = new File(PROVISION_ASSETS);
@@ -442,6 +445,14 @@ public final class TermuxEmbeddedRuntime implements EmbeddedRuntime {
             copyVerifiedAsset(entry.getKey(), entry.getValue(), assetRoot);
         }
         copyAssetAtomically("runtime-assets.sha256", assetRoot, null);
+    }
+
+    static boolean assetManifestContainsRequired(Set<String> names) {
+        return names != null && names.containsAll(REQUIRED_ASSETS);
+    }
+
+    static Set<String> requiredAssetNamesForTest() {
+        return REQUIRED_ASSETS;
     }
 
     private Map<String, String> readAssetManifest() throws IOException {
