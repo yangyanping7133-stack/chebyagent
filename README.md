@@ -201,7 +201,7 @@ cd Android
 完整输入、对应源码和签名边界见
 [Release 与对应源码说明](docs/RELEASE_AND_CORRESPONDING_SOURCE.md)。项目不使用 GitHub
 Actions；GitHub 只保存源码和已经在本地核验的 Release 文件，不在托管运行器上编译、测试、
-签名、打包或自动发布。
+签名、打包或自动发布。维护约束见 [GitHub 自动化策略](docs/GITHUB_AUTOMATION_POLICY.md)。
 
 ## 开源许可
 
