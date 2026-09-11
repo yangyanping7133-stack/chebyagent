@@ -51,6 +51,8 @@ ChebyAgent 打开并操作 Yandex Go，解析目的地与路线，最终停在�
 
 https://github.com/user-attachments/assets/7110571b-da2b-4f3e-b236-20ba4f3074d8
 
+**[▶ 单独打开播放：打车去冬宫](https://github.com/user-attachments/assets/7110571b-da2b-4f3e-b236-20ba4f3074d8)**
+
 **原始连续录屏（1 分 47 秒）：**
 [下载原片](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Demo-Taxi-to-Winter-Palace.mp4) ·
 [SHA-256](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Demo-Taxi-to-Winter-Palace.mp4.sha256)
@@ -64,12 +66,16 @@ ChebyAgent 操作 Yandex Maps 完成附近搜索与候选信息整理，随后�
 
 https://github.com/user-attachments/assets/d01b3590-9f05-4982-8041-4696692c21b3
 
+**[▶ 单独打开播放：查找附近的咖啡厅](https://github.com/user-attachments/assets/d01b3590-9f05-4982-8041-4696692c21b3)**
+
 **原始连续录屏（9 分 10 秒）：**
 [下载原片](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Demo-Nearby-Coffee.mp4) ·
 [SHA-256](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Demo-Nearby-Coffee.mp4.sha256)
 
 > README 播放器使用同内容、同完整时长的 H.264 网页压缩副本，以降低首屏加载量；
 > Release 中保留原始分辨率文件及 SHA-256 校验记录。
+> 如果内嵌播放器一直转圈或无法启动，请点击对应的“单独打开播放”；也可刷新本页后重试。
+> 在微信等 App 内打开时，可选择“在浏览器中打开”。需要离线观看时，使用“下载原片”。
 
 ## 技术闭环
 
