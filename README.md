@@ -49,7 +49,7 @@ Z.AI API Token 使用 GLM 5.3 Flash。模型凭证仅在手机的“服务与登
 ChebyAgent 打开并操作 Yandex Go，解析目的地与路线，最终停在显示实时车型和价格的叫车
 确认页。演示不会提交订单。
 
-https://github.com/user-attachments/assets/3d608e28-e002-4ede-a419-06bc6d08a704
+https://github.com/user-attachments/assets/7110571b-da2b-4f3e-b236-20ba4f3074d8
 
 **原始连续录屏（1 分 47 秒）：**
 [下载原片](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Demo-Taxi-to-Winter-Palace.mp4) ·
