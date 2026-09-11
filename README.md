@@ -1,45 +1,96 @@
+<div align="center">
+
 # ChebyAgent
 
-ChebyAgent 是一个可以直接安装到 Android 手机上的本地 Agent。一个 APK 已经包含
-Codex CLI、PRoot/Debian Linux 运行环境、手机控制工具和生活服务 Skills。普通用户不需要
-安装 Termux，不需要连接 USB，也不需要在电脑上执行命令。
+### 面向真实 Android 应用的本地智能体运行平台
 
-你在手机聊天界面里描述目标，ChebyAgent 可以读取当前页面、理解截图、打开并操作其他
-App，并把结果带回同一个会话。模型推理由你选择的服务提供；模型凭证只在手机的
-“服务与登录”页面填写，不要发到聊天里。
+将 **Codex CLI、Linux 运行环境、手机控制能力与场景 Skills** 封装进一个 APK。
+用户只需描述目标，Agent 即可在机主授权范围内理解屏幕、操作真实 App，并将结果返回同一会话。
+
+[![Release](https://img.shields.io/badge/Release-v0.7.3-2563EB?style=for-the-badge)](https://github.com/yangyanping7133-stack/chebyagent/releases/tag/v0.7.3)
+![Android](https://img.shields.io/badge/Android-9%2B-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+![Architecture](https://img.shields.io/badge/Architecture-ARM64-475569?style=for-the-badge)
+[![License](https://img.shields.io/badge/License-GPL--3.0--only-A42E2B?style=for-the-badge)](LICENSE)
+
+**[下载与安装](#下载和安装)** · **[在线播放真机演示](#真实手机演示)** ·
+**[五分钟开始使用](#第一次使用)** · **[查看开源许可](#开源许可)**
+
+</div>
+
+## 项目概览
+
+ChebyAgent 面向“模型理解目标、手机完成动作”的端到端使用场景。正式 APK 内置
+PRoot/Debian Linux 运行层、Codex CLI、PhoneBridge、ChebyNode 与生活服务 Skills；
+用户无需另装 Termux、无需连接 USB，也无需依赖电脑执行任务。
+
+模型推理与手机执行相互解耦：当前支持通过 ChatGPT/Codex 登录使用 GPT-5.6 Sol，或通过
+Z.AI API Token 使用 GLM 5.3 Flash。模型凭证仅在手机的“服务与登录”页面配置，不应提交到
+聊天、Issue 或仓库。
+
+| 核心能力 | 说明 |
+|---|---|
+| **完整手机运行层** | 单 APK 提供 Android 界面、Linux 用户空间、Codex CLI 与本地桥接能力 |
+| **多模型入口** | 支持 GPT-5.6 Sol 与 GLM 5.3 Flash，并保留各自原生推理强度 |
+| **真实 App 闭环** | 读取当前页面与截图，执行点击、滑动、输入、返回和等待，并回传结果 |
+| **可复用场景 Skills** | 覆盖地图、路线、咖啡、餐厅、超市、打车、租房、外卖等生活任务 |
+| **敏感操作确认** | 付款、下单等动作默认要求机主逐次确认，并调用系统身份验证 |
+| **会话可恢复** | 支持会话保存、恢复、停止与终态核对，降低断线后重复执行的风险 |
 
 ## 真实手机演示
 
-以下是两段相互独立的 Huawei ALN-AL00 真机原始连续录屏。视频没有剪辑、裁切或打码；
-录制前使用了公开地点和公开商户信息，因此不展示账号、支付资料或私人地址。
+以下视频来自 Huawei ALN-AL00（Android 12、ARM64）真机。两段演示相互独立，使用中文
+输入并操作真实的 Yandex Go 与 Yandex Maps；录屏连续、没有裁切或打码，场景只使用公开
+地点和公开商户信息，不包含账号、支付资料或私人地址。
 
-| 打车去冬宫 | 找附近的咖啡厅 |
-|---|---|
-| [![ChebyAgent 用中文发起打车去冬宫，Yandex Go 显示实时车型和价格](docs/media/demo-taxi-winter-palace.png)](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Demo-Taxi-to-Winter-Palace.mp4) | [![ChebyAgent 用中文查找附近咖啡厅，并展示完整结果报告](docs/media/demo-nearby-coffee.png)](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Demo-Nearby-Coffee.mp4) |
-| **▶ [观看完整视频（1 分 47 秒）](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Demo-Taxi-to-Winter-Palace.mp4)** | **▶ [观看完整视频（9 分 10 秒）](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Demo-Nearby-Coffee.mp4)** |
-| 输入中文“打车去冬宫”，展示 ChebyAgent 操作 Yandex Go，最后停在实时叫车确认页；没有下单。 | 输入中文“找附近的咖啡厅”，展示 ChebyAgent 操作 Yandex Maps，并回到会话展示完整咖啡厅报告；没有预订、致电或导航。 |
+### 场景一：打车去冬宫
 
-校验文件：[打车视频 SHA-256](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Demo-Taxi-to-Winter-Palace.mp4.sha256) ·
-[咖啡厅视频 SHA-256](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Demo-Nearby-Coffee.mp4.sha256)
+**输入：** `打车去冬宫`
 
-> 当前发布版：`0.7.3`。已在 Huawei ALN-AL00（Android 12、ARM64）完成覆盖安装、
-> 冷启动、会话恢复、图片输入、手机移动网络和手机操作验证；Codex 与
-> GLM 5.3 Flash 均已实际调用 Yandex Maps 完成附近咖啡厅搜索。工程最低
-> Android 9；其他品牌和系统版本尚未逐一验证。
+ChebyAgent 打开并操作 Yandex Go，解析目的地与路线，最终停在显示实时车型和价格的叫车
+确认页。演示不会提交订单。
 
-## 它能做什么
+https://github.com/user-attachments/assets/3d608e28-e002-4ede-a419-06bc6d08a704
 
-- 像普通聊天应用一样使用 Codex，并保留和恢复会话；
-- 让模型查看你主动添加的图片，或在执行手机任务时读取当前屏幕；
-- 打开 App，点击、滑动、输入文字、返回和等待页面变化；
-- 使用内置 Skills 查地图、路线、餐厅、咖啡、超市、理发、按摩、宠物美容、租房、
-  外卖和打车；
-- 在付款、下单等敏感步骤前要求机主用指纹、面容或锁屏凭证确认；
-- 在任务运行时显示最终结果；过程详情可以折叠，日常使用不需要一直盯着执行日志。
+**原始连续录屏（1 分 47 秒）：**
+[下载原片](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Demo-Taxi-to-Winter-Palace.mp4) ·
+[SHA-256](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Demo-Taxi-to-Winter-Palace.mp4.sha256)
 
-ChebyAgent 不是离线大模型：APK 内置的是 Codex CLI 和 Linux 运行层，模型回答以及地图、
-租房、打车等在线服务仍需要网络。它也不会替你绕过验证码、账号登录、支付验证或 App
-自身的安全限制。
+### 场景二：查找附近的咖啡厅
+
+**输入：** `找附近的咖啡厅`
+
+ChebyAgent 操作 Yandex Maps 完成附近搜索与候选信息整理，随后回到会话输出完整咖啡厅
+报告。演示不会预订、致电或发起导航。
+
+https://github.com/user-attachments/assets/d01b3590-9f05-4982-8041-4696692c21b3
+
+**原始连续录屏（9 分 10 秒）：**
+[下载原片](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Demo-Nearby-Coffee.mp4) ·
+[SHA-256](https://github.com/yangyanping7133-stack/chebyagent/releases/download/v0.7.3/ChebyAgent-0.7.3-Demo-Nearby-Coffee.mp4.sha256)
+
+> README 播放器使用同内容、同完整时长的 H.264 网页压缩副本，以降低首屏加载量；
+> Release 中保留原始分辨率文件及 SHA-256 校验记录。
+
+## 技术闭环
+
+```mermaid
+flowchart LR
+    U["中文目标"] --> S["Codex CLI + 场景 Skills"]
+    S --> B["PhoneBridge / ChebyNode"]
+    B --> A["真实 Android App"]
+    A --> R["结果返回同一会话"]
+    A -. "付款、下单等敏感动作" .-> C["机主逐次确认"]
+```
+
+ChebyAgent 不是离线大模型。APK 内置的是 Agent 运行与执行环境；模型回答以及地图、租房、
+打车等在线服务仍需要网络。项目不会绕过验证码、账号登录、支付验证或目标 App 自身的
+安全机制。
+
+## 已验证范围
+
+当前发布版为 `0.7.3`。已在 Huawei ALN-AL00（Android 12、ARM64）完成覆盖安装、冷启动、
+会话恢复、图片输入、手机移动网络和手机操作验证；Codex 与 GLM 5.3 Flash 均已实际调用
+Yandex Maps 完成附近咖啡厅搜索。工程最低 Android 9；其他品牌与系统版本尚未逐一验证。
 
 ## 安装前先确认
 
